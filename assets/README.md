@@ -1,0 +1,1 @@
+store the assets which support the blog website
