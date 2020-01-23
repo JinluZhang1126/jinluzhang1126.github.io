@@ -17,7 +17,7 @@ def push(change):
     print('-'*76)
     os.system('git add .')
     os.system('git commit -m\"auto update '+change+'\"')
-    os.system('git push -u origin master')
+    os.system('git push origin master')
     print('-'*76)
 
 
