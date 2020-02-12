@@ -5,4 +5,4 @@ source 'https://rubygems.org'
 gemspec
 
 # edit by myself
-gem "github-pages", group: :jekyll_plugins
+gem "jekyll-text-theme"
