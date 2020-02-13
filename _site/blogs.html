@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="zh">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>博客 - Jinlu Zhang's Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Articles - Item (Excerpt + Read More + Info) - Jinlu Zhang's Blog</title>
 
 <meta name="description" content="My Website with Blogs, Publications, Projects and Resume...>">
 <link rel="canonical" href="http://localhost:4000/blogs.html"><link rel="alternate" type="application/rss+xml" title="Jinlu Zhang's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ -->
@@ -291,166 +291,27 @@
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/WebPage"><div class="article__header"><header><h1>博客</h1></header></div><meta itemprop="headline" content="博客"><meta itemprop="author" content="Jinlu Zhang"/><div class="js-article-content"><div class="layout--archive js-all"><div class="site-tags js-tags">
-  <ul class="menu">
-    <li>
-      <button type="button" class="button button--secondary button--pill tag-button tag-button--all" data-encode="">
-        Show All<div class="tag-button__count">2</div>
-      </button>
-    </li><li><button type="button" class="button button--pill tag-button tag-button-1" data-encode="TeXt">
-          <span>TeXt</span><div class="tag-button__count">1</div>
-        </button>
-      </li><li><button type="button" class="button button--pill tag-button tag-button-1" data-encode="first_articles">
-          <span>first_articles</span><div class="tag-button__count">1</div>
-        </button>
-      </li></ul>
+<article itemscope itemtype="http://schema.org/WebPage"><div class="article__header"><header><h1>Articles - Item (Excerpt + Read More + Info)</h1></header></div><meta itemprop="headline" content="Articles - Item (Excerpt + Read More + Info)"><meta itemprop="author" content="Jinlu Zhang"/><div class="js-article-content"><div class="article__content" markdown="1">
+---
+
+Article list with excerpt, read more link and info.
+
+<!--more-->
+
+**front matter:**
+
+    ---
+    layout: articles
+    title: Articles - Item (Excerpt + Read More + Info)
+    articles:
+      data_source: site.sample_page
+      show_cover: false
+      show_excerpt: true
+      show_readmore: true
+      show_info: true
+    ---
+
 </div>
-<div class="js-result layout--archive__result d-none"><div class="article-list items"><section><h2 class="article-list__group-header">2018</h2><ul class="items"><li class="item" itemscope itemtype="http://schema.org/BlogPosting" data-tags="first_articles">
-        <div class="item__content"><span class="item__meta">07月01日</span><a itemprop="headline" class="item__header" href="/2018/07/01/welcome.html">Welcome</a></div>
-      </li><li class="item" itemscope itemtype="http://schema.org/BlogPosting" data-tags="TeXt">
-        <div class="item__content"><span class="item__meta">06月01日</span><a itemprop="headline" class="item__header" href="/2018/06/01/header-image.html">Post with Header Image</a></div>
-      </li></div>
-</div>
-</div>
-
-<script>(function() {
-  var SOURCES = window.TEXT_VARIABLES.sources;
-  function queryString() {
-    // This function is anonymous, is executed immediately and
-    // the return value is assigned to QueryString!
-    var i = 0, queryObj = {}, pair;
-    var queryStr = window.location.search.substring(1);
-    var queryArr = queryStr.split('&');
-    for (i = 0; i < queryArr.length; i++) {
-      pair = queryArr[i].split('=');
-      // If first entry with this name
-      if (typeof queryObj[pair[0]] === 'undefined') {
-        queryObj[pair[0]] = pair[1];
-        // If second entry with this name
-      } else if (typeof queryObj[pair[0]] === 'string') {
-        queryObj[pair[0]] = [queryObj[pair[0]], pair[1]];
-        // If third or later entry with this name
-      } else {
-        queryObj[pair[0]].push(pair[1]);
-      }
-    }
-    return queryObj;
-  }
-
-  var setUrlQuery = (function() {
-    var baseUrl =  window.location.href.split('?')[0];
-    return function(query) {
-      if (typeof query === 'string') {
-        window.history.replaceState(null, '', baseUrl + query);
-      } else {
-        window.history.replaceState(null, '', baseUrl);
-      }
-    };
-  })();
-
-  window.Lazyload.js(SOURCES.jquery, function() {
-    var $tags = $('.js-tags');
-    var $articleTags = $tags.find('button');
-    var $tagShowAll = $tags.find('.tag-button--all');
-    var $result = $('.js-result');
-    var $sections = $result.find('section');
-    var sectionArticles = [];
-    var $lastFocusButton = null;
-    var sectionTopArticleIndex = [];
-    var hasInit = false;
-
-    $sections.each(function() {
-      sectionArticles.push($(this).find('.item'));
-    });
-
-    function init() {
-      var i, index = 0;
-      for (i = 0; i < $sections.length; i++) {
-        sectionTopArticleIndex.push(index);
-        index += $sections.eq(i).find('.item').length;
-      }
-      sectionTopArticleIndex.push(index);
-    }
-
-    function searchButtonsByTag(_tag/*raw tag*/) {
-      if (!_tag) {
-        return $tagShowAll;
-      }
-      var _buttons = $articleTags.filter('[data-encode="' + _tag + '"]');
-      if (_buttons.length === 0) {
-        return $tagShowAll;
-      }
-      return _buttons;
-    }
-    function buttonFocus(target) {
-      if (target) {
-        target.addClass('focus');
-        $lastFocusButton && !$lastFocusButton.is(target) && $lastFocusButton.removeClass('focus');
-        $lastFocusButton = target;
-      }
-    }
-
-    function tagSelect (tag/*raw tag*/, target) {
-      var result = {}, $articles;
-      var i, j, k, _tag;
-
-      for (i = 0; i < sectionArticles.length; i++) {
-        $articles = sectionArticles[i];
-        for (j = 0; j < $articles.length; j++) {
-          if (tag === '' || tag === undefined) {
-            result[i] || (result[i] = {});
-            result[i][j] = true;
-          } else {
-            var tags = $articles.eq(j).data('tags').split(',');
-            for (k = 0; k < tags.length; k++) {
-              if (tags[k] === tag) {
-                result[i] || (result[i] = {});
-                result[i][j] = true; break;
-              }
-            }
-          }
-        }
-      }
-
-      for (i = 0; i < sectionArticles.length; i++) {
-        result[i] && $sections.eq(i).removeClass('d-none');
-        result[i] || $sections.eq(i).addClass('d-none');
-        for (j = 0; j < sectionArticles[i].length; j++) {
-          if (result[i] && result[i][j]) {
-            sectionArticles[i].eq(j).removeClass('d-none');
-          } else {
-            sectionArticles[i].eq(j).addClass('d-none');
-          }
-        }
-      }
-
-      hasInit || ($result.removeClass('d-none'), hasInit = true);
-
-
-      if (target) {
-        buttonFocus(target);
-        _tag = target.attr('data-encode');
-        if (_tag === '' || typeof _tag !== 'string') {
-          setUrlQuery();
-        } else {
-          setUrlQuery('?tag=' + _tag);
-        }
-      } else {
-        buttonFocus(searchButtonsByTag(tag));
-      }
-    }
-
-    var query = queryString(), _tag = query.tag;
-    init(); tagSelect(_tag);
-    $tags.on('click', 'button', function() {
-      tagSelect($(this).data('encode'), $(this));
-    });
-
-  });
-})();
-</script>
-
-
 
 </div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
 
@@ -459,7 +320,7 @@
             </div></div></div><div class="page__footer d-print-none">
 <footer class="footer py-4 js-page-footer">
   <div class="main"><div itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jinlu Zhang"><meta itemprop="url" content="https://jinluzhang1126.github.io/"><meta itemprop="description" content="Master of Computer Science, novice in computer vision, research interests are pose estimation, 3D, video estimation, etc."><div class="footer__author-links"><div class="author-links">
+      <meta itemprop="name" content="Jinlu Zhang"><meta itemprop="url" content="https://jinluzhang1126.github.io/"><meta itemprop="description" content="Master of Computer Science, raw hand in computer vision, research interests are pose estimation, 3D, video estimation, etc."><div class="footer__author-links"><div class="author-links">
   <ul class="menu menu--nowrap menu--inline"><link itemprop="url" href="https://jinluzhang1126.github.io/"><li title="给我发邮件。">
       <a class="button button--circle mail-button" itemprop="email" href="mailto:Jinluzhang1126@163.com" target="_blank">
         <i class="fas fa-envelope"></i>
