@@ -1,0 +1,22 @@
+# 此处定义作者信息，可以添加多个，在这定义的作者作为某篇文章或页面的作者以覆盖 site.author 全局作者：
+# ---
+# author: Tian Qi
+# ---
+Jinlu Zhang: 
+  type      : person # "person" (default), "organization"
+  name      : Jinlu Zhang
+  url       : https://jinluzhang1126.github.io/
+  avatar    : ./assets/images/avatar/2.jpg # path or url of avatar image (square)
+  bio       : Master of Computer Science, novice in computer vision, research interests are pose estimation, 3D, video estimation, etc.
+  email     : Jinluzhang1126@163.com
+  facebook  : # "user_name" the last part of your profile url, e.g. https://www.facebook.com/user_name
+  twitter   : # "user_name" the last part of your profile url, e.g. https://twitter.com/user_name
+  weibo     : # "user_id"   the last part of your profile url, e.g. https://www.weibo.com/user_id/profile?...
+  googleplus: # "user_id"   the last part of your profile url, e.g. https://plus.google.com/u/0/user_id
+  telegram  : # "user_name" the last part of your profile url, e.g. https://t.me/user_name
+  medium    : # "user_name" the last part of your profile url, e.g. https://medium.com/user_name
+  zhihu     : # "user_name" the last part of your profile url, e.g. https://www.zhihu.com/people/user_name
+  douban    : # "user_name" the last part of your profile url, e.g. https://www.douban.com/people/user_name
+  linkedin  : # "user_name" the last part of your profile url, e.g. https://www.linkedin.com/in/user_name
+  github    : JinluZhang1126 # "user_name" the last part of your profile url, e.g. https://github.com/user_name
+  npm       : # "user_name" the last part of your profile url, e.g. https://www.npmjs.com/~user_name
