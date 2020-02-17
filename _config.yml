@@ -127,8 +127,8 @@ comments:
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
   gitalk:
-    clientID    : b1acb5b0d2dd499be916 # GitHub Application Client ID
-    clientSecret: 47f78b68caf39ab5586c7002d3eedfaa3fcfe7d9 # GitHub Application Client Secret
+    clientID    : b75ced78aeba8dcfe0a2 # GitHub Application Client ID
+    clientSecret: 17c70f9cb186081a9d75eea0471131b0af2881aa # GitHub Application Client Secret
     repository  : jinluzhang1126.github.io # GitHub repo
     owner       : JinluZhang1126 # GitHub repo owner
     admin: # 这是一个管理者列表  要启用本功能，每篇文章都要加上不同的key值
