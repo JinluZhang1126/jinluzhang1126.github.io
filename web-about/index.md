@@ -2,73 +2,106 @@
 layout: article
 titles:
   # @start locale config
-  en      : &EN       About
-  en-GB   : *EN
-  en-US   : *EN
-  en-CA   : *EN
-  en-AU   : *EN
-  zh-Hans : &ZH_HANS  关于
-  zh      : *ZH_HANS
-  zh-CN   : *ZH_HANS
-  zh-SG   : *ZH_HANS
-  zh-Hant : &ZH_HANT  關於
-  zh-TW   : *ZH_HANT
-  zh-HK   : *ZH_HANT
-  ko      : &KO       소개
-  ko-KR   : *KO
-  fr      : &FR       À propos
-  fr-BE   : *FR
-  fr-CA   : *FR
-  fr-CH   : *FR
-  fr-FR   : *FR
-  fr-LU   : *FR
+  en : &EN  About Me
+  zh : &ZH  关于我
   # @end locale config
 key: page-about
+show_title: false
 ---
+<!-- Font Awesome Online CSS -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+<div class="mt-5"></div>
+<div style="margin-top: ($spacer * .3)"></div>
 
-![TeXt Theme](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/TeXt-home.jpg)
+<div class="item">
+  <div class="item__image" >
+    <div style="border-radius:50%; overflow:hidden;">
+        <img class="image image--lg" src="/assets/images/avatar/2.jpg"/>
+    </div>
+  </div>
+  <div class="item__content">
+    <div class="item__header">
+      <h3>Jinlu Zhang</h3>
+    </div>
+    <div class="item__description">
+      <p style="font-size:1.2rem">I am a pre-master student of <a style="color:black" href="http://www.lmars.whu.edu.cn/index.php/en/liesmarsataglance.html"> State Key Laboratory of LIESMARS</a> at Wuhan University, China. </p>
+      <p style="font-size:1.2rem">Before that, I am receiving my B.Eng degree of Computer Science & Technology from Shandong University in 2020. My research in B.Eng was image process and document image binarization.</p>
+      <p><strong>Email</strong>:  Jinluzhang1126[at]163[doc]com</p>
+      <p><strong>Github</strong>: <a style="color:black" href="https://github.com/JinluZhang1126">Here is my github</a></p>
+      
+    </div>
+  </div>
+</div>
 
-TeXt is a super customizable Jekyll theme for personal site, team site, blog, project, documentation, etc. Similar to iOS 11 style, it has large and prominent titles, round buttons and cards.
+### Personal Info
 
-```javascript
-(() => console.log('Hello, World!'))();
-```
+**I am the chaser of Deep Learning & Computer Vision.**
 
-## Features
+My research interest: Deep Learning, Computer Vision and Machine Learning.
 
-- Responsive
-- Semantic HTML
-- Skins
-- Highlight Theme
-- Internationalization
-- Search
-- Table of contents
-- Authors
-- Additional styles (alert, tag, image, icon, button, grid, etc)
-- Extensions (audios, videos, slides, demos)
-- Markdown enhancements ([MathJax](https://www.mathjax.org/), [mermaid](https://mermaidjs.github.io/), [chartjs](http://www.chartjs.org/))
-- Sharing ([AddToAny](https://www.addtoany.com/), [AddThis](https://www.addthis.com/))
-- Comments ([Disqus](https://disqus.com/), [Gitalk](https://gitalk.github.io/), [Valine](https://valine.js.org/en/))
-- Pageview ([LeanCloud](https://leancloud.cn/))
-- Analytics ([Google Analytics](https://analytics.google.com/analytics/web/))
-- RSS ([jekyll-feed](https://github.com/jekyll/jekyll-feed))
+My research current focus on: **pose estimation**(hand/human/object etc.) and **shape estimation**.
 
-## Skins
 
-TeXt has 6 built-in skins, you can also set up your own skin.
+### Education
 
-| `default` | `dark` | `forest` |
-| --- |  --- | --- |
-| ![Default](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_default.jpg) | ![Dark](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_dark.jpg) | ![Forest](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_forest.jpg) |
+<div class="item">
+  <div class="item__image">
+    <img class="image image--sm" src="/assets/images/logo/whu.jpg"/>
+  </div>
+  <div class="item__content">
+    <div class="item__header">
+      <h4>Wuhan University</h4>
+    </div>
+    <div class="item__description">
+      <p>2020.9-2023(In the future) </p>
+      <p>Master of computer technology, work with <a style="color:black" href="http://tuzhigang.cn/">Zhigang Tu.</a></p>
+    </div>
+  </div>
+</div>
 
-| `ocean` | `chocolate` | `orange` |
-| --- |  --- | --- |
-| ![Ocean](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_ocean.jpg) | ![Chocolate](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_chocolate.jpg) | ![Orange](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_orange.jpg) |
+<div class="item">
+  <div class="item__image">
+    <img class="image image--sm" src="/assets/images/logo/sdu.jpg"/>
+  </div>
+  <div class="item__content">
+    <div class="item__header">
+      <h4>Shandong University</h4>
+    </div>
+    <div class="item__description">
+      <p>2016.9-2020.6</p>
+      <p>Bachelor of computer science and technology, work with Changlong Jin.</p>
+    </div>
+  </div>
+</div>
 
-### Highlight Theme
+### Experience
 
-TeXt use [Tomorrow](https://github.com/chriskempson/tomorrow-theme) as the highlight theme.
+<div class="item">
+  <div class="item__image">
+    <img class="image image--sm" src="/assets/images/logo/hauwei.jpg"/>
+  </div>
+  <div class="item__content">
+    <div class="item__header">
+      <h4>Huawei</h4>
+    </div>
+    <div class="item__description">
+      <p>2019.8-2019.10</p>
+      <p>Intern of Huawei(Suzhou) WLAN Algorithm Group</p>
+    </div>
+  </div>
+</div>
 
-| `tomorrow` | `tomorrow-night` | `tomorrow-night-eighties` | `tomorrow-night-blue` | `tomorrow-night-bright` |
-| --- |  --- | --- | --- |  --- |
-| ![Tomorrow](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow.png) | ![Tomorrow Night](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night.png) | ![Tomorrow Night Eighties](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-eighties.png) | ![Tomorrow Night Blue](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-blue.png) | ![Tomorrow Night Bright](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-bright.png) |
+### Publication
+
+Waiting Plaese...... :expressionless:
+
+### Project
+
+1. Graduation Project Management System of SDU [here](http://106.12.209.205/)
+
+### What I am doing...
+
+- I will complete my graduation thesis before May, 2020.
+
+- I am preparing my paper of pose estimation.

@@ -15,7 +15,7 @@ header:
 
   - titles:
       # @start locale config
-      en      : &EN       Tags
+      en      : &EN       Tag
       en-GB   : *EN
       en-US   : *EN
       en-CA   : *EN

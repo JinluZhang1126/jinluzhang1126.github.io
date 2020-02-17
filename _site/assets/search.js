@@ -1,1 +1,1 @@
-window.TEXT_SEARCH_DATA={'posts':[{'title':"Post with Header Image",'url':"/2018/06/01/header-image.html"},{'title':"Welcome",'url':"/2018/07/01/welcome.html"}]};
+window.TEXT_SEARCH_DATA={'posts':[{'title':"Hello World!",'url':"/2020/02/16/hello-world.html"},{'title':"Ubuntu18.04重装Nvidia驱动，cuda和cudnn，多用户使用anaconda",'url':"/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda.html"}]};

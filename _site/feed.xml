@@ -1,15 +1,228 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-02-17T10:23:40+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jinlu Zhang’s Blog</title><subtitle>My Website with Blogs, Publications, Projects and Resume...&gt;</subtitle><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><entry><title type="html">Welcome</title><link href="http://localhost:4000/2018/07/01/welcome.html" rel="alternate" type="text/html" title="Welcome" /><published>2018-07-01T00:00:00+08:00</published><updated>2018-07-01T00:00:00+08:00</updated><id>http://localhost:4000/2018/07/01/welcome</id><content type="html" xml:base="http://localhost:4000/2018/07/01/welcome.html">&lt;h1 id=&quot;hearder1&quot;&gt;Hearder1&lt;/h1&gt;
-&lt;p&gt;If you see this page, that means you have setup your site. enjoy! :ghost: :ghost: :ghost:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-02-17T22:39:56+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jinlu Zhang’s Blog</title><subtitle>My Website with Blogs, Publications, Projects and Resume...&gt;</subtitle><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><entry><title type="html">Ubuntu18.04重装Nvidia驱动，cuda和cudnn，多用户使用anaconda</title><link href="http://localhost:4000/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda.html" rel="alternate" type="text/html" title="Ubuntu18.04重装Nvidia驱动，cuda和cudnn，多用户使用anaconda" /><published>2020-02-17T00:00:00+08:00</published><updated>2020-02-17T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda</id><content type="html" xml:base="http://localhost:4000/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda.html">&lt;p&gt;最近手残升级了nvidia显卡驱动，导致cuda与驱动冲动，没办法只能重装了。&lt;/p&gt;
 
-&lt;p&gt;You may want to &lt;a href=&quot;https://tianqi.name/jekyll-TeXt-theme/docs/en/configuration&quot;&gt;config the site&lt;/a&gt; or &lt;a href=&quot;https://tianqi.name/jekyll-TeXt-theme/docs/en/writing-posts&quot;&gt;writing a post&lt;/a&gt; next. Please feel free to &lt;a href=&quot;https://github.com/kitian616/jekyll-TeXt-theme/issues&quot;&gt;create an issue&lt;/a&gt; or &lt;a href=&quot;mailto:kitian616@outlook.com&quot;&gt;send me email&lt;/a&gt; if you have any questions.&lt;/p&gt;
+&lt;p&gt;配置信息：&lt;br /&gt;系统：Ubuntu18.04；显卡：Nvidia 2080Ti；驱动：Nvidia Driver 440.44；cuda：10.2；cudnn：7.6.5&lt;/p&gt;
 
-&lt;!--more--&gt;
+&lt;p&gt;&lt;img src=&quot;../PublicPic/Pic/image-20200108100525530-1581941097145.png&quot; alt=&quot;img&quot; style=&quot;zoom:80%;&quot; /&gt;&lt;/p&gt;
 
-&lt;hr /&gt;
-&lt;h1 id=&quot;header2&quot;&gt;Header2&lt;/h1&gt;
-&lt;p&gt;If you like TeXt, don’t forget to give me a star. :star2:&lt;/p&gt;
+&lt;p&gt;查看cuda 版本
+cat /usr/local/cuda/version.txt&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/kitian616/jekyll-TeXt-theme/&quot;&gt;&lt;img src=&quot;https://img.shields.io/github/stars/kitian616/jekyll-TeXt-theme.svg?label=Stars&amp;amp;style=social&quot; alt=&quot;Star This Project&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="first_articles" /><summary type="html">Hearder1 If you see this page, that means you have setup your site. enjoy! :ghost: :ghost: :ghost: You may want to config the site or writing a post next. Please feel free to create an issue or send me email if you have any questions.</summary></entry><entry><title type="html">Post with Header Image</title><link href="http://localhost:4000/2018/06/01/header-image.html" rel="alternate" type="text/html" title="Post with Header Image" /><published>2018-06-01T00:00:00+08:00</published><updated>2018-06-01T00:00:00+08:00</updated><id>http://localhost:4000/2018/06/01/header-image</id><content type="html" xml:base="http://localhost:4000/2018/06/01/header-image.html">&lt;h1 id=&quot;header1&quot;&gt;Header1&lt;/h1&gt;
-&lt;p&gt;A Post with Header Image, See &lt;a href=&quot;https://tianqi.name/jekyll-TeXt-theme/samples.html#page-layout&quot;&gt;Page layout&lt;/a&gt; for more examples.&lt;/p&gt;
+&lt;p&gt;查看cudnn 版本
+cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2&lt;/p&gt;
 
-&lt;!--more--&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="TeXt" /><summary type="html">Header1 A Post with Header Image, See Page layout for more examples.</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;../PublicPic/Pic/image-20200108100752066-1581941094214.png&quot; alt=&quot;image-20200108100752066&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;重装显卡驱动&quot;&gt;重装显卡驱动&lt;/h2&gt;
+
+&lt;h3 id=&quot;禁用nouveau驱动&quot;&gt;禁用nouveau驱动&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo vim /etc/modprobe.d/blacklist.conf&lt;/code&gt;
+在文本最后添加：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;blacklist nouveau
+options nouveau modeset=0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;然后执行：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo update-initramfs -u&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;重启机器后，执行以下命令，如果没有屏幕输出，说明禁用nouveau成功：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lsmod | grep nouveau&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;下载驱动&quot;&gt;下载驱动&lt;/h3&gt;
+
+&lt;p&gt;官网下载地址：https://www.nvidia.cn/Download/index.aspx?lang=cn ，根据自己显卡的情况下载对应版本的显卡驱动。下载得到一个.run安装包，之后会用到。&lt;/p&gt;
+
+&lt;h3 id=&quot;卸载旧驱动&quot;&gt;卸载旧驱动&lt;/h3&gt;
+
+&lt;p&gt;重启后，使用快捷键进入文本模式，然后输入用户名密码就可：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl-Alt+F1&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;执行以下命令禁用X-Window服务，否则无法安装显卡驱动：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo service lightdm stop&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;执行以下命令卸载原有显卡驱动：注意匹配自己下载的驱动版本&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get remove --purge nvidia*
+sudo apt-get autoremove
+sudo chmod +x NVIDIA-Linux-x86_64-4**.**.run
+sudo ./NVIDIA-Linux-x86_64-4**.**.run --uninstall
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;安装新驱动&quot;&gt;安装新驱动&lt;/h3&gt;
+
+&lt;p&gt;保险期间，再重启一遍。直接执行驱动文件即可安装新驱动，一直默认即可：&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ./NVIDIA-Linux-x86_64-410.93.run
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;执行以下命令启动X-Window服务&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service lightdm start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;最后执行重启命令，重启系统即可：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;reboot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;重装cuda&quot;&gt;重装CUDA&lt;/h2&gt;
+
+&lt;p&gt;因为重装后的驱动和原来CUDA版本还是不一样（如果之前安装了CUDA，可以用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nvcc -V&lt;/code&gt;试试，不行的话还是重装吧​🙂​）&lt;/p&gt;
+
+&lt;p&gt;卸载CUDA执行的是CUDA自带的卸载脚本，读者要根据自己的cuda版本找到卸载脚本：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo /usr/local/cuda-10.0/bin/uninstall_cuda_10.0.pl&lt;/code&gt;
+卸载之后，还有一些残留的文件夹，之前安装的是CUDA 8.0。可以一并删除：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo rm -rf /usr/local/cuda-10.0/&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;安装cuda&quot;&gt;安装CUDA&lt;/h2&gt;
+
+&lt;h3 id=&quot;下载安装&quot;&gt;下载安装&lt;/h3&gt;
+
+&lt;p&gt;在官网：&lt;a href=&quot;https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;target_distro=Ubuntu&amp;amp;target_version=1604&amp;amp;target_type=runfilelocal&quot;&gt;CUDA下载页面&lt;/a&gt;，下载符合自己系统版本的CUDA。&lt;/p&gt;
+
+&lt;p&gt;下载完成之后，给文件赋予执行权限：&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod +x cuda_*****_linux.run
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;执行安装包，开始安装：&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./cuda_****_linux.run
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;CUDA10.2安装时会显示这样一个画面👇，不安装驱动了，注意把Driver去掉，否则会导致重复安装驱动&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200107223538310.png&quot; style=&quot;zoom: 80%;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;配置环境变量&quot;&gt;配置环境变量&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export CUDA_HOME=/usr/local/cuda-10.2
+export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
+export PATH=${CUDA_HOME}/bin:${PATH}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;安装cudnn&quot;&gt;安装CUDNN&lt;/h2&gt;
+
+&lt;p&gt;CUDNN的下载官网：https://developer.nvidia.com/rdp/cudnn-download ，点击Download开始选择和CUDA10.2匹配的下载版本，选择&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cuDNN Library for Linux&lt;/code&gt;：&lt;/p&gt;
+
+&lt;p&gt;对它进行解压，命令如下：&lt;/p&gt;
+
+&lt;p&gt;tar -zxvf cudnn-10.0-linux-x64-v7.4.2.24.tgz&lt;/p&gt;
+
+&lt;p&gt;解压之后可以得到以下文件：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;cuda/include/cudnn.h
+cuda/NVIDIA_SLA_cuDNN_Support.txt
+cuda/lib64/libcudnn.so
+cuda/lib64/libcudnn.so.7
+cuda/lib64/libcudnn.so.7.4.2
+cuda/lib64/libcudnn_static.a&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;使用以下两条命令复制这些文件到CUDA目录下：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cp cuda/lib64/* /usr/local/cuda-10.0/lib64/
+cp cuda/include/* /usr/local/cuda-10.0/include/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;拷贝完成之后，可以使用以下命令查看CUDNN的版本信息：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;安装anaconda3&quot;&gt;安装Anaconda3&lt;/h2&gt;
+
+&lt;p&gt;先去官方地址下载好对应的安装包&lt;a href=&quot;https://www.anaconda.com/download/#linux&quot;&gt;Ubuntu - anaconda 下载地址&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;然后直接安装anaconda ：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bash ~/Downloads/Anaconda3-5.2.0-Linux-x86_64.sh&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;安装过程中看到&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Welcome to Anaconda3 5.2.0
+In order to continue the installation process, please review the license
+agreement. (为了继续安装过程，请审核许可证。协议。)
+Please, press ENTER to continue&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;直接按enter查看协议，然后一直enter下去，&lt;/p&gt;
+
+&lt;p&gt;然后看到&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Do you accept the license terms? [yes&lt;/td&gt;
+        &lt;td&gt;no]（你接受许可证条款吗?）&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;直接输入yes 然后按enter，进入下一步&lt;/p&gt;
+
+&lt;p&gt;接下来会提示安装地址：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Anaconda3 will now be installed into this location:
+/home/user/anaconda3&lt;/p&gt;
+
+  &lt;p&gt;Press ENTER to confirm the location
+Press CTRL-C to abort the installation
+Or specify a different location below&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;建议默认即可，
+按enter继续下一步，注意这里按ctrl + c 直接会终止安装。
+接下来先等待安装即可。
+看到&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Thank you for installing Anaconda3!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;表示安装成功。&lt;/p&gt;
+
+&lt;h3 id=&quot;添加环境变量&quot;&gt;添加环境变量&lt;/h3&gt;
+
+&lt;p&gt;anaconda会自动将环境变量添加到PATH里面，如果后面你发现输出conda
+提示没有该命令，那么你需要source ~/.bashrc 这样就是更新环境变量，就可以正常使用了。
+如果发现这样还是没用，那么需要收到添加环境变量
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo vim ~/.basrc&lt;/code&gt; 文件，在最后面加上
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;export PATH=/home/user/anaconda3/bin:$PATH&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;保存退出后：source ~/.bashrc
+再次输入conda list测试看看，应该就是没有问题啦！&lt;/p&gt;
+
+&lt;h2 id=&quot;多用户使用conda&quot;&gt;多用户使用conda&lt;/h2&gt;
+
+&lt;p&gt;注意我在user用户下安装配置的conda，怎么在其他用户里使用conda呢？直接使用会报错没有conda命令&lt;/p&gt;
+
+&lt;p&gt;做如下配置：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;su another_user
+sudo vim ~/.basrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;最后一行加上conda安装位置的环境变量：export PATH=/home/user/anaconda3/bin:$PATH&lt;/p&gt;
+
+&lt;p&gt;保存退出后：source ~/.bashrc&lt;/p&gt;
+
+&lt;p&gt;如果使用conda activate命令显示没有初始化这样的错误，运行下面代码：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/anaconda3/etc/profile.d/conda.sh
+conda activate my_env
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="enviroment-setup" /><summary type="html">最近手残升级了nvidia显卡驱动，导致cuda与驱动冲动，没办法只能重装了。 配置信息：系统：Ubuntu18.04；显卡：Nvidia 2080Ti；驱动：Nvidia Driver 440.44；cuda：10.2；cudnn：7.6.5 查看cuda 版本 cat /usr/local/cuda/version.txt 查看cudnn 版本 cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2 重装显卡驱动 禁用nouveau驱动 sudo vim /etc/modprobe.d/blacklist.conf 在文本最后添加： blacklist nouveau options nouveau modeset=0 然后执行：sudo update-initramfs -u 重启机器后，执行以下命令，如果没有屏幕输出，说明禁用nouveau成功： lsmod | grep nouveau 下载驱动 官网下载地址：https://www.nvidia.cn/Download/index.aspx?lang=cn ，根据自己显卡的情况下载对应版本的显卡驱动。下载得到一个.run安装包，之后会用到。 卸载旧驱动 重启后，使用快捷键进入文本模式，然后输入用户名密码就可：Ctrl-Alt+F1 执行以下命令禁用X-Window服务，否则无法安装显卡驱动：sudo service lightdm stop 执行以下命令卸载原有显卡驱动：注意匹配自己下载的驱动版本 sudo apt-get remove --purge nvidia* sudo apt-get autoremove sudo chmod +x NVIDIA-Linux-x86_64-4**.**.run sudo ./NVIDIA-Linux-x86_64-4**.**.run --uninstall 安装新驱动 保险期间，再重启一遍。直接执行驱动文件即可安装新驱动，一直默认即可： sudo ./NVIDIA-Linux-x86_64-410.93.run 执行以下命令启动X-Window服务 sudo service lightdm start 最后执行重启命令，重启系统即可： reboot 重装CUDA 因为重装后的驱动和原来CUDA版本还是不一样（如果之前安装了CUDA，可以用nvcc -V试试，不行的话还是重装吧​🙂​） 卸载CUDA执行的是CUDA自带的卸载脚本，读者要根据自己的cuda版本找到卸载脚本： sudo /usr/local/cuda-10.0/bin/uninstall_cuda_10.0.pl 卸载之后，还有一些残留的文件夹，之前安装的是CUDA 8.0。可以一并删除： sudo rm -rf /usr/local/cuda-10.0/ 安装CUDA 下载安装 在官网：CUDA下载页面，下载符合自己系统版本的CUDA。 下载完成之后，给文件赋予执行权限： chmod +x cuda_*****_linux.run 执行安装包，开始安装： ./cuda_****_linux.run CUDA10.2安装时会显示这样一个画面👇，不安装驱动了，注意把Driver去掉，否则会导致重复安装驱动 配置环境变量 export CUDA_HOME=/usr/local/cuda-10.2 export LD_LIBRARY_PATH=${CUDA_HOME}/lib64 export PATH=${CUDA_HOME}/bin:${PATH} 安装CUDNN CUDNN的下载官网：https://developer.nvidia.com/rdp/cudnn-download ，点击Download开始选择和CUDA10.2匹配的下载版本，选择cuDNN Library for Linux： 对它进行解压，命令如下： tar -zxvf cudnn-10.0-linux-x64-v7.4.2.24.tgz 解压之后可以得到以下文件： cuda/include/cudnn.h cuda/NVIDIA_SLA_cuDNN_Support.txt cuda/lib64/libcudnn.so cuda/lib64/libcudnn.so.7 cuda/lib64/libcudnn.so.7.4.2 cuda/lib64/libcudnn_static.a 使用以下两条命令复制这些文件到CUDA目录下： cp cuda/lib64/* /usr/local/cuda-10.0/lib64/ cp cuda/include/* /usr/local/cuda-10.0/include/ 拷贝完成之后，可以使用以下命令查看CUDNN的版本信息： cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2 安装Anaconda3 先去官方地址下载好对应的安装包Ubuntu - anaconda 下载地址 然后直接安装anaconda ：bash ~/Downloads/Anaconda3-5.2.0-Linux-x86_64.sh 安装过程中看到 Welcome to Anaconda3 5.2.0 In order to continue the installation process, please review the license agreement. (为了继续安装过程，请审核许可证。协议。) Please, press ENTER to continue 直接按enter查看协议，然后一直enter下去， 然后看到 Do you accept the license terms? [yes no]（你接受许可证条款吗?） 直接输入yes 然后按enter，进入下一步 接下来会提示安装地址： Anaconda3 will now be installed into this location: /home/user/anaconda3 Press ENTER to confirm the location Press CTRL-C to abort the installation Or specify a different location below 建议默认即可， 按enter继续下一步，注意这里按ctrl + c 直接会终止安装。 接下来先等待安装即可。 看到 Thank you for installing Anaconda3! 表示安装成功。 添加环境变量 anaconda会自动将环境变量添加到PATH里面，如果后面你发现输出conda 提示没有该命令，那么你需要source ~/.bashrc 这样就是更新环境变量，就可以正常使用了。 如果发现这样还是没用，那么需要收到添加环境变量 sudo vim ~/.basrc 文件，在最后面加上 export PATH=/home/user/anaconda3/bin:$PATH 保存退出后：source ~/.bashrc 再次输入conda list测试看看，应该就是没有问题啦！ 多用户使用conda 注意我在user用户下安装配置的conda，怎么在其他用户里使用conda呢？直接使用会报错没有conda命令 做如下配置： su another_user sudo vim ~/.basrc 最后一行加上conda安装位置的环境变量：export PATH=/home/user/anaconda3/bin:$PATH 保存退出后：source ~/.bashrc 如果使用conda activate命令显示没有初始化这样的错误，运行下面代码： source ~/anaconda3/etc/profile.d/conda.sh conda activate my_env</summary></entry><entry><title type="html">Hello World!</title><link href="http://localhost:4000/2020/02/16/hello-world.html" rel="alternate" type="text/html" title="Hello World!" /><published>2020-02-16T00:00:00+08:00</published><updated>2020-02-16T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/16/hello-world</id><content type="html" xml:base="http://localhost:4000/2020/02/16/hello-world.html">&lt;p&gt;Hi everyone, welcome come to my blog website.:wink:&lt;/p&gt;
+
+&lt;p&gt;I start this blog website by myself and Powered by &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; &amp;amp; &lt;a href=&quot;https://github.com/kitian616/jekyll-TeXt-theme&quot;&gt;TeXt Theme&lt;/a&gt;. Thanks for the &lt;a href=&quot;https://github.com/kitian616&quot;&gt;author&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If you like my blog theme, Just take it away &lt;a href=&quot;https://github.com/JinluZhang1126/jinluzhang1126.github.io&quot;&gt;here&lt;/a&gt;! It is yours now! :laughing:&lt;/p&gt;
+
+&lt;p&gt;This blog is mainly for recording my &lt;strong&gt;research and learning life&lt;/strong&gt; in the future.&lt;/p&gt;
+
+&lt;p&gt;I will try my best to write my blog with English, but you know, my English is not solid enough to express myself:pensive:. Thus i will firstly write logs with Chinese. If you want any article’s English version or have any qusetion, just comment to me in the comment area at each article’s footer.&lt;/p&gt;
+
+&lt;p&gt;I am Jinlu Zhang. I am coming to a new world! :smiley:&lt;/p&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><summary type="html">Hi everyone, welcome come to my blog website.:wink: I start this blog website by myself and Powered by Jekyll &amp;amp; TeXt Theme. Thanks for the author If you like my blog theme, Just take it away here! It is yours now! :laughing: This blog is mainly for recording my research and learning life in the future. I will try my best to write my blog with English, but you know, my English is not solid enough to express myself:pensive:. Thus i will firstly write logs with Chinese. If you want any article’s English version or have any qusetion, just comment to me in the comment area at each article’s footer. I am Jinlu Zhang. I am coming to a new world! :smiley:</summary></entry></feed>

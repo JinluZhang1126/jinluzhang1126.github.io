@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Blogs - Jinlu Zhang's Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Blog - Jinlu Zhang's Blog</title>
 
 <meta name="description" content="My Website with Blogs, Publications, Projects and Resume...>">
 <link rel="canonical" href="http://localhost:4000/web-blogs/"><link rel="alternate" type="application/rss+xml" title="Jinlu Zhang's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ -->
@@ -290,7 +290,7 @@
 <nav class="navigation">
         <ul>
 <li class="navigation__item"><a href="/web-blogs">Blog</a></li>
-<li class="navigation__item"><a href="/web-tags">Tags</a></li>
+<li class="navigation__item"><a href="/web-tags">Tag</a></li>
 <li class="navigation__item"><a href="/web-about">About Me</a></li>
 <li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li>
 </ul>
@@ -306,59 +306,78 @@
 <!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/WebPage"><div class="article__header"><header><h1>Blogs</h1></header></div>
-<meta itemprop="headline" content="Blogs">
+<article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>Blog</h1></header><meta itemprop="headline" content="Blog">
 <meta itemprop="author" content="Jinlu Zhang">
 <div class="js-article-content">
 <div class="layout--articles">
 <div class="article-list items items--divided">
 <article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2018/07/01/welcome.html"><h2 itemprop="headline" class="item__header">Welcome</h2></a></header>
+          <header><a href="/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda.html"><h2 itemprop="headline" class="item__header">Ubuntu18.04重装Nvidia驱动，cuda和cudnn，多用户使用anaconda</h2></a></header>
           <div class="item__description">
-<div class="article__content" itemprop="description articleBody">Hearder1
-If you see this page, that means you have setup your site. enjoy! <img class="emoji" title=":ghost:" alt=":ghost:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f47b.png" height="20" width="20"> <img class="emoji" title=":ghost:" alt=":ghost:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f47b.png" height="20" width="20"> <img class="emoji" title=":ghost:" alt=":ghost:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f47b.png" height="20" width="20">
+<div class="article__content" itemprop="description articleBody">最近手残升级了nvidia显卡驱动，导致cuda与驱动冲动，没办法只能重装了。
 
-You may want to config the site or writing a post next. Please feel free to create an issue or send me email if you have any questions.</div>
-<p><a href="/2018/07/01/welcome.html">Read more</a></p>
+配置信息：系统：Ubuntu18.04；显卡：Nvidia 2080Ti；驱动：Nvidia Driver 440.44；cuda：10.2；cudnn：7.6.5
+
+
+
+查看cuda 版本
+cat /usr/local/cuda/version.txt
+
+查看cudnn 版本
+cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+
+
+
+重装显卡驱动
+
+禁用nouveau驱动
+
+sudo vim /etc/modprobe.d/blacklist.conf
+在文本最后添加：
+
+blacklist nouveau
+options nouvea...</div>
+<p><a href="/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda.html">Read more</a></p>
 </div>
 <div class="article__info clearfix">
 <ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm" href="/web-blogs/?tag=first_articles">first_articles</a>
+              <a class="button button--secondary button--pill button--sm" href="/web-blogs/?tag=enviroment-setup">enviroment-setup</a>
             </li></ul>
 <ul class="right-col menu">
 <li>
-<i class="far fa-calendar-alt"></i> <span>Jul 01, 2018</span>
+<i class="far fa-calendar-alt"></i> <span>Feb 17, 2020</span>
             </li>
 <li>
-<i class="far fa-eye"></i> <span class="js-pageview" data-page-key="2018-07-01-welcome">0</span> views</li>
+<i class="far fa-eye"></i> <span class="js-pageview" data-page-key="2020-2-17-Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda">0</span> views</li>
 </ul>
 </div>
 <meta itemprop="author" content="Jinlu Zhang">
-<meta itemprop="datePublished" content="2018-07-01T00:00:00+08:00">
-    <meta itemprop="keywords" content="first_articles">
+<meta itemprop="datePublished" content="2020-02-17T00:00:00+08:00">
+    <meta itemprop="keywords" content="enviroment-setup">
 </div>
       </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2018/06/01/header-image.html"><h2 itemprop="headline" class="item__header">Post with Header Image</h2></a></header>
+          <header><a href="/2020/02/16/hello-world.html"><h2 itemprop="headline" class="item__header">Hello World!</h2></a></header>
           <div class="item__description">
-<div class="article__content" itemprop="description articleBody">Header1
-A Post with Header Image, See Page layout for more examples.</div>
-<p><a href="/2018/06/01/header-image.html">Read more</a></p>
+<div class="article__content" itemprop="description articleBody">Hi everyone, welcome come to my blog website.<img class="emoji" title=":wink:" alt=":wink:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f609.png" height="20" width="20">
+
+I start this blog website by myself and Powered by Jekyll &amp; TeXt Theme. Thanks for the author
+
+If you like my blog theme, Just take it away here! It is yours now! <img class="emoji" title=":laughing:" alt=":laughing:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png" height="20" width="20">
+
+This blog is mainly for recording my research and learning life in the future.
+
+I will try my best to write my blog...</div>
+<p><a href="/2020/02/16/hello-world.html">Read more</a></p>
 </div>
-<div class="article__info clearfix">
-<ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm" href="/web-blogs/?tag=TeXt">TeXt</a>
-            </li></ul>
-<ul class="right-col menu">
+<div class="article__info clearfix"><ul class="right-col menu">
 <li>
-<i class="far fa-calendar-alt"></i> <span>Jun 01, 2018</span>
+<i class="far fa-calendar-alt"></i> <span>Feb 16, 2020</span>
             </li>
 <li>
-<i class="far fa-eye"></i> <span class="js-pageview" data-page-key="2018-06-01-header-image">0</span> views</li>
-</ul>
-</div>
+<i class="far fa-eye"></i> <span class="js-pageview" data-page-key="2020-2-16-hello-world">0</span> views</li>
+</ul></div>
 <meta itemprop="author" content="Jinlu Zhang">
-<meta itemprop="datePublished" content="2018-06-01T00:00:00+08:00">
-    <meta itemprop="keywords" content="TeXt">
+<meta itemprop="datePublished" content="2020-02-16T00:00:00+08:00">
 </div>
       </article>
 </div>
