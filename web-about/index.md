@@ -16,9 +16,7 @@ show_title: false
 
 <div class="item">
   <div class="item__image" >
-    <div style="border-radius:50%; overflow:hidden;">
-        <img class="image image--lg" src="/assets/images/avatar/2.jpg"/>
-    </div>
+    <img class="image image--lg" style="border-radius:50%;" src="/assets/images/avatar/2.jpg"/>
   </div>
   <div class="item__content">
     <div class="item__header">
