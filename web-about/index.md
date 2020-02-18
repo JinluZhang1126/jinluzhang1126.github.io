@@ -22,10 +22,9 @@ show_title: false
       <h3>Jinlu Zhang</h3>
     </div>
     <div class="item__description">
-      <p style="font-size:1.2rem">I am a pre-master student of <a style="color:black" href="http://www.lmars.whu.edu.cn/index.php/en/liesmarsataglance.html"> State Key Laboratory of LIESMARS</a> at Wuhan University, China. </p>
-      <p style="font-size:1.2rem">Before that, I am receiving my B.Eng degree of Computer Science & Technology from Shandong University in 2020. My research in B.Eng was image process and document image binarization.</p>
+      <p style="font-size:1.2rem">I am a pre-master student of <a style="color:black" href="http://www.lmars.whu.edu.cn/index.php/en/liesmarsataglance.html"> State Key Laboratory of LIESMARS</a> at Wuhan University, China. Before that, I am receiving my B.Eng degree of Computer Science & Technology from Shandong University in 2020. </p>
       <p><strong>Email</strong>:  Jinluzhang1126[at]163[doc]com</p>
-      <p><strong>Github</strong>: <a style="color:black" href="https://github.com/JinluZhang1126">Here is my github</a></p>
+      <p><strong>Github</strong>: <a style="color:black" href="https://github.com/JinluZhang1126">Here</a></p>
       
     </div>
   </div>
@@ -36,6 +35,8 @@ show_title: false
 **I am the chaser of Deep Learning & Computer Vision.**
 
 My research interest: Deep Learning, Computer Vision and Machine Learning.
+
+My research in B.Eng was image process and document image binarization.
 
 My research current focus on: **pose estimation**(hand/human/object etc.) and **shape estimation**.
 
