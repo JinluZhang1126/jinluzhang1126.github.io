@@ -31,7 +31,7 @@ show_title: false
   </div>
 </div>
 
-### Personal Info
+### Research Interest
 
 **I am the chaser of Deep Learning & Computer Vision.**
 

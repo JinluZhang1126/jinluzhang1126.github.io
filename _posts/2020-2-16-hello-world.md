@@ -10,7 +10,7 @@ show_title: true
 
 Hi everyone, welcome come to my blog website.:wink:
 
-I start this blog website by myself and Powered by [Jekyll](http://jekyllrb.com/) & [TeXt Theme](https://github.com/kitian616/jekyll-TeXt-theme). Thanks for the [author](https://github.com/kitian616)
+I start this blog website by myself and Powered by [Jekyll](http://jekyllrb.com/) & [TeXt Theme](https://github.com/kitian616/jekyll-TeXt-theme). Thanks the [author](https://github.com/kitian616) of this theme.
 
 If you like my blog theme, Just take it away [here](https://github.com/JinluZhang1126/jinluzhang1126.github.io)! It is yours now! :laughing:
 <!--more-->
