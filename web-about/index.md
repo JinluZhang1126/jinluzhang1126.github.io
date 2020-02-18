@@ -1,6 +1,5 @@
 ---
-layout: page
-key: page-about
+layout: article
 titles:
   # @start locale config
   en : &EN  About Me
