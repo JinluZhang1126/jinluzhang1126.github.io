@@ -1,11 +1,11 @@
 ---
-layout: article
+layout: page
+key: page-about
 titles:
   # @start locale config
   en : &EN  About Me
   zh : &ZH  关于我
   # @end locale config
-key: page-about
 show_title: false
 ---
 <!-- Font Awesome Online CSS -->
