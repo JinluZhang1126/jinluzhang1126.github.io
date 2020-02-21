@@ -1,4 +1,4 @@
 Sitemap: http://jinluzhang.site/sitemap.xml
 User-agent: *
 Disallow: 
-Allow: 
+Allow: /
