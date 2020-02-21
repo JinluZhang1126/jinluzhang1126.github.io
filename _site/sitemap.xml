@@ -12,9 +12,6 @@
 <loc>http://localhost:4000/about.html</loc>
 </url>
 <url>
-<loc>http://localhost:4000/web-blogs/blogs.html</loc>
-</url>
-<url>
 <loc>http://localhost:4000/web-tags/</loc>
 </url>
 <url>
@@ -25,14 +22,6 @@
 </url>
 <url>
 <loc>http://localhost:4000/web-docs/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/assets/index2.html</loc>
-<lastmod>2020-02-18T00:47:43+08:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/google125e6d99ddbc05a1.html</loc>
-<lastmod>2020-02-21T22:07:09+08:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/</loc>
