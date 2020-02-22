@@ -1,6 +1,6 @@
 ---
 title: SSD Single Shot MultiBox Detector
-tags: enviroment-setup
+tags: paper
 layout: article
 aside:
   toc: true
