@@ -1,10 +1,10 @@
 <!DOCTYPE html><html lang="en">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Ubuntu18.04重装Nvidia驱动，cuda和cudnn，多用户使用anaconda - Jinlu Zhang's Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>SSD Single Shot MultiBox Detector - Jinlu Zhang's Blog</title>
 
-<meta name="description" content="最近手残升级了nvidia显卡驱动，导致cuda与驱动冲动，没办法只能重装了。">
-<link rel="canonical" href="http://localhost:4000/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda.html"><link rel="alternate" type="application/rss+xml" title="Jinlu Zhang's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ -->
+<meta name="description" content="目标检测中的一个经典one-stage算法——SSD，ECCV2016中Wei Liu提出的，相比于YOLO针对于小目标检测更友好。文章基本按照论文行文思路和结构记笔记，最后给出一个sumary  论文地址  代码地址  参考：SSD论文笔记,">
+<link rel="canonical" href="http://localhost:4000/2020/02/22/SSD-Single-Shot-MultiBox-Detector.html"><link rel="alternate" type="application/rss+xml" title="Jinlu Zhang's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ -->
 <!--<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
@@ -292,238 +292,250 @@
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Ubuntu18.04重装Nvidia驱动，cuda和cudnn，多用户使用anaconda</h1></header><span class="split-space">&nbsp;</span>
+<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>SSD Single Shot MultiBox Detector</h1></header><span class="split-space">&nbsp;</span>
           <a class="edit-on-github"
             title="Edit on Github"
-            href="https://github.com/JinluZhang1126/jinluzhang1126.github.io/tree/master/_posts/2020-2-17-Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda.md">
-            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="Ubuntu18.04重装Nvidia驱动，cuda和cudnn，多用户使用anaconda"><div class="article__info clearfix"><ul class="left-col menu"><li>
+            href="https://github.com/JinluZhang1126/jinluzhang1126.github.io/tree/master/_posts/2020-2-22-SSD-Single-Shot-MultiBox-Detector.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="SSD Single Shot MultiBox Detector"><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
-                href="/web-blogs/?tag=enviroment-setup">enviroment-setup</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Feb 17, 2020</span>
-            </li><li><i class="far fa-eye"></i> <span class="js-pageview" data-page-key="2020-2-17-Ubuntu18-rebuild-Nvidiadriver">0</span> views</li></ul></div><meta itemprop="author" content="Jinlu Zhang"/><meta itemprop="datePublished" content="2020-02-17T00:00:00+08:00">
-    <meta itemprop="keywords" content="enviroment-setup"><div class="js-article-content"><meta name="robots" content="all,follow">
+                href="/web-blogs/?tag=paper">paper</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Feb 22, 2020</span>
+            </li><li><i class="far fa-eye"></i> <span class="js-pageview" data-page-key="2020-2-22-SSD-Single-Shot-MultiBox-Detector">0</span> views</li></ul></div><meta itemprop="author" content="Jinlu Zhang"/><meta itemprop="datePublished" content="2020-02-22T00:00:00+08:00">
+    <meta itemprop="keywords" content="paper"><div class="js-article-content"><meta name="robots" content="all,follow">
 
 <div class="layout--article"><!-- start custom article top snippet -->
 
 <!-- end custom article top snippet -->
-<div class="article__content" itemprop="articleBody"><p>最近手残升级了nvidia显卡驱动，导致cuda与驱动冲动，没办法只能重装了。
-<!--more-->
-配置信息：<br />系统：Ubuntu18.04；显卡：Nvidia 2080Ti；驱动：Nvidia Driver 440.44；cuda：10.2；cudnn：7.6.5</p>
+<div class="article__content" itemprop="articleBody"><blockquote>
+  <p>目标检测中的一个经典one-stage算法——SSD，ECCV2016中Wei Liu提出的，相比于YOLO针对于小目标检测更友好。文章基本按照论文行文思路和结构记笔记，最后给出一个sumary</p>
 
-<p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200108100525530.png" alt="img" style="zoom:80%;" /></p>
+  <p><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-46448-0_2">论文地址</a>  <a href="https://github.com/balancap/SSD-Tensorflow">代码地址</a></p>
 
-<p>查看cuda 版本
-cat /usr/local/cuda/version.txt</p>
+  <p>参考：<a href="https://zhuanlan.zhihu.com/p/58713034">SSD论文笔记</a>,</p>
 
-<p>查看cudnn 版本
-cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2</p>
-
-<p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200108100752066-1581941094214.png" alt="image-20200108100752066" /></p>
-
-<h2 id="重装显卡驱动">重装显卡驱动</h2>
-
-<h3 id="禁用nouveau驱动">禁用nouveau驱动</h3>
-
-<p><code class="language-plaintext highlighter-rouge">sudo vim /etc/modprobe.d/blacklist.conf</code>
-在文本最后添加：</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blacklist nouveau
-options nouveau modeset=0
-</code></pre></div></div>
-
-<p>然后执行：<code class="language-plaintext highlighter-rouge">sudo update-initramfs -u</code></p>
-
-<p>重启机器后，执行以下命令，如果没有屏幕输出，说明禁用nouveau成功：</p>
-
-<p><code class="language-plaintext highlighter-rouge">lsmod | grep nouveau</code></p>
-
-<h3 id="下载驱动">下载驱动</h3>
-
-<p>官网下载地址：https://www.nvidia.cn/Download/index.aspx?lang=cn ，根据自己显卡的情况下载对应版本的显卡驱动。下载得到一个.run安装包，之后会用到。</p>
-
-<h3 id="卸载旧驱动">卸载旧驱动</h3>
-
-<p>重启后，使用快捷键进入文本模式，然后输入用户名密码就可：<code class="language-plaintext highlighter-rouge">Ctrl-Alt+F1</code></p>
-
-<p>执行以下命令禁用X-Window服务，否则无法安装显卡驱动：<code class="language-plaintext highlighter-rouge">sudo service lightdm stop</code></p>
-
-<p>执行以下命令卸载原有显卡驱动：注意匹配自己下载的驱动版本</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get remove --purge nvidia*
-sudo apt-get autoremove
-sudo chmod +x NVIDIA-Linux-x86_64-4**.**.run
-sudo ./NVIDIA-Linux-x86_64-4**.**.run --uninstall
-</code></pre></div></div>
-
-<h3 id="安装新驱动">安装新驱动</h3>
-
-<p>保险期间，再重启一遍。直接执行驱动文件即可安装新驱动，一直默认即可：</p>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ./NVIDIA-Linux-x86_64-410.93.run
-</code></pre></div></div>
-
-<p>执行以下命令启动X-Window服务</p>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo service lightdm start
-</code></pre></div></div>
-
-<p>最后执行重启命令，重启系统即可：</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reboot
-</code></pre></div></div>
-
-<h2 id="重装cuda">重装CUDA</h2>
-
-<p>因为重装后的驱动和原来CUDA版本还是不一样（如果之前安装了CUDA，可以用<code class="language-plaintext highlighter-rouge">nvcc -V</code>试试，不行的话还是重装吧​🙂​）</p>
-
-<p>卸载CUDA执行的是CUDA自带的卸载脚本，读者要根据自己的cuda版本找到卸载脚本：</p>
-
-<p><code class="language-plaintext highlighter-rouge">sudo /usr/local/cuda-10.0/bin/uninstall_cuda_10.0.pl</code>
-卸载之后，还有一些残留的文件夹，之前安装的是CUDA 8.0。可以一并删除：</p>
-
-<p><code class="language-plaintext highlighter-rouge">sudo rm -rf /usr/local/cuda-10.0/</code></p>
-
-<h2 id="安装cuda">安装CUDA</h2>
-
-<h3 id="下载安装">下载安装</h3>
-
-<p>在官网：<a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;target_distro=Ubuntu&amp;target_version=1604&amp;target_type=runfilelocal">CUDA下载页面</a>，下载符合自己系统版本的CUDA。</p>
-
-<p>下载完成之后，给文件赋予执行权限：</p>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod +x cuda_*****_linux.run
-</code></pre></div></div>
-
-<p>执行安装包，开始安装：</p>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./cuda_****_linux.run
-</code></pre></div></div>
-
-<p>CUDA10.2安装时会显示这样一个画面👇，不安装驱动了，注意把Driver去掉，否则会导致重复安装驱动</p>
-
-<p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200107223538310.png" style="zoom: 80%;" /></p>
-
-<h3 id="配置环境变量">配置环境变量</h3>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export CUDA_HOME=/usr/local/cuda-10.2
-export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
-export PATH=${CUDA_HOME}/bin:${PATH}
-</code></pre></div></div>
-
-<h2 id="安装cudnn">安装CUDNN</h2>
-
-<p>CUDNN的下载官网：https://developer.nvidia.com/rdp/cudnn-download ，点击Download开始选择和CUDA10.2匹配的下载版本，选择<code class="language-plaintext highlighter-rouge">cuDNN Library for Linux</code>：</p>
-
-<p>对它进行解压，命令如下：</p>
-
-<p>tar -zxvf cudnn-10.0-linux-x64-v7.4.2.24.tgz</p>
-
-<p>解压之后可以得到以下文件：</p>
-
-<blockquote>
-  <p>cuda/include/cudnn.h
-cuda/NVIDIA_SLA_cuDNN_Support.txt
-cuda/lib64/libcudnn.so
-cuda/lib64/libcudnn.so.7
-cuda/lib64/libcudnn.so.7.4.2
-cuda/lib64/libcudnn_static.a</p>
+  <!--more-->
 </blockquote>
 
-<p>使用以下两条命令复制这些文件到CUDA目录下：</p>
+<h2 id="abstract">Abstract</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp cuda/lib64/* /usr/local/cuda-10.0/lib64/
-cp cuda/include/* /usr/local/cuda-10.0/include/
-</code></pre></div></div>
+<p>本文提出了一种使用单个深度神经网络来检测图像中的目标的方法，便于训练与优化，同时提高检测速度。<strong>将边界框的输出空间离散化为不同长宽比的一组default box，这些box是通过不同尺寸（分辨率）layer上的feature map得出的，每一层都具有不同的aspect ratios and scales</strong>。在预测阶段，网络会在每个默认框中分别为每个类别生成分数，并对default box进行微调以更好地匹配目标形状。此外，网络还结合了<strong>不同分辨率的多个特征映射</strong>的预测，自然地处理各种尺寸的目标。相对于region proposal的方法，SSD非常简单，因为它完全消除了提出生成和随后的像素或特征重采样阶段，并<strong>将所有计算封装到单个网络</strong>中。</p>
 
-<p>拷贝完成之后，可以使用以下命令查看CUDNN的版本信息：</p>
+<h2 id="introduction">Introduction</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
-</code></pre></div></div>
+<p>目前主流的目标检测算法分为两种，一种R-CNN流，主要思路是先使用选择性搜索之类的启发式方法（Selective Search）或CNN网络（RPN）生成region proposal，然后在此proposal上生成特征输入到分类和定位网络中，这类方法是<strong>two-stage</strong>的，特点是精度高、速度略慢、训练较复杂；第二种是YOLO为代表的<strong>one-stage</strong>流，它们的思路是均匀地在图片的不同位置进行密集抽样，抽样时可以采用不同的尺度和长宽比，然后利用CNN提取特征后直接进行分类和回归，整个过程只需要一步，所以它们的优势是速度快。但是均匀的密集采样有一个缺点就是正样本和负样本分布极不均衡，这会导致训练困难，导致模型准确度稍低。<strong>（可以通过FocalLoss缓解这个问题）</strong></p>
 
-<h2 id="安装anaconda3">安装Anaconda3</h2>
+<p>由于改进了backbone网络，并且使用了不同分辨率的feature map，所以相比于YOLO流更加准确，尤其是对小物体检测敏感，速度也比faster rcnn更快。SSD属于one-stage，所以本文主要比较的也是YOLO流。</p>
 
-<p>先去官方地址下载好对应的安装包<a href="https://www.anaconda.com/download/#linux">Ubuntu - anaconda 下载地址</a></p>
-
-<p>然后直接安装anaconda ：<code class="language-plaintext highlighter-rouge">bash ~/Downloads/Anaconda3-5.2.0-Linux-x86_64.sh</code></p>
-
-<p>安装过程中看到</p>
+<p>原文这段话感觉概括了SSD的有别于其他方法的主要思想：</p>
 
 <blockquote>
-  <p>Welcome to Anaconda3 5.2.0
-In order to continue the installation process, please review the license
-agreement. (为了继续安装过程，请审核许可证。协议。)
-Please, press ENTER to continue</p>
+  <p>Our improvements include using a small convolutional filter to predict object
+categories and offsets in bounding box locations, using separate predictors (filters) for
+different aspect ratio detections, and applying these filters to multiple feature maps from
+the later stages of a network in order to perform detection at multiple scales</p>
 </blockquote>
 
-<p>直接按enter查看协议，然后一直enter下去，</p>
+<p>使用VGG这种小卷积核网络进行提取初始目标特征和偏移量，并且针对不同尺度的feature maps产生不同的filter，然后将这种filter应用于之后的detection阶段。</p>
 
-<p>然后看到</p>
+<h2 id="the-single-shot-detector-ssd-网络结构">The Single Shot Detector (SSD)-网络结构</h2>
 
-<blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>Do you accept the license terms? [yes</td>
-        <td>no]（你接受许可证条款吗?）</td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
+<p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200209121221893.png" alt="image-20200209121221893" style="zoom:150%;" /></p>
 
-<p>直接输入yes 然后按enter，进入下一步</p>
+<p>网络的输入是300 x 300，称为SSD300；除此之外还有输入为500 x 500的SSD500，它在SSD300的基础上又加了一层conv11_2用于检测。</p>
 
-<p>接下来会提示安装地址：</p>
+<p>SSD将VGG-16的全连接层fc6和fc7转换成3 x 3的卷积层Conv6和1 x 1的卷积层Conv7，并将pool5从2 x 2 - s2转换成3 x 3 - s1。第一个用于检测的feature map是Conv4_3，由于位置靠前，为了避免与后面的检测层差异太大，所以在Conv4_3后面使用L2 normalization，即仅对每个像素点在channel维度上进行归一化。</p>
 
-<blockquote>
-  <p>Anaconda3 will now be installed into this location:
-/home/user/anaconda3</p>
+<p>可以看出，相比于YOLO网络，SSD主要改进在于：</p>
 
-  <p>Press ENTER to confirm the location
-Press CTRL-C to abort the installation
-Or specify a different location below</p>
-</blockquote>
+<ul>
+  <li>VGG16作为特征提取网络；</li>
+  <li>使用不同尺寸的feature map提取出来的不同尺寸和长宽比的default box进行检测和分类。</li>
+</ul>
 
-<p>建议默认即可，
-按enter继续下一步，注意这里按ctrl + c 直接会终止安装。
-接下来先等待安装即可。
-看到</p>
+<h3 id="模型关键点">模型关键点</h3>
 
-<blockquote>
-  <p>Thank you for installing Anaconda3!</p>
-</blockquote>
+<ul>
+  <li>
+    <p><strong>多尺度feature map预测</strong>，<strong>SSD网络中分为了6个stage，每个stage能学习到一个特征图，然后进行边框回归和分类</strong>，这些层的尺寸<strong>逐渐减小</strong>，并允许<strong>多尺度</strong>的预测。在Conv4_3、Conv6、Conv7、Conv8_2、Conv9_2、Conv10_2、Pool 11的feature map上都会进行检测，入到后面的<em>detection per class</em>层， 提取出来类别概率和坐标：（c, x, y, w, h）</p>
+  </li>
+  <li>
+    <p><strong>VGG网络作为特征提取网络</strong>，去除最后两层FC层，改为3 x 3的卷积层Conv6和1 x 1的卷积层Conv7，并在之后增加尺寸依次减小的4个卷积层</p>
+  </li>
+  <li>
+    <p><strong>使用CNN检测</strong>，这一部分和Faster RCNN中的RPN网络有些类似，对于feature map先使用3 x 3卷积，卷积后的结果代表feature map上每个像素代表的default box的信息，如类别概率或位置信息。</p>
 
-<p>表示安装成功。</p>
+    <p>对于边框回归，只需要<strong>4维向量</strong>即可，分别代表边框缩放尺度(坐标轴两个方向)和平移向量(坐标轴两个方向)。对于分类，SSD网络采取为每个类别进行打分的策略，也就是说对于每个Default Box，SSD网络会计算出相应的<strong>每个类别的分数</strong>。假设数据集类别数为c，加上背景，那么总的类别数就是<strong>c+1</strong>类。SSD网络采用了c+1维向量来分别代表该Default Box对于每个类别所得到的分数。这里，假设是VOC数据集，那么每个Default Box将生成一个20 + 1 + 4 = 25维的特征向量。同样，以Conv9输出特征图5x5为例。抽象地说特征向量就是：<strong>(m*n)*k*(c+4)</strong></p>
 
-<h3 id="添加环境变量">添加环境变量</h3>
+    <p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/MgVSAo8.png" alt="img" /></p>
+  </li>
+  <li>
+    <p><strong>Default boxes and aspect ratios</strong>，feature map上每个像素都会生成多个default box。作者充分的吸取了Faster R-CNN中的Anchors机制，在每个Stage中根据Feature Map的大小，按照固定的Scale和Radio生成Default Boxes。这里为了方便阐述，选取了Conv9的Feature Map，输出大小为5x5。SSD网络中作者设置Conv9的每个点默认生成6个box，如下图所示。因此在这一层上，共生成了5x5x6=150个boxes。</p>
 
-<p>anaconda会自动将环境变量添加到PATH里面，如果后面你发现输出conda
-提示没有该命令，那么你需要source ~/.bashrc 这样就是更新环境变量，就可以正常使用了。
-如果发现这样还是没用，那么需要收到添加环境变量
-<code class="language-plaintext highlighter-rouge">sudo vim ~/.basrc</code> 文件，在最后面加上
-<code class="language-plaintext highlighter-rouge">export PATH=/home/user/anaconda3/bin:$PATH</code></p>
+    <p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/pToKpCA.jpg" alt="img" /></p>
+  </li>
+</ul>
 
-<p>保存退出后：source ~/.bashrc
-再次输入conda list测试看看，应该就是没有问题啦！</p>
+<p>（👆这段解释来自👉<a href="https://blog.csdn.net/neu_chenguangq/article/details/79057655">here</a>,感觉解释的很到位，特此说明）</p>
 
-<h2 id="多用户使用conda">多用户使用conda</h2>
+<p>这样在不同尺度生成default box最大的好处在于可以对各种尺度和形状的物体进行预测：下图中狗的ground truth和4 x 4 feature map中default box匹配，但和8 x 8 feature map的任何一个default box都不匹配，所以SSD相对于RPN考虑更周到</p>
 
-<p>注意我在user用户下安装配置的conda，怎么在其他用户里使用conda呢？直接使用会报错没有conda命令</p>
+<p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200222105802543.png" alt="image-20200222105802543" style="zoom:67%;" /></p>
 
-<p>做如下配置：</p>
+<h3 id="注意区分dafault-box生成和cnn检测">注意区分dafault box生成和CNN检测</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su another_user
-sudo vim ~/.basrc
-</code></pre></div></div>
+<p>这两个关键点是分开的，default box生成时对于feature map中每一个像素点生成4-6个不同长宽比的box，得到的是每一个cell的不同box</p>
 
-<p>最后一行加上conda安装位置的环境变量：export PATH=/home/user/anaconda3/bin:$PATH</p>
+<p>而CNN检测是对每一个cell（也就是像素）进行3*3卷积，得到的是特征向量</p>
 
-<p>保存退出后：source ~/.bashrc</p>
+<p>这两个我在一开始读论文的时候经常搞不清</p>
 
-<p>如果使用conda activate命令显示没有初始化这样的错误，运行下面代码：</p>
+<h3 id="训练细节">训练细节</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> ~/anaconda3/etc/profile.d/conda.sh
-conda activate my_env
-</code></pre></div></div>
+<ul>
+  <li>
+    <p><strong>如何选择default box的尺寸和长宽比</strong></p>
+
+    <p>每层特征图上的尺度的default box计算表达式如下：</p>
+
+    <p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200209134820257.png" alt="image-20200209134820257" /></p>
+
+    <p>参数：scale， aspect ratio——每个cell生成固定的scale（s）和aspect ratio（ar）的边界框</p>
+
+    <p>其中 Smin 为最小尺度0.2， Smax 为最大尺度0.95。</p>
+
+    <p>长宽比<strong>ar ∈ {1，2，3，1/2，1/3}</strong>，</p>
+
+    <p>于是default box的宽和高可以通过 <img src="https://www.zhihu.com/equation?tex=w_k%5Ea%3Ds_k%5Csqrt%7Ba_r%7D" alt="[公式]" /> 和 <img src="https://www.zhihu.com/equation?tex=h_k%5Ea%3Ds_k%2F%5Csqrt%7Ba_r%7D" alt="[公式]" /> 计算，</p>
+
+    <p>除此之外，还增加一个长宽比为1的时候，尺度为 <img src="https://www.zhihu.com/equation?tex=s_k%27%3D%5Csqrt%7Bs_ks_%7Bk%2B1%7D%7D" alt="[公式]" /> 的default box，所以feature map上每个像素都有6个default box，<strong>注意这里得到的结果都是相对于原图的比例</strong>。default box中心的坐标就是像素的中心。</p>
+  </li>
+  <li>
+    <p><strong>匹配策略</strong></p>
+
+    <p>训练时需要建立ground truth和default box之间的对应关系，文中主要采用best jaccard overlap。与MultiBox稍有不同的是：SSD每个ground truth可以与多个default box匹配。</p>
+
+    <p>分为两步：首先对于每个ground truth，找到一个与其IoU最大的default box匹配，这个default box对应的预测框就作为正样本，其余都作为负样本。但这样做会导致负样本过多，正负样本分布极其不均衡，所以还会采取第二步：对于每个ground truth，将与其IoU大于某一阈值（比如0.5）的default box都进行匹配。</p>
+
+    <p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200222113304807.png" alt="image-20200222113304807" style="zoom: 50%;" /></p>
+  </li>
+  <li>
+    <p><strong>损失函数</strong></p>
+
+    <p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200222113449881.png" alt="image-20200222113449881" /></p>
+
+    <p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200222113710154.png" alt="image-20200222113710154" style="zoom: 50%;" /></p>
+
+    <p><img src="https://www.zhihu.com/equation?tex=N" alt="[公式]" /> 为匹配成功的default box个数； <img src="https://www.zhihu.com/equation?tex=%5Calpha" alt="[公式]" /> 是为了权衡两者损失而设置，通过交叉验证发现设置为1更好；第一项是置信度的Softmax损失，注意还包括背景这个类别；第二项是参数化后的bounding box中心坐标、长和宽的Smooth L1损失</p>
+  </li>
+  <li>
+    <p><strong>难例挖掘</strong></p>
+
+    <p>用于预测的 feature map 上的每个点都对应有 6 个不同的 default box，绝大部分的 default box 都是负样本，导致了正负样本不平衡。在训练过程中，采用了 Hard Negative Mining 的策略（<strong>根据confidence loss对所有的box进行排序，使正负例的比例保持在1:3</strong>） 来平衡正负样本的比率。这样做能提高4%左右。</p>
+  </li>
+  <li>
+    <p><strong>数据增强</strong></p>
+
+    <p>三个选项：</p>
+
+    <ul>
+      <li>使用整张图像作为输入</li>
+      <li>使用IOU和目标物体为0.1、0.3、0.5、0.7和0.9的patch，这些patch在原图的大小的[0.1, 1]之间，相应的宽高比在[1/2, 2]之间。</li>
+      <li>随机采取一个patch</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="experiment">Experiment</h2>
+
+<h3 id="caffe版本">Caffe版本</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>System</th>
+      <th>VOC2007 test <em>mAP</em></th>
+      <th><strong>FPS</strong> (Titan X)</th>
+      <th>Number of Boxes</th>
+      <th>Input resolution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://github.com/ShaoqingRen/faster_rcnn">Faster R-CNN (VGG16)</a></td>
+      <td>73.2</td>
+      <td>7</td>
+      <td>~6000</td>
+      <td>~1000 x 600</td>
+    </tr>
+    <tr>
+      <td><a href="http://pjreddie.com/darknet/yolo/">YOLO (customized)</a></td>
+      <td>63.4</td>
+      <td>45</td>
+      <td>98</td>
+      <td>448 x 448</td>
+    </tr>
+    <tr>
+      <td>SSD300* (VGG16)</td>
+      <td>77.2</td>
+      <td>46</td>
+      <td>8732</td>
+      <td>300 x 300</td>
+    </tr>
+    <tr>
+      <td>SSD512* (VGG16)</td>
+      <td><strong>79.8</strong></td>
+      <td>19</td>
+      <td>24564</td>
+      <td>512 x 512</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tf版本代码">TF版本（<a href="https://github.com/balancap/SSD-Tensorflow">代码</a>）</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Training data</th>
+      <th>Testing data</th>
+      <th>mAP</th>
+      <th>FPS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://drive.google.com/open?id=0B0qPCUZ-3YwWZlJaRTRRQWRFYXM">SSD-300 VGG-based</a></td>
+      <td>VOC07+12 trainval</td>
+      <td>VOC07 test</td>
+      <td>0.778</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><a href="https://drive.google.com/file/d/0B0qPCUZ-3YwWUXh4UHJrd1RDM3c/view?usp=sharing">SSD-300 VGG-based</a></td>
+      <td>VOC07+12+COCO trainval</td>
+      <td>VOC07 test</td>
+      <td>0.817</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><a href="https://drive.google.com/open?id=0B0qPCUZ-3YwWT1RCLVZNN3RTVEU">SSD-512 VGG-based</a></td>
+      <td>VOC07+12+COCO trainval</td>
+      <td>VOC07 test</td>
+      <td>0.837</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="总结">总结</h2>
+
+<ol>
+  <li><strong>和YOLO一样不同类别之间共享回归器，所以易混淆相似的类别</strong></li>
+  <li><strong>对小物体的检测相对于YOLO好一点</strong></li>
+  <li><strong>比YOLOv1快且精准度高，比Faster R-CNN精度略低</strong></li>
+  <li>SSD整个网络采取了one stage的思想，以此提高检测速度。并且网络中融入了Faster R-CNN中的anchors思想，并且做了特征分层提取并依次计算边框回归和分类操作。总之，这是一个延申RPN网络思想，同时又结合YOLO框架的方法。</li>
+</ol>
 </div><section class="article__sharing d-print-none"><!-- AddToAny BEGIN -->
 <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
   <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
@@ -533,7 +545,7 @@ conda activate my_env
 </div>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <!-- AddToAny END -->
-</section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2020-02-17T00:00:00+08:00"><!-- start custom article footer snippet -->
+</section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2020-02-22T00:00:00+08:00"><!-- start custom article footer snippet -->
 
 <!-- end custom article footer snippet -->
 <!--<div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">Subscribe</a></div>
@@ -547,7 +559,7 @@ conda activate my_env
     </p>
   </div></div>-->
 </footer>
-<div class="article__section-navigator clearfix"><div class="previous"><span>PREVIOUS</span><a href="/2020/02/16/hello-world.html">Hello World!</a></div><div class="next"><span>NEXT</span><a href="/2020/02/22/SSD-Single-Shot-MultiBox-Detector.html">SSD Single Shot MultiBox Detector</a></div></div></div>
+<div class="article__section-navigator clearfix"><div class="previous"><span>PREVIOUS</span><a href="/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda.html">Ubuntu18.04重装Nvidia驱动，cuda和cudnn，多用户使用anaconda</a></div></div></div>
 
 </div>
 

@@ -12,7 +12,7 @@ Hi everyone, welcome come to my blog website.:wink:
 
 I start this blog website by myself and Powered by [Jekyll](http://jekyllrb.com/) & [TeXt Theme](https://github.com/kitian616/jekyll-TeXt-theme). Thanks the [author](https://github.com/kitian616) of this theme.
 
-If you like my blog theme, Just take it away [here](https://github.com/JinluZhang1126/jinluzhang1126.github.io)! It is yours now! :laughing:
+If you like my blog theme, Just take it away [here](https://github.com/JinluZhang1126/jinluzhang1126.github.io/tree/template)! It is yours now! :laughing:
 <!--more-->
 This blog is mainly for recording my **research and learning life** in the future.
 

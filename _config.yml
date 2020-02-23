@@ -36,7 +36,7 @@ timezone:  # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones fo
 author: 
   type      : person # "person" (default), "organization"
   name      : Jinlu Zhang
-  url       : https://jinluzhang1126.github.io/
+  url       : https://jinluzhang.site/
   avatar    : ./assets/images/avatar/2.jpg # path or url of avatar image (square)
   bio       : Master of Computer Science, raw hand in computer vision, research interests are pose estimation, 3D, video estimation, etc.
   email     : Jinluzhang1126@163.com
