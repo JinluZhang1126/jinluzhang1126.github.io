@@ -36,7 +36,7 @@ github的服务器是在国外的，对于一些文字代码信息还可以预�
 
 2. 开启github pages功能，branch选中 master 就行
 
-   <img src="https://jinluzhang.site/PublicPic/Pic/image-20200225133214494.png" alt="image-20200225133214494" style="zoom: 67%;" />
+   <img src="https://jinluzhang.site/PublicPic/Pic/image-20200225144538660.png" alt="image-20200225144538660" style="zoom:67%;" />
 
 3. 图中因为我配了一个域名，所以直接显示了域名，如果没有自己的域名就是github.io
 4. 直接访问域名+图片路径，以http://jinluzhang.site/PublicPic/Pic/image-20200225121128297.png为例，就会显示了，在markdown嵌入即可。

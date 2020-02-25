@@ -1,4 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-02-23T18:02:58+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jinlu Zhang’s Blog</title><subtitle>My Website with Blogs, Publications, Projects and Resume...&gt;</subtitle><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><entry><title type="html">SSD Single Shot MultiBox Detector</title><link href="http://localhost:4000/2020/02/22/SSD-Single-Shot-MultiBox-Detector.html" rel="alternate" type="text/html" title="SSD Single Shot MultiBox Detector" /><published>2020-02-22T00:00:00+08:00</published><updated>2020-02-22T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/22/SSD-Single-Shot-MultiBox-Detector</id><content type="html" xml:base="http://localhost:4000/2020/02/22/SSD-Single-Shot-MultiBox-Detector.html">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-02-25T14:47:06+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jinlu Zhang’s Blog</title><subtitle>My Website with Blogs, Publications, Projects and Resume...&gt;</subtitle><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><entry><title type="html">问题解决：Github图片无法访问</title><link href="http://localhost:4000/2020/02/25/github-img-not-available.html" rel="alternate" type="text/html" title="问题解决：Github图片无法访问" /><published>2020-02-25T00:00:00+08:00</published><updated>2020-02-25T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/25/github-img-not-available</id><content type="html" xml:base="http://localhost:4000/2020/02/25/github-img-not-available.html">&lt;h2 id=&quot;需求&quot;&gt;需求&lt;/h2&gt;
+
+&lt;p&gt;最近发现在墙内无法顺畅的访问github远程仓库中的图片，导致自己的博客中的图片全都裂开了。。。
+&lt;!--more--&gt;
+之前的访问方式：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;找到github远程库中的图片，复制图片链接，格式一般是这样的：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://raw.githubusercontent.com/username/repo_name/img_name...&lt;/code&gt;，&lt;/li&gt;
+  &lt;li&gt;在markdown文档中嵌入图片链接&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;现在的情况是这样的:cry:：&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200225115717536.png&quot; alt=&quot;image-20200225115717536&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;原因分析&quot;&gt;原因分析&lt;/h2&gt;
+
+&lt;p&gt;github的服务器是在国外的，对于一些文字代码信息还可以预览编辑，但是图片却无法在线访问，如果切换到外网是可以访问的非常丝滑的，那么基本就是防火墙的问题了。但是博客对其他访问者是开放的，总不能让所有人都去翻翻翻。。。&lt;/p&gt;
+
+&lt;h2 id=&quot;解决方案&quot;&gt;解决方案&lt;/h2&gt;
+
+&lt;p&gt;经过上下求索，找到了一个可靠长久的解决方法，特别是针对那些有写博客需求的人。&lt;/p&gt;
+
+&lt;p&gt;我们需要给网站配置一个分流配置，具体原理不赘述，我的理解也不深，大致就是加了一个分流中转，让访问&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://raw.githubusercontent.com/username/repo_name/img_name...&lt;/code&gt;这个地址的人先访问国内的域名，然后通过DNS转到这个真实的地址&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;建立一个GitHub图片库，注意要设置为共有，以后图片都放到这里面&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200225121128297.png&quot; alt=&quot;image-20200225121128297&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;开启github pages功能，branch选中 master 就行&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200225144538660.png&quot; alt=&quot;image-20200225144538660&quot; style=&quot;zoom:67%;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;图中因为我配了一个域名，所以直接显示了域名，如果没有自己的域名就是github.io&lt;/li&gt;
+  &lt;li&gt;直接访问域名+图片路径，以http://jinluzhang.site/PublicPic/Pic/image-20200225121128297.png为例，就会显示了，在markdown嵌入即可。&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="enviroment-setup," /><category term="bug" /><summary type="html">需求 最近发现在墙内无法顺畅的访问github远程仓库中的图片，导致自己的博客中的图片全都裂开了。。。</summary></entry><entry><title type="html">SSD Single Shot MultiBox Detector</title><link href="http://localhost:4000/2020/02/22/SSD-Single-Shot-MultiBox-Detector.html" rel="alternate" type="text/html" title="SSD Single Shot MultiBox Detector" /><published>2020-02-22T00:00:00+08:00</published><updated>2020-02-22T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/22/SSD-Single-Shot-MultiBox-Detector</id><content type="html" xml:base="http://localhost:4000/2020/02/22/SSD-Single-Shot-MultiBox-Detector.html">&lt;blockquote&gt;
   &lt;p&gt;目标检测中的一个经典one-stage算法——SSD，ECCV2016中Wei Liu提出的，相比于YOLO针对于小目标检测更友好。文章基本按照论文行文思路和结构记笔记，最后给出一个sumary&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;https://link.springer.com/chapter/10.1007%2F978-3-319-46448-0_2&quot;&gt;论文地址&lt;/a&gt;  &lt;a href=&quot;https://github.com/balancap/SSD-Tensorflow&quot;&gt;代码地址&lt;/a&gt;&lt;/p&gt;
@@ -31,7 +68,7 @@ the later stages of a network in order to perform detection at multiple scales&l
 
 &lt;h2 id=&quot;the-single-shot-detector-ssd-网络结构&quot;&gt;The Single Shot Detector (SSD)-网络结构&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200209121221893.png&quot; alt=&quot;image-20200209121221893&quot; style=&quot;zoom:150%;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200209121221893.png&quot; alt=&quot;image-20200209121221893&quot; style=&quot;zoom:150%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;网络的输入是300 x 300，称为SSD300；除此之外还有输入为500 x 500的SSD500，它在SSD300的基础上又加了一层conv11_2用于检测。&lt;/p&gt;
 
@@ -58,12 +95,12 @@ the later stages of a network in order to perform detection at multiple scales&l
 
     &lt;p&gt;对于边框回归，只需要&lt;strong&gt;4维向量&lt;/strong&gt;即可，分别代表边框缩放尺度(坐标轴两个方向)和平移向量(坐标轴两个方向)。对于分类，SSD网络采取为每个类别进行打分的策略，也就是说对于每个Default Box，SSD网络会计算出相应的&lt;strong&gt;每个类别的分数&lt;/strong&gt;。假设数据集类别数为c，加上背景，那么总的类别数就是&lt;strong&gt;c+1&lt;/strong&gt;类。SSD网络采用了c+1维向量来分别代表该Default Box对于每个类别所得到的分数。这里，假设是VOC数据集，那么每个Default Box将生成一个20 + 1 + 4 = 25维的特征向量。同样，以Conv9输出特征图5x5为例。抽象地说特征向量就是：&lt;strong&gt;(m*n)*k*(c+4)&lt;/strong&gt;&lt;/p&gt;
 
-    &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/MgVSAo8.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/MgVSAo8.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Default boxes and aspect ratios&lt;/strong&gt;，feature map上每个像素都会生成多个default box。作者充分的吸取了Faster R-CNN中的Anchors机制，在每个Stage中根据Feature Map的大小，按照固定的Scale和Radio生成Default Boxes。这里为了方便阐述，选取了Conv9的Feature Map，输出大小为5x5。SSD网络中作者设置Conv9的每个点默认生成6个box，如下图所示。因此在这一层上，共生成了5x5x6=150个boxes。&lt;/p&gt;
 
-    &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/pToKpCA.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/pToKpCA.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -71,7 +108,7 @@ the later stages of a network in order to perform detection at multiple scales&l
 
 &lt;p&gt;这样在不同尺度生成default box最大的好处在于可以对各种尺度和形状的物体进行预测：下图中狗的ground truth和4 x 4 feature map中default box匹配，但和8 x 8 feature map的任何一个default box都不匹配，所以SSD相对于RPN考虑更周到&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200222105802543.png&quot; alt=&quot;image-20200222105802543&quot; style=&quot;zoom:67%;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200222105802543.png&quot; alt=&quot;image-20200222105802543&quot; style=&quot;zoom:67%;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;注意区分dafault-box生成和cnn检测&quot;&gt;注意区分dafault box生成和CNN检测&lt;/h3&gt;
 
@@ -89,7 +126,7 @@ the later stages of a network in order to perform detection at multiple scales&l
 
     &lt;p&gt;每层特征图上的尺度的default box计算表达式如下：&lt;/p&gt;
 
-    &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200209134820257.png&quot; alt=&quot;image-20200209134820257&quot; /&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200209134820257.png&quot; alt=&quot;image-20200209134820257&quot; /&gt;&lt;/p&gt;
 
     &lt;p&gt;参数：scale， aspect ratio——每个cell生成固定的scale（s）和aspect ratio（ar）的边界框&lt;/p&gt;
 
@@ -108,14 +145,14 @@ the later stages of a network in order to perform detection at multiple scales&l
 
     &lt;p&gt;分为两步：首先对于每个ground truth，找到一个与其IoU最大的default box匹配，这个default box对应的预测框就作为正样本，其余都作为负样本。但这样做会导致负样本过多，正负样本分布极其不均衡，所以还会采取第二步：对于每个ground truth，将与其IoU大于某一阈值（比如0.5）的default box都进行匹配。&lt;/p&gt;
 
-    &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200222113304807.png&quot; alt=&quot;image-20200222113304807&quot; style=&quot;zoom: 50%;&quot; /&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200222113304807.png&quot; alt=&quot;image-20200222113304807&quot; style=&quot;zoom: 50%;&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;损失函数&lt;/strong&gt;&lt;/p&gt;
 
-    &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200222113449881.png&quot; alt=&quot;image-20200222113449881&quot; /&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200222113449881.png&quot; alt=&quot;image-20200222113449881&quot; /&gt;&lt;/p&gt;
 
-    &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200222113710154.png&quot; alt=&quot;image-20200222113710154&quot; style=&quot;zoom: 50%;&quot; /&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200222113710154.png&quot; alt=&quot;image-20200222113710154&quot; style=&quot;zoom: 50%;&quot; /&gt;&lt;/p&gt;
 
     &lt;p&gt;&lt;img src=&quot;https://www.zhihu.com/equation?tex=N&quot; alt=&quot;[公式]&quot; /&gt; 为匹配成功的default box个数； &lt;img src=&quot;https://www.zhihu.com/equation?tex=%5Calpha&quot; alt=&quot;[公式]&quot; /&gt; 是为了权衡两者损失而设置，通过交叉验证发现设置为1更好；第一项是置信度的Softmax损失，注意还包括背景这个类别；第二项是参数化后的bounding box中心坐标、长和宽的Smooth L1损失&lt;/p&gt;
   &lt;/li&gt;
@@ -231,7 +268,7 @@ the later stages of a network in order to perform detection at multiple scales&l
 &lt;!--more--&gt;
 配置信息：&lt;br /&gt;系统：Ubuntu18.04；显卡：Nvidia 2080Ti；驱动：Nvidia Driver 440.44；cuda：10.2；cudnn：7.6.5&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200108100525530.png&quot; alt=&quot;img&quot; style=&quot;zoom:80%;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200108100525530.png&quot; alt=&quot;img&quot; style=&quot;zoom:80%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;查看cuda 版本
 cat /usr/local/cuda/version.txt&lt;/p&gt;
@@ -239,7 +276,7 @@ cat /usr/local/cuda/version.txt&lt;/p&gt;
 &lt;p&gt;查看cudnn 版本
 cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200108100752066-1581941094214.png&quot; alt=&quot;image-20200108100752066&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200108100752066-1581941094214.png&quot; alt=&quot;image-20200108100752066&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;重装显卡驱动&quot;&gt;重装显卡驱动&lt;/h2&gt;
 
@@ -322,7 +359,7 @@ sudo ./NVIDIA-Linux-x86_64-4**.**.run --uninstall
 
 &lt;p&gt;CUDA10.2安装时会显示这样一个画面👇，不安装驱动了，注意把Driver去掉，否则会导致重复安装驱动&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200107223538310.png&quot; style=&quot;zoom: 80%;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200107223538310.png&quot; style=&quot;zoom: 80%;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;配置环境变量&quot;&gt;配置环境变量&lt;/h3&gt;
 

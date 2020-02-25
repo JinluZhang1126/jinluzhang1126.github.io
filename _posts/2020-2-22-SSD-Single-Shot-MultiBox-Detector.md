@@ -38,7 +38,7 @@ show_title: true
 
 ## The Single Shot Detector (SSD)-网络结构
 
-<img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200209121221893.png" alt="image-20200209121221893" style="zoom:150%;" /> 
+<img src="https://jinluzhang.site/PublicPic/Pic/image-20200209121221893.png" alt="image-20200209121221893" style="zoom:150%;" /> 
 
 网络的输入是300 x 300，称为SSD300；除此之外还有输入为500 x 500的SSD500，它在SSD300的基础上又加了一层conv11_2用于检测。
 
@@ -59,17 +59,17 @@ SSD将VGG-16的全连接层fc6和fc7转换成3 x 3的卷积层Conv6和1 x 1的�
 
   对于边框回归，只需要**4维向量**即可，分别代表边框缩放尺度(坐标轴两个方向)和平移向量(坐标轴两个方向)。对于分类，SSD网络采取为每个类别进行打分的策略，也就是说对于每个Default Box，SSD网络会计算出相应的**每个类别的分数**。假设数据集类别数为c，加上背景，那么总的类别数就是**c+1**类。SSD网络采用了c+1维向量来分别代表该Default Box对于每个类别所得到的分数。这里，假设是VOC数据集，那么每个Default Box将生成一个20 + 1 + 4 = 25维的特征向量。同样，以Conv9输出特征图5x5为例。抽象地说特征向量就是：**(m\*n)\*k\*(c+4)**
 
-  ![img](https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/MgVSAo8.png)
+  ![img](https://jinluzhang.site/PublicPic/Pic/MgVSAo8.png)
 
 - **Default boxes and aspect ratios**，feature map上每个像素都会生成多个default box。作者充分的吸取了Faster R-CNN中的Anchors机制，在每个Stage中根据Feature Map的大小，按照固定的Scale和Radio生成Default Boxes。这里为了方便阐述，选取了Conv9的Feature Map，输出大小为5x5。SSD网络中作者设置Conv9的每个点默认生成6个box，如下图所示。因此在这一层上，共生成了5x5x6=150个boxes。
 
-  ![img](https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/pToKpCA.jpg)
+  ![img](https://jinluzhang.site/PublicPic/Pic/pToKpCA.jpg)
 
 （👆这段解释来自👉[here](https://blog.csdn.net/neu_chenguangq/article/details/79057655),感觉解释的很到位，特此说明）
 
 这样在不同尺度生成default box最大的好处在于可以对各种尺度和形状的物体进行预测：下图中狗的ground truth和4 x 4 feature map中default box匹配，但和8 x 8 feature map的任何一个default box都不匹配，所以SSD相对于RPN考虑更周到
 
-<img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200222105802543.png" alt="image-20200222105802543" style="zoom:67%;" />
+<img src="https://jinluzhang.site/PublicPic/Pic/image-20200222105802543.png" alt="image-20200222105802543" style="zoom:67%;" />
 
 ### 注意区分dafault box生成和CNN检测
 
@@ -85,7 +85,7 @@ SSD将VGG-16的全连接层fc6和fc7转换成3 x 3的卷积层Conv6和1 x 1的�
 
   每层特征图上的尺度的default box计算表达式如下：
 
-  ![image-20200209134820257](https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200209134820257.png)
+  ![image-20200209134820257](https://jinluzhang.site/PublicPic/Pic/image-20200209134820257.png)
 
   参数：scale， aspect ratio——每个cell生成固定的scale（s）和aspect ratio（ar）的边界框
 
@@ -103,13 +103,13 @@ SSD将VGG-16的全连接层fc6和fc7转换成3 x 3的卷积层Conv6和1 x 1的�
 
   分为两步：首先对于每个ground truth，找到一个与其IoU最大的default box匹配，这个default box对应的预测框就作为正样本，其余都作为负样本。但这样做会导致负样本过多，正负样本分布极其不均衡，所以还会采取第二步：对于每个ground truth，将与其IoU大于某一阈值（比如0.5）的default box都进行匹配。
 
-  <img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200222113304807.png" alt="image-20200222113304807" style="zoom: 50%;" />
+  <img src="https://jinluzhang.site/PublicPic/Pic/image-20200222113304807.png" alt="image-20200222113304807" style="zoom: 50%;" />
 
 - **损失函数**
 
-  ![image-20200222113449881](https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200222113449881.png)
+  ![image-20200222113449881](https://jinluzhang.site/PublicPic/Pic/image-20200222113449881.png)
 
-  <img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200222113710154.png" alt="image-20200222113710154" style="zoom: 50%;" />
+  <img src="https://jinluzhang.site/PublicPic/Pic/image-20200222113710154.png" alt="image-20200222113710154" style="zoom: 50%;" />
 
   ![[公式]](https://www.zhihu.com/equation?tex=N) 为匹配成功的default box个数； ![[公式]](https://www.zhihu.com/equation?tex=%5Calpha) 是为了权衡两者损失而设置，通过交叉验证发现设置为1更好；第一项是置信度的Softmax损失，注意还包括背景这个类别；第二项是参数化后的bounding box中心坐标、长和宽的Smooth L1损失
 
