@@ -1,6 +1,6 @@
 ---
 title: 问题解决：Github图片无法访问
-tags: enviroment-setup, bug
+tags: configuration bug
 layout: article
 aside:
   toc: true
