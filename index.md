@@ -1,26 +1,20 @@
 ---
-layout: home
-title: 
-  Jinlu Zhang
-key: home
-mode: immersive
+layout: article
+title: Page - Article Header Image (Customized Header Background)
 header:
   theme: dark
+  background: '#333'
 article_header:
-  type: overlay
-  theme: dark
-  background_color: '#123'
-  background_image: false
+  type: cover
+  image:
+    src: assets/images/bg/cover2.jpg
 ---
 
-# Hearder1
 
   I am master student in State Key Laboratory of LIESMARS at Wuhan University, China.
 
 If you see this page, that means you have setup your site. enjoy! :ghost: :ghost: :ghost:
 
-
-<!--more-->
 
 
 
