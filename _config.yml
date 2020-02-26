@@ -13,49 +13,49 @@
 
 
 
-theme: jekyll-text-theme
+
 ## => Site Settings
 ##############################
 text_skin: default # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
-highlight_theme: tomorrow # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
-url     : 'https://jinluzhang1126.github.io/' # the base hostname & protocol for your site e.g. https://www.someone.com
-baseurl : '/' # does not include hostname
-title   : Jinlu Zhang's Blog # Your Site Title
-description: My Website with Blogs, Publications, Projects and Resume...> 
-# this means to ignore newlines until "Language & timezone"
+highlight_theme: default # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
+url     : # the base hostname & protocol for your site e.g. https://www.someone.com
+baseurl : # does not include hostname
+title   : Your Site Title
+description: > # this means to ignore newlines until "Language & timezone"
+  Your Site Description
 
 
 ## => Language and Timezone
 ##############################
-lang:  # the language of your site, default as "en"
-timezone:  # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
+lang: # the language of your site, default as "en"
+timezone: # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
 
 
 ## => Author and Social
 ##############################
-author: 
-  type      : person # "person" (default), "organization"
-  name      : Jinlu Zhang
-  url       : https://jinluzhang1126.github.io/
-  avatar    : ./assets/images/avatar/2.jpg # path or url of avatar image (square)
-  bio       : Master of Computer Science, raw hand in computer vision, research interests are pose estimation, 3D, video estimation, etc.
-  email     : Jinluzhang1126@163.com
+author:
+  type      : # "person" (default), "organization"
+  name      : Your Name
+  url       :
+  avatar    : # path or url of avatar image (square)
+  bio       : I am an amazing person.
+  email     :
   facebook  : # "user_name" the last part of your profile url, e.g. https://www.facebook.com/user_name
   twitter   : # "user_name" the last part of your profile url, e.g. https://twitter.com/user_name
   weibo     : # "user_id"   the last part of your profile url, e.g. https://www.weibo.com/user_id/profile?...
   googleplus: # "user_id"   the last part of your profile url, e.g. https://plus.google.com/u/0/user_id
   telegram  : # "user_name" the last part of your profile url, e.g. https://t.me/user_name
   medium    : # "user_name" the last part of your profile url, e.g. https://medium.com/user_name
-  zhihu     : zhang-jin-lu-21 # "user_name" the last part of your profile url, e.g. https://www.zhihu.com/people/user_name
+  zhihu     : # "user_name" the last part of your profile url, e.g. https://www.zhihu.com/people/user_name
   douban    : # "user_name" the last part of your profile url, e.g. https://www.douban.com/people/user_name
   linkedin  : # "user_name" the last part of your profile url, e.g. https://www.linkedin.com/in/user_name
-  github    : JinluZhang1126 # "user_name" the last part of your profile url, e.g. https://github.com/user_name
+  github    : # "user_name" the last part of your profile url, e.g. https://github.com/user_name
   npm       : # "user_name" the last part of your profile url, e.g. https://www.npmjs.com/~user_name
 
 
 ## => GitHub Repository (if the site is hosted by GitHub)
 ##############################
-repository: JinluZhang1126/jinluzhang1126.github.io  # user_name/repo_name
+repository: user_name/repo_name
 repository_tree: master
 
 
@@ -64,7 +64,7 @@ repository_tree: master
 paths:
   root    : # title link url, "/" (default)
   home    : # home layout url, "/" (default)
-  archive : /web-blogs/index.html # "/archive.html" (default)
+  archive : # "/archive.html" (default)
   rss     : # "/feed.xml" (default)
 
 
@@ -78,37 +78,37 @@ license: CC-BY-NC-4.0 # "CC-BY-4.0", "CC-BY-SA-4.0", "CC-BY-NC-4.0", "CC-BY-ND-4
 
 ## TOC
 toc:
-  selectors: "h1,h2,h3" # "h1,h2,h3" (default) 目录元素，默认只包括h1-h3范围
+  selectors: # "h1,h2,h3" (default)
 
 
 ## => Markdown Enhancements
 ##############################
 ## Mathjax
-mathjax: true # false (default), true
-mathjax_autoNumber: true # false (default), true
+mathjax: # false (default), true
+mathjax_autoNumber: # false (default), true
 
 ## Mermaid
-mermaid: true # false (default), true
+mermaid: # false (default), true
 
 ## Chart
-chart: true # false (default), true
+chart: # false (default), true
 
 
 ## => Paginate
 ##############################
-paginate: 10
-paginate_path: /web-blogs/page:num # don't change this unless for special need
+paginate: 8
+paginate_path: /page:num # don't change this unless for special need
 
 
 ## => Sources
 ##############################
-sources: bootcdn # bootcdn (default), unpkg
+sources: # bootcdn (default), unpkg
 
 
 ## => Sharing
 ##############################
-sharing: # 分享系统的配置项
-  provider: addtoany # false (default), "addtoany", "addthis", "custom"
+sharing:
+  provider: false # false (default), "addtoany", "addthis", "custom"
 
   ## AddThis
   addthis:
@@ -118,7 +118,7 @@ sharing: # 分享系统的配置项
 ## => Comments
 ##############################
 comments:
-  provider: gitalk # false (default), "disqus", "gitalk", "valine", "custom"
+  provider: false # false (default), "disqus", "gitalk", "valine", "custom"
 
   ## Disqus
   disqus:
@@ -127,13 +127,12 @@ comments:
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
   gitalk:
-    clientID    : b1acb5b0d2dd499be916 # GitHub Application Client ID
-    clientSecret: 47f78b68caf39ab5586c7002d3eedfaa3fcfe7d9 # GitHub Application Client Secret
-    repository  : jinluzhang1126.github.io # GitHub repo
-    owner       : JinluZhang1126 # GitHub repo owner
-    admin: # 这是一个管理者列表  要启用本功能，每篇文章都要加上不同的key值
-      # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
-      - JinluZhang1126 
+    clientID    : # GitHub Application Client ID
+    clientSecret: # GitHub Application Client Secret
+    repository  : # GitHub repo
+    owner       : # GitHub repo owner
+    admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
+      # - your GitHub Id
 
   ## Valine
   # please refer to https://valine.js.org/en/ for more info.
@@ -148,14 +147,13 @@ comments:
 ## => Pageview
 ##############################
 pageview:
-  provider: leancloud # false (default), "leancloud", "custom"
+  provider: false # false (default), "leancloud", "custom"
 
   ## Leancloud
   leancloud:
-    app_id    : c6gtP6jxt3qJewcWjtK2SP8k-gzGzoHsz # LeanCloud App id
-    app_key   : O2L5dH1zaDkRkv0D8M8BHrjX # LeanCloud App key
-    app_class : ClicksView # LeanCloud App class
-    # 对于上面所有的点击量统计, 你都需要在页面的头信息里设置 key 属性来开启该页的统计功能
+    app_id    : # LeanCloud App id
+    app_key   : # LeanCloud App key
+    app_class : # LeanCloud App class
 
 
 ## => Search
@@ -168,14 +166,14 @@ search:
     custom_search_engine_id: # Google Custom Search Engine ID
 
 
-## => Analytics  分析访客ip地址等数据
+## => Analytics
 ##############################
 analytics:
-  provider: google # false (default), "google", "custom"
+  provider: false # false (default), "google", "custom"
 
   ## Google Analytics
   google:
-    tracking_id : UA-158381915-1 # Google Analytics id for the site
+    tracking_id : # Google Analytics id for the site
     anonymize_ip: false # Anonymize IP tracking for Analytics
 
 
