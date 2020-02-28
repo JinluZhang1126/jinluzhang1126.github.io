@@ -1,5 +1,6 @@
 ---
 title: Jekyll+云服务器搭建
+tags: configuration
 layout: article
 aside:
   toc: true
