@@ -13,10 +13,10 @@ https://cloud.tencent.com/developer/article/1453573， https://segmentfault.com/
 
 ## 需求
 
-最近因为一些原因需要在自己租的云服务器上搭建Jekyll博客，由于之前都是在GitHub Pages上搭建的，其实在服务器这一块只需要`git push`上去就行了，现在多了一步如何在服务器上启动jekyll，因为看不少教程都没有说清楚这一步，所以写个博客记录一下，顺便梳理一下自己搭建博客的历程。
+最近因为一些原因需要在自己租的云服务器上搭建Jekyll博客，<!--more-->由于之前都是在GitHub Pages上搭建的，其实在服务器这一块只需要`git push`上去就行了，现在多了一步如何在服务器上启动jekyll，因为看不少教程都没有说清楚这一步，所以写个博客记录一下，顺便梳理一下自己搭建博客的历程。
 
 下面以Jekyll模板+阿里云轻量服务器CentOS7.3为例，进行说明
-<!--more-->
+
 ## Jekyll+Github Pages
 
 1. 需要了解一下Jekyll的基础知识：http://jekyllcn.com/docs/home/
