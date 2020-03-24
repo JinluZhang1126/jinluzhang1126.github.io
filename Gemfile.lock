@@ -242,6 +242,7 @@ GEM
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.1)
+    wdm (0.1.1)
     zeitwerk (2.2.2)
 
 PLATFORMS
@@ -250,6 +251,8 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   jekyll-text-theme
+  nokogiri (>= 1.10.8)
+  wdm (>= 0.1.0)
 
 BUNDLED WITH
    2.1.4

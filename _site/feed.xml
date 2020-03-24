@@ -1,4 +1,429 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-02-25T14:47:06+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jinlu Zhang’s Blog</title><subtitle>My Website with Blogs, Publications, Projects and Resume...&gt;</subtitle><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><entry><title type="html">问题解决：Github图片无法访问</title><link href="http://localhost:4000/2020/02/25/github-img-not-available.html" rel="alternate" type="text/html" title="问题解决：Github图片无法访问" /><published>2020-02-25T00:00:00+08:00</published><updated>2020-02-25T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/25/github-img-not-available</id><content type="html" xml:base="http://localhost:4000/2020/02/25/github-img-not-available.html">&lt;h2 id=&quot;需求&quot;&gt;需求&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-24T20:32:15+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jinlu Zhang</title><subtitle>My Website with Blogs, Publications, Projects and Resume...&gt;</subtitle><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><entry><title type="html">WIN10【Tensorflow-gpu+Anaconda3+cuda9.0+cudnn7.1】安装记录!</title><link href="http://localhost:4000/2020/03/11/tensorflow1.x-gpu-setup-in-win10.html" rel="alternate" type="text/html" title="WIN10【Tensorflow-gpu+Anaconda3+cuda9.0+cudnn7.1】安装记录!" /><published>2020-03-11T00:00:00+08:00</published><updated>2020-03-11T00:00:00+08:00</updated><id>http://localhost:4000/2020/03/11/tensorflow1.x-gpu-setup-in-win10</id><content type="html" xml:base="http://localhost:4000/2020/03/11/tensorflow1.x-gpu-setup-in-win10.html">&lt;p&gt;首先，版本问题一定要适配https://www.tensorflow.org/install/source_windows，我装的是tensorflow-gpu1.11.0，配套是
+&lt;!--more--&gt;
+&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image001-1575469940025.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CUDA&lt;/strong&gt;和&lt;strong&gt;CuDNN&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;CUDA是NVIDIA推出的运算平台，CuDNN是专门针对Deep Learning框架设计的一套GPU计算加速方案。在安装之前要查询下最新TensorFLow发行版支持到了哪个版本。&lt;/p&gt;
+
+&lt;p&gt;1）显卡型号支持：https://developer.nvidia.com/cuda-gpus&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image002-1575469940025.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2）CUDA下载地址：https://developer.nvidia.com/cuda-toolkit-archive&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image003-1575469940026.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3）CuDNN下载地址：https://developer.nvidia.com/rdp/cudnn-download&lt;/p&gt;
+
+&lt;p&gt;（下载CuDNN需要注册账号，注册过程比较简单）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image004-1575469940026.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;TensorFlow&lt;/p&gt;
+
+&lt;p&gt;TensorFlow的版本信息可以在Github，tensorflow中文社区以及pypi上查看。&lt;/p&gt;
+
+&lt;p&gt;Github：https://github.com/tensorflow/tensorflow/releases&lt;/p&gt;
+
+&lt;p&gt;tensorflow社区：https://tensorflow.google.cn/versions/&lt;/p&gt;
+
+&lt;p&gt;pypi：https://pypi.org/project/tensorflow/#history&lt;/p&gt;
+
+&lt;p&gt;TensorFlow可以直接在Anaconda Prompt的命令行中用指令：“conda install tensorflow-gpu”直接安装，并且该指令在安装TensorFlow时还会顺带把Cuda和CuDNN也给装了。考虑到conda 的软件包并没有官方支持，并且tensorflow和附带的Cuda和CuDNN版本都不是最新的，笔者未使用conda安装，而是使用原生的 pip 安装，安装过程见后文。&lt;/p&gt;
+
+&lt;h2 id=&quot;第一步安装anaconda&quot;&gt;&lt;strong&gt;第一步：安装Anaconda&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt;&lt;strong&gt;下载和安装&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;下载地址：https://www.anaconda.com/download/&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image005-1575469940026.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我系统是64位，所以下载 &lt;a href=&quot;https://repo.anaconda.com/archive/Anaconda3-5.2.0-Windows-x86_64.exe&quot;&gt;64-Bit Graphical Installer (631 MB)&lt;/a&gt;，之后就是进行安装了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image006-1575469940026.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;和安装其他软件没有什么区别，需要注意的是这一步，不要勾选**“Add Anaconda to my PATH enviroment variable”，我们后面会手动加入。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image007-1575469940026.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;接下来就是等待了，安装结束后需要测试是否能正常使用，打开CMD输入“conda”命令，发现提示“’conda’ is not recognized as an internal or external command, operable program or batch file.”&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image008-1575469940026.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这是由于我们没有配置环境变量的原因。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt;&lt;strong&gt;配置&lt;/strong&gt;&lt;strong&gt;Anaconda&lt;/strong&gt;&lt;strong&gt;环境变量&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;我们点击左下角搜索栏搜索“环境变量”&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image009-1575469940026.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击环境变量&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image010.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;选择“Path”，点击“编辑”&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image011.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;将以下三个路径加入，注意这里要换成你自己的安装路径。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;G:\Anaconda\Anoconda3&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;G:\Anaconda\Anoconda3\Scripts&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;G:\Anaconda\Anoconda3\Library\bin&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;G:\Anaconda\Anoconda3\Library\mingw-w64\bin&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image012.png&quot; alt=&quot;G:\Anaconda\Anoconda3\Scripts &quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然后点击“确定”保存，这回再测试一下，再cmd中输入“conda -V”，能正常显示版本号，证明已经配置好了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image013.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;来自 &amp;lt;&lt;a href=&quot;https://www.cnblogs.com/guoyaohua/p/9265268.html#第一步安装anaconda&quot;&gt;https://www.cnblogs.com/guoyaohua/p/9265268.html#%E7%AC%AC%E4%B8%80%E6%AD%A5%E5%AE%89%E8%A3%85anaconda&lt;/a&gt;&amp;gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;第二步安装tensorflow-gpu&quot;&gt;&lt;strong&gt;第二步：安装&lt;/strong&gt;&lt;strong&gt;TensorFlow-GPU&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;打开tensorflow官网：https://www.tensorflow.org/install/install_windows#installing_with_anaconda&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image014.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;跟着操作步骤走就可以了。&lt;/p&gt;
+
+&lt;h3 id=&quot;1创建conda环境&quot;&gt;&lt;strong&gt;1.创建conda环境&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;通过调用下列命令，创建一个名为tfgpu的Conda环境：&lt;/p&gt;
+
+&lt;p&gt;conda create -n tfgpu pip python=3.6&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image015.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;等待相应包的安装，如果国内网络太慢的话，可以为conda设置清华源，这样速度能快一点，具体配置过程，网上查一下吧，此处不再讲述。如果看到这样的提示，就证明conda环境创建成功。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image016.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;2激活环境&quot;&gt;&lt;strong&gt;2.&lt;/strong&gt;激活环境&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;通过以下命令激活&lt;/strong&gt;&lt;strong&gt;conda&lt;/strong&gt;&lt;strong&gt;环境：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;activate tensorflow&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image017.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这样就进入了刚创建的“tensorflow”环境。&lt;/p&gt;
+
+&lt;h3 id=&quot;3安装tensorflow-gpu&quot;&gt;&lt;strong&gt;3.&lt;/strong&gt;安装tensorflow-gpu&lt;/h3&gt;
+
+&lt;p&gt;安装GPU版本的tensorflow需要输入以下命令：&lt;/p&gt;
+
+&lt;p&gt;pip install –ignore-installed –upgrade tensorflow-gpu&lt;/p&gt;
+
+&lt;p&gt;如果只需要安装CPU版本的tensorflow则输入以下命令：&lt;/p&gt;
+
+&lt;p&gt;pip install –ignore-installed –upgrade tensorflow&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image018.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这样就安装成功了。&lt;/p&gt;
+
+&lt;p&gt;注意：务必注意一点，在安装完&lt;strong&gt;tensroflow后，由于我们是新创建的conda环境，该环境中基本上是空的，有很多包和IDE并没有安装进来，例如“Ipython”，“spyder”此时如果我们在该环境下打开spyder/Ipyton/jupyter notebook等，会发现其实IDE使用的kernel并不是新建立的这个环境的kernel，而是“base”这个环境的，而“base”环境中我们并没有安装tensorflow，所以一定无法import。这也就是为什么有很多人在安装好tensorflow后仍然在IDE里无法正常使用的原因了。&lt;/strong&gt;**&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;通过以下命令安装&lt;/strong&gt;Anaconda基础包&lt;/p&gt;
+
+&lt;p&gt;conda install anaconda&lt;/p&gt;
+
+&lt;p&gt;这回，我们测试一下是否能import tensorflow&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image019.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;程序报错，这是由于我们虽然安装好了tensorflow-gpu，但是还需要安装CUDA Toolkit 和 cuDNN。&lt;/p&gt;
+
+&lt;h2 id=&quot;第三步安装cuda-toolkit--cudnn&quot;&gt;&lt;strong&gt;第三步：安装&lt;/strong&gt;CUDA Toolkit + cuDNN&lt;/h2&gt;
+
+&lt;h3 id=&quot;1查看需要安装的cudacudnn版本&quot;&gt;&lt;strong&gt;1.&lt;/strong&gt;查看需要安装的CUDA+cuDNN版本&lt;/h3&gt;
+
+&lt;p&gt;注意，tensorflow是在持续更新的，具体安装的CUDA和cuDNN版本需要去官网查看，要与最新版本的tensorflow匹配。&lt;/p&gt;
+
+&lt;p&gt;点击查看最新tensorflow支持的CUDA版本：https://www.tensorflow.org/install/install_windows#requirements_to_run_tensorflow_with_gpu_support&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image020.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;现在（PS：此博客书写日期 2018年7月5日）最新版tensorflow支持的是 CUDA® Toolkit 9.0 + cuDNN v7.0，一定注意，安装的版本一定一定要正确，不要看NVIDIA官网推出CUDA® Toolkit 9.2了就感觉最新版的更好，而安装最新版，这样很可能会导致tensorflow无法正常使用，所以一定要跟着tensorflow 官网的提示来。&lt;/p&gt;
+
+&lt;h3 id=&quot;2下载cuda--cudnn&quot;&gt;&lt;strong&gt;2.&lt;/strong&gt;下载CUDA + cuDNN&lt;/h3&gt;
+
+&lt;p&gt;在这个网址查找CUDA已发布版本：https://developer.nvidia.com/cuda-toolkit-archive&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image021.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;进入下载界面&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image022.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;下载好CUDA Toolkit 9.0 后，我们开始下载cuDnn 7.0，需要注意的是，下载cuDNN需要在nvidia上注册账号，使用邮箱注册就可以，免费的。登陆账号后才能下载。&lt;/p&gt;
+
+&lt;p&gt;cuDNN历史版本在该网址下载：https://developer.nvidia.com/rdp/cudnn-archive&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image023.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image024.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这样，我们就下载好了 CUDA Toolkit 9.0 和 cuDnn 7.0，下面我们开始安装。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image025.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;3安装-cuda-toolkit-90-和-cudnn-70&quot;&gt;&lt;strong&gt;3.&lt;/strong&gt;安装 CUDA Toolkit 9.0 和 cuDnn 7.0&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;至关重要的一步：卸载显卡驱动&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;由于CUDA Toolkit需要在指定版本显卡驱动环境下才能正常使用的，所以如果我们已经安装了nvidia显卡驱动（很显然，大部分人都安装了），再安装CUDA Toolkit时，会因二者版本不兼容而导致CUDA无法正常使用，这也就是很多人安装失败的原因。而CUDA Toolkit安装包中自带与之匹配的显卡驱动，所以务必要删除电脑先前的显卡驱动。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;安装&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image026.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image027.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;此处选择“自定义（高级）”&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image028.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;勾选所有&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image029.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;一路通过即可。&lt;/p&gt;
+
+&lt;p&gt;接下来，解压“cudnn-9.0-windows10-x64-v7.zip”，将一下三个文件夹，拷贝到CUDA安装的根目录下。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image030.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这样CUDA Toolkit 9.0 和 cuDnn 7.0就已经安装了，下面要进行环境变量的配置。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;配置环境变量&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;将下面四个路径加入到环境变量中，注意要换成自己的安装路径。(此处最好放到anaconda环境变量下面)&lt;/p&gt;
+
+&lt;p&gt;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin&lt;/p&gt;
+
+&lt;p&gt;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\libnvvp&lt;/p&gt;
+
+&lt;p&gt;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0&lt;/p&gt;
+
+&lt;p&gt;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64&lt;/p&gt;
+
+&lt;p&gt;到此，全部的安装步骤都已经完成，这回我们测试一下。&lt;/p&gt;
+
+&lt;p&gt;安装完成后，打开cmd窗口，输入nvcc -V，查看CUDA是否正确安装。若正确安装，会出来下图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;file:///C:/Users/KIMZHA~1/AppData/Local/Temp/msohtmlclip1/01/clip_image031.png&quot; alt=&quot;da compl ler driver  nvcc :  Copyright (https://jinluzhang.site/PublicPic/Pic/clip_image031.png) 2005—2017 WIDIA Corporation  Built on Fri_Sep_1 21:08:32_Centra1_Day1ight_Time_2017  Cuda compi lation tools, release 9. 0, V9. 0. 176 &quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;第四步：测试&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1.查看是否使用GPU&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import tensorflow as tf
+tf.test.gpu_device_name()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image032.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2.查看在使用哪个GPU&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from tensorflow.python.client import device_lib
+device_lib.list_local_devices()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image033.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;好了大功告成！&lt;/p&gt;
+
+&lt;p&gt;https://www.cnblogs.com/guoyaohua/p/9265268.html&lt;/p&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><summary type="html">首先，版本问题一定要适配https://www.tensorflow.org/install/source_windows，我装的是tensorflow-gpu1.11.0，配套是</summary></entry><entry><title type="html">Jekyll+云服务器搭建</title><link href="http://localhost:4000/2020/02/28/Jekyll-blog.html" rel="alternate" type="text/html" title="Jekyll+云服务器搭建" /><published>2020-02-28T00:00:00+08:00</published><updated>2020-02-28T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/28/Jekyll-blog</id><content type="html" xml:base="http://localhost:4000/2020/02/28/Jekyll-blog.html">&lt;p&gt;&lt;em&gt;博客参考自：&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;https://cloud.tencent.com/developer/article/1453573， https://segmentfault.com/a/1190000012560959&lt;/p&gt;
+
+&lt;h2 id=&quot;需求&quot;&gt;需求&lt;/h2&gt;
+
+&lt;p&gt;最近因为一些原因需要在自己租的云服务器上搭建Jekyll博客，&lt;!--more--&gt;由于之前都是在GitHub Pages上搭建的，其实在服务器这一块只需要&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push&lt;/code&gt;上去就行了，现在多了一步如何在服务器上启动jekyll，因为看不少教程都没有说清楚这一步，所以写个博客记录一下，顺便梳理一下自己搭建博客的历程。&lt;/p&gt;
+
+&lt;p&gt;下面以Jekyll模板+阿里云轻量服务器CentOS7.3为例，进行说明&lt;/p&gt;
+
+&lt;h2 id=&quot;jekyllgithub-pages&quot;&gt;Jekyll+Github Pages&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;需要了解一下Jekyll的基础知识：http://jekyllcn.com/docs/home/&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;然后需要建立一个你的仓库，命名为username.github.io即可，然后开启Github Pages功能，如图：&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200225144538660.png&quot; alt=&quot;img-github-page&quot; style=&quot;zoom: 67%;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;选一个喜欢的Jekyll模板，GitHub提供了几个，点击&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Change theme&lt;/code&gt;即可看到，觉得不喜欢还可以自己去找：http://jekyllthemes.org/， 选中之后去他的github仓库，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git clone&lt;/code&gt;下来，放进自己刚才创建的仓库，第一次搭建建议找一个README文档说明详细的，方便修改博客的各种属性，我选择的是&lt;a href=&quot;https://github.com/kitian616/jekyll-TeXt-theme&quot;&gt;Text Theme&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;本地调试需要搭建一个Ruby+bundle+jekyll的环境，参考http://jekyllcn.com/docs/installation/，对于ubuntu/centos用户，使用apt/yum等包管理安装的ruby版本可能不对，参考这里安装rubyhttps://segmentfault.com/a/1190000012560959&lt;/li&gt;
+  &lt;li&gt;配置好之后，在博客文件夹下使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt;即可在本地浏览器调试、预览。&lt;/li&gt;
+  &lt;li&gt;先读模板的代码，对应修改一些属性，这是我修改之后的模板&lt;a href=&quot;https://github.com/JinluZhang1126/jinluzhang1126.github.io/tree/template&quot;&gt;Jinlu Zhang&lt;/a&gt;，对一些不明确的属性加了注释，然后还对模板根据喜好做了些修改，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git clone&lt;/code&gt;我这个也可以。&lt;/li&gt;
+  &lt;li&gt;最终把自己满意的版本push到github仓库，他就可以自己部署了。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;云服务器部署&quot;&gt;云服务器部署&lt;/h2&gt;
+
+&lt;h3 id=&quot;环境搭建&quot;&gt;环境搭建&lt;/h3&gt;
+
+&lt;p&gt;在云服务器上部署其实和本地调试区别不大，主要在于ruby版本和后续安装要正确，安装姿势也要对，&lt;strong&gt;切记不要直接&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo yum install ruby&lt;/code&gt;,安装版本可能太老&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;（&lt;strong&gt;推荐&lt;/strong&gt;）rvm安装&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;源码编译：https://www.ruby-lang.org/en/documentation/installation/#building-from-source&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以使用rvm配置为例：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;安装rvm&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gpg &lt;span class=&quot;nt&quot;&gt;--keyserver&lt;/span&gt; hkp://keys.gnupg.net &lt;span class=&quot;nt&quot;&gt;--recv-keys&lt;/span&gt; 409B6B1796C275462A1703113804BB82D39DC0E3
+curl &lt;span class=&quot;nt&quot;&gt;-sSL&lt;/span&gt; https://get.rvm.io | bash &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; stable
+   
+&lt;span class=&quot;c&quot;&gt;# 如果上面的连接失败，可以尝试: &lt;/span&gt;
+curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer | bash &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; stable
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;可能会问你 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo&lt;/code&gt; 管理员密码，以及自动通过 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Homebrew&lt;/code&gt; 安装依赖包，等待一段时间后就可以成功安装好 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RVM&lt;/code&gt;。&lt;/p&gt;
+
+    &lt;p&gt;然后，载入 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RVM&lt;/code&gt; 环境（新开 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Termal&lt;/code&gt; 就不用这么做了，会自动重新载入的）&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /usr/local/rvm/scripts/rvm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;修改 RVM 的 Ruby 安装源到 Ruby China 的 Ruby 镜像服务器，这样能提高安装速度&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ruby_url=https://cache.ruby-china.org/pub/ruby&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /usr/local/rvm/user/db
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;检查一下是否安装正确&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rvm &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+   
+rvm 1.29.3 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;latest&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; by Michal Papis, Piotr Kuczynski, Wayne E. Seguin &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;https://rvm.io]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;使用rvm安装ruby&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rvm requirements
+rvm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;2.7.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;设置 Ruby 版本,同样，也可以用其他版本号，前提是你有用 rvm install 安装过那个版本&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rvm use 2.7.0 &lt;span class=&quot;nt&quot;&gt;--default&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;测试&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ruby &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+ruby 2.3.0p0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2015-12-25 revision 53290&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x86_64-linux]
+   
+gem &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+2.5.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;安装bundler&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;bundler
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;转到服务器上存放博客的路径下，启动jekyll服务&lt;/p&gt;
+
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;jekyll&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;serve&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;P&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;这样启动的服务在你关闭命令行后就会停止，而我们在服务器的服务不可能保存命令行连接，因此需要修改为：&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll serve &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; 0.0.0.0 &lt;span class=&quot;nt&quot;&gt;-P&lt;/span&gt; 80 &lt;span class=&quot;nt&quot;&gt;--detach&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;当你想要停止服务时，可以使用以下命令：&lt;/p&gt;
+
+    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;pkill&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;jekyll&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;或者&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ps &lt;span class=&quot;nt&quot;&gt;-ef&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;jekyll
+   
+&lt;span class=&quot;nb&quot;&gt;kill&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-9&lt;/span&gt; jekyll服务进程编号
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;nginx端口分发&quot;&gt;nginx端口分发&lt;/h3&gt;
+
+&lt;p&gt;服务器上不可能只运行一个博客，但是80端口只有一个&lt;/p&gt;
+
+&lt;p&gt;在启动Jekyll服务时，使用的命令：&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;jekyll&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;serve&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;P&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;detach&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;其中-P指定的就是启动时的端口，你可以修改为任意你服务器开放了的端口，如：&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;jekyll&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;serve&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;P&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8899&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;detach&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这样，你就将Jekyll服务启动在了8899端口下，那么问题来了，刚才说的只能访问80端口呢！不急。&lt;/p&gt;
+
+&lt;p&gt;我们在购买域名后，可以设置子域名。&lt;/p&gt;
+
+&lt;p&gt;1.首先去域名购买网站的控制台，在解析记录中，添加你想使用的子域名,同样解析指向你的服务器，如：&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;yuming&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;2.在服务器上安装nginx。&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;$sudo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;apt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nginx&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;3.启动nginx&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;$sudo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;etc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;nginx&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;start&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;4.修改nginx配置文件&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;etc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;nginx&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;vi&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nginx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;conf&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在 http 后的大括号内添加图片内容：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200228103323218.png&quot; alt=&quot;image-20200228103323218&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;其中&lt;/p&gt;
+
+&lt;p&gt;liston：80。想要监听的端口 server_name:blog.yuming.com。为你设置的子域名 location 后面的 http://localhost:8899。为你启动的Jekyll端口。&lt;/p&gt;
+
+&lt;p&gt;5.重新nginx&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nginx&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;restart&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;然后在浏览器访问你的子域名即可跳转至你的博客。&lt;/p&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="configuration" /><summary type="html">博客参考自： https://cloud.tencent.com/developer/article/1453573， https://segmentfault.com/a/1190000012560959 需求 最近因为一些原因需要在自己租的云服务器上搭建Jekyll博客，</summary></entry><entry><title type="html">问题解决：Github图片无法访问</title><link href="http://localhost:4000/2020/02/25/github-img-not-available.html" rel="alternate" type="text/html" title="问题解决：Github图片无法访问" /><published>2020-02-25T00:00:00+08:00</published><updated>2020-02-25T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/25/github-img-not-available</id><content type="html" xml:base="http://localhost:4000/2020/02/25/github-img-not-available.html">&lt;h2 id=&quot;需求&quot;&gt;需求&lt;/h2&gt;
 
 &lt;p&gt;最近发现在墙内无法顺畅的访问github远程仓库中的图片，导致自己的博客中的图片全都裂开了。。。
 &lt;!--more--&gt;
@@ -35,7 +460,7 @@
   &lt;/li&gt;
   &lt;li&gt;图中因为我配了一个域名，所以直接显示了域名，如果没有自己的域名就是github.io&lt;/li&gt;
   &lt;li&gt;直接访问域名+图片路径，以http://jinluzhang.site/PublicPic/Pic/image-20200225121128297.png为例，就会显示了，在markdown嵌入即可。&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="enviroment-setup," /><category term="bug" /><summary type="html">需求 最近发现在墙内无法顺畅的访问github远程仓库中的图片，导致自己的博客中的图片全都裂开了。。。</summary></entry><entry><title type="html">SSD Single Shot MultiBox Detector</title><link href="http://localhost:4000/2020/02/22/SSD-Single-Shot-MultiBox-Detector.html" rel="alternate" type="text/html" title="SSD Single Shot MultiBox Detector" /><published>2020-02-22T00:00:00+08:00</published><updated>2020-02-22T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/22/SSD-Single-Shot-MultiBox-Detector</id><content type="html" xml:base="http://localhost:4000/2020/02/22/SSD-Single-Shot-MultiBox-Detector.html">&lt;blockquote&gt;
+&lt;/ol&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="configuration" /><category term="bug" /><summary type="html">需求 最近发现在墙内无法顺畅的访问github远程仓库中的图片，导致自己的博客中的图片全都裂开了。。。</summary></entry><entry><title type="html">SSD Single Shot MultiBox Detector</title><link href="http://localhost:4000/2020/02/22/SSD-Single-Shot-MultiBox-Detector.html" rel="alternate" type="text/html" title="SSD Single Shot MultiBox Detector" /><published>2020-02-22T00:00:00+08:00</published><updated>2020-02-22T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/22/SSD-Single-Shot-MultiBox-Detector</id><content type="html" xml:base="http://localhost:4000/2020/02/22/SSD-Single-Shot-MultiBox-Detector.html">&lt;blockquote&gt;
   &lt;p&gt;目标检测中的一个经典one-stage算法——SSD，ECCV2016中Wei Liu提出的，相比于YOLO针对于小目标检测更友好。文章基本按照论文行文思路和结构记笔记，最后给出一个sumary&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;https://link.springer.com/chapter/10.1007%2F978-3-319-46448-0_2&quot;&gt;论文地址&lt;/a&gt;  &lt;a href=&quot;https://github.com/balancap/SSD-Tensorflow&quot;&gt;代码地址&lt;/a&gt;&lt;/p&gt;
@@ -264,7 +689,7 @@ the later stages of a network in order to perform detection at multiple scales&l
   &lt;li&gt;&lt;strong&gt;对小物体的检测相对于YOLO好一点&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;比YOLOv1快且精准度高，比Faster R-CNN精度略低&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;SSD整个网络采取了one stage的思想，以此提高检测速度。并且网络中融入了Faster R-CNN中的anchors思想，并且做了特征分层提取并依次计算边框回归和分类操作。总之，这是一个延申RPN网络思想，同时又结合YOLO框架的方法。&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="paper" /><summary type="html">目标检测中的一个经典one-stage算法——SSD，ECCV2016中Wei Liu提出的，相比于YOLO针对于小目标检测更友好。文章基本按照论文行文思路和结构记笔记，最后给出一个sumary 论文地址 代码地址 参考：SSD论文笔记,</summary></entry><entry><title type="html">Ubuntu18.04重装Nvidia驱动，cuda和cudnn，多用户使用anaconda</title><link href="http://localhost:4000/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda.html" rel="alternate" type="text/html" title="Ubuntu18.04重装Nvidia驱动，cuda和cudnn，多用户使用anaconda" /><published>2020-02-17T00:00:00+08:00</published><updated>2020-02-17T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda</id><content type="html" xml:base="http://localhost:4000/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda.html">&lt;p&gt;最近手残升级了nvidia显卡驱动，导致cuda与驱动冲动，没办法只能重装了。
+&lt;/ol&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="paper" /><category term="detection" /><summary type="html">目标检测中的一个经典one-stage算法——SSD，ECCV2016中Wei Liu提出的，相比于YOLO针对于小目标检测更友好。文章基本按照论文行文思路和结构记笔记，最后给出一个sumary 论文地址 代码地址 参考：SSD论文笔记,</summary></entry><entry><title type="html">Ubuntu18.04重装Nvidia驱动，cuda和cudnn，多用户使用anaconda</title><link href="http://localhost:4000/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda.html" rel="alternate" type="text/html" title="Ubuntu18.04重装Nvidia驱动，cuda和cudnn，多用户使用anaconda" /><published>2020-02-17T00:00:00+08:00</published><updated>2020-02-17T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda</id><content type="html" xml:base="http://localhost:4000/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda.html">&lt;p&gt;最近手残升级了nvidia显卡驱动，导致cuda与驱动冲动，没办法只能重装了。
 &lt;!--more--&gt;
 配置信息：&lt;br /&gt;系统：Ubuntu18.04；显卡：Nvidia 2080Ti；驱动：Nvidia Driver 440.44；cuda：10.2；cudnn：7.6.5&lt;/p&gt;
 
@@ -481,7 +906,7 @@ sudo vim ~/.basrc
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/anaconda3/etc/profile.d/conda.sh
 conda activate my_env
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="enviroment-setup" /><summary type="html">最近手残升级了nvidia显卡驱动，导致cuda与驱动冲动，没办法只能重装了。</summary></entry><entry><title type="html">Hello World!</title><link href="http://localhost:4000/2020/02/16/hello-world.html" rel="alternate" type="text/html" title="Hello World!" /><published>2020-02-16T00:00:00+08:00</published><updated>2020-02-16T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/16/hello-world</id><content type="html" xml:base="http://localhost:4000/2020/02/16/hello-world.html">&lt;p&gt;Hi everyone, welcome come to my blog website.:wink:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="configuration" /><summary type="html">最近手残升级了nvidia显卡驱动，导致cuda与驱动冲动，没办法只能重装了。</summary></entry><entry><title type="html">Hello World!</title><link href="http://localhost:4000/2020/02/16/hello-world.html" rel="alternate" type="text/html" title="Hello World!" /><published>2020-02-16T00:00:00+08:00</published><updated>2020-02-16T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/16/hello-world</id><content type="html" xml:base="http://localhost:4000/2020/02/16/hello-world.html">&lt;p&gt;Hi everyone, welcome come to my blog website.:wink:&lt;/p&gt;
 
 &lt;p&gt;I start this blog website by myself and Powered by &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; &amp;amp; &lt;a href=&quot;https://github.com/kitian616/jekyll-TeXt-theme&quot;&gt;TeXt Theme&lt;/a&gt;. Thanks the &lt;a href=&quot;https://github.com/kitian616&quot;&gt;author&lt;/a&gt; of this theme.&lt;/p&gt;
 

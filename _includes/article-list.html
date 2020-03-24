@@ -73,7 +73,8 @@
           {%- if include.show_info -%}
             {%- include snippets/assign.html target=site.data.variables.default.page.pageview
               source0=_article.pageview -%}
-            {%- assign _show_pageview = __return -%}
+              <!-- 这里设置了在博客列表页不显示pageview信息，要显示替换“False”为“__return”即可 -->
+            {%- assign _show_pageview = False -%}
             {%- include article-info.html article=_article show_pageview=_show_pageview -%}
           {%- endif -%}
         </div>
