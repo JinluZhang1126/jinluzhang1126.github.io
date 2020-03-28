@@ -1,4 +1,126 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-24T20:32:15+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jinlu Zhang</title><subtitle>My Website with Blogs, Publications, Projects and Resume...&gt;</subtitle><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><entry><title type="html">WIN10【Tensorflow-gpu+Anaconda3+cuda9.0+cudnn7.1】安装记录!</title><link href="http://localhost:4000/2020/03/11/tensorflow1.x-gpu-setup-in-win10.html" rel="alternate" type="text/html" title="WIN10【Tensorflow-gpu+Anaconda3+cuda9.0+cudnn7.1】安装记录!" /><published>2020-03-11T00:00:00+08:00</published><updated>2020-03-11T00:00:00+08:00</updated><id>http://localhost:4000/2020/03/11/tensorflow1.x-gpu-setup-in-win10</id><content type="html" xml:base="http://localhost:4000/2020/03/11/tensorflow1.x-gpu-setup-in-win10.html">&lt;p&gt;首先，版本问题一定要适配https://www.tensorflow.org/install/source_windows，我装的是tensorflow-gpu1.11.0，配套是
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-28T17:50:20+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jinlu Zhang</title><subtitle>My Website with Blogs, Publications, Projects and Resume...&gt;</subtitle><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><entry><title type="html">如何高效地进行文献阅读和总结？</title><link href="http://localhost:4000/2020/03/28/how-to-read-papers.html" rel="alternate" type="text/html" title="如何高效地进行文献阅读和总结？" /><published>2020-03-28T00:00:00+08:00</published><updated>2020-03-28T00:00:00+08:00</updated><id>http://localhost:4000/2020/03/28/how-to-read-papers</id><content type="html" xml:base="http://localhost:4000/2020/03/28/how-to-read-papers.html">&lt;!--more--&gt;
+&lt;p&gt;&lt;em&gt;最近这段时间看论文看到的头疼，相信很多第一次忙毕业论文或者研究课题的同学都深有体会，我总结一些自己阅读文献的经验和总结方法，不足之处还请多多指教。&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;为什么进行文献阅读&quot;&gt;为什么进行文献阅读？&lt;/h2&gt;
+
+&lt;p&gt;知乎一个回答让我觉得很有意思，原文如下：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;不断涌现的论文，其实就是学术界的升级安装包。你不断读论文，就是为了跟学术共同体&lt;strong&gt;保持同步&lt;/strong&gt;。但是，只有你跟这篇论文所&lt;strong&gt;依赖&lt;/strong&gt;的那些基础知识同步以后，安装这个升级包才有意义，也才能水到渠成。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;个人认为，论文就是研究者的presentation，能够以最严谨、简洁、客观（仅限于高水平文献）展示自己的idea，读最新的文献是为了掌握最新的学术动态，读经典文献是为了对领域的发展和基础有更深的了解。所有的论文都要站在前人的肩膀上再进一步，凭空捏造一个全新的成果不可靠，也不现实，所以读文献，是所有研究者必经之路。&lt;/p&gt;
+
+&lt;h2 id=&quot;如何选择文献&quot;&gt;如何选择文献&lt;/h2&gt;
+
+&lt;p&gt;关于文献的搜索和整理以及相关工具的使用，有时间我会单独写一篇笔记，这里着重介绍一些大佬还有我个人如何进行选择文献和筛选的。&lt;/p&gt;
+
+&lt;h3 id=&quot;1-通过综述入门&quot;&gt;1. 通过综述入门&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;原则：读综述以读全为目的，1-2篇足矣&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;很多人推荐直接阅读最新的文献，我认为如果有充足的时间，可以先读该领域的综述，最好是最近三年的综述，可以更好地认识该领域：包括经典方法、最新的热点、研究趋势、技术难点等，读文献综述可以知道&lt;strong&gt;已经做出了什么成果，还需要做什么事情，哪些问题没有解决&lt;/strong&gt;。综述多为该领域的资深人士编写，视角更宽广，可以提高可言的视野和思路，读一两篇综述，就可以对该领域有个大致了解。查找方法可以直接通过&lt;a href=&quot;https://scholar.google.com/&quot;&gt;Google Scholor&lt;/a&gt;或者&lt;a href=&quot;webofknowledge.com&quot;&gt;Web of Science&lt;/a&gt;上进行&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Survey/Review+&amp;lt;领域&amp;gt;&lt;/code&gt;的检索。(免费用学校购买的版权看paper真的是爽:satisfied:)&lt;/p&gt;
+
+&lt;h3 id=&quot;2-定位细分领域与相关文献&quot;&gt;2. 定位细分领域与相关文献&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;原则：读新、读典&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;最新的好论文才能代表最近的研究趋势和研究热点，入门阶段不宜不要过多沉溺于十年前的作品（经典除外）&lt;/p&gt;
+
+&lt;p&gt;通过综述锁定自己想做的某一个细分问题，以姿态估计为例，包括skeleton检测、动作识别、2D pose、3D pose、2D+ Pose等细分领域，确定该细分领域后，可以先通过综述中提到的reference下手，把他们先找全，往往这些方法都是SOTA或者经典方法，再根据他们论文中提到的文献，进行筛选、汇总。这部分工作一般需要先阅读一部分论文，才能有分辨能力的进一步筛选文献。&lt;/p&gt;
+
+&lt;p&gt;还有一种方法，可以直接找到领域内顶级期刊、会议的整理，直接筛选最近两三年的相关领域论文，这种方法比较费力，但是可以很快速的阅读到最新的论文。&lt;/p&gt;
+
+&lt;p&gt;一般筛选25-40篇就可以开始系统地阅读了，不要只忙于筛选搜集而后束之高阁，那样毫无意义。&lt;/p&gt;
+
+&lt;h3 id=&quot;3读人读组&quot;&gt;3.读人，读组&lt;/h3&gt;
+
+&lt;p&gt;这个是建立在对该领域有一定了解的基础上，读得多了，参加的讨论多了，自然就知道该领域哪些大佬，哪些group有杰出的工作。可以谷歌他们的个人网站或者通过Google scholar搜索大佬的作品，挑选着读。&lt;/p&gt;
+
+&lt;h2 id=&quot;如何阅读&quot;&gt;如何阅读&lt;/h2&gt;
+
+&lt;h3 id=&quot;文献文章结构&quot;&gt;文献文章结构&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200328174957659.png&quot; alt=&quot;image-20200328174957659&quot; style=&quot;zoom:67%;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;一般来说文章的大体结构是如上所示，有了结构才有读论文的节奏和思路&lt;/p&gt;
+
+&lt;h3 id=&quot;阅读顺序&quot;&gt;阅读顺序&lt;/h3&gt;
+
+&lt;p&gt;我读论文的顺序大体如下：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;首先看摘要（abstract），摘要可以概括一篇文章的主题和基本内容，许多文章只看摘要就可以判断是否值得读/是否是自己想要的。只读摘要不可，但摘要可以给人第一印象，需要好好读这部分。&lt;/p&gt;
+
+    &lt;p&gt;如何判断是否是自己想要的文章？摘要（abstract）+介绍（introduction）+图+表格就可以基本了解了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;其次看introduction部分，这部分主要介绍哪些技术难点和问题所在，以及简述自己方法的原理，如果你在选题，那么这部分讲完现阶段使用的方法之后、介绍自己方法之前的那部分内容，往往就是需要你来做的内容啦​,​做不做得出来另说:slightly_smiling_face:&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;proposal这部分是文章核心，也是&lt;strong&gt;读懂论文的难点&lt;/strong&gt;所在，如果这篇论文很重要，那么一定要吃透文章的大部分原理，包括公式，虽然啃论文很苦涩，但是啃透了就会有种豁然开朗的话感觉。&lt;/li&gt;
+  &lt;li&gt;实验这部分主要看一下实验方法和用到的数据集之类就可以，归纳主流的&lt;strong&gt;实验方法&lt;/strong&gt;和&lt;strong&gt;指标&lt;/strong&gt;。这样可以自己做实验的时候有一个指导&lt;/li&gt;
+  &lt;li&gt;Conclusion就不说了&lt;/li&gt;
+  &lt;li&gt;参考文献这部分，可以利用这部分探索其他值得读的文章，读了很多篇之后，就会知道哪一篇是高引文章了&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;：总的来说，书读百遍，其意自现这话是有道理的，论文不用读那么多遍，和自己课题最相近的5-6篇啃透，同领域的和经典的25-40篇理解，整个领域及跨学科的了解就够了。&lt;/p&gt;
+
+&lt;h3 id=&quot;精读与略读&quot;&gt;精读与略读&lt;/h3&gt;
+
+&lt;p&gt;上面说的一般是我精读文章的步骤，但是很多文章，比如对于自己课题不是强相关、没有直接帮助、不是很新的，可以略读，具体方法是&lt;strong&gt;省略上述3，4，5部分&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;论文笔记&quot;&gt;论文笔记&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;一定一定一定要记笔记&lt;/strong&gt;，一篇好的论文读下来，要整理自己的思路、理解和想法，不然读了之后就会忘，一篇文章100分的营养，没有笔记可能只能吸取30分（当然我比较菜，记了笔记也不敢说能完全理解，但这绝对是一个好习惯），个人推荐电子笔记而不是直接在PDF做标注，这样能够时刻回顾、比较系统、可以构建自己的论文知识体系，并且放在博客网站上还能和别人讨论。&lt;/p&gt;
+
+&lt;p&gt;记笔记&lt;strong&gt;不宜把全文翻译下来&lt;/strong&gt;，那样和重复造轮子没什么区别，连造轮子都算不上。不一定很多，但是要&lt;strong&gt;把自己的理解，读文章时的想法，遇到的难点记录下来&lt;/strong&gt;，这样才是有帮助的。论翻译，我是比不过Google和有道，也没必要做机器的活儿。&lt;/p&gt;
+
+&lt;h2 id=&quot;如何加深理解&quot;&gt;如何加深理解&lt;/h2&gt;
+
+&lt;p&gt;对论文中一些原理和公式理解不清，怎么都想不明白，完全正常，我读十篇论文九篇不明白的，那么怎么加深理解（弄明白）？&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;PPT是个好东西&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;好处&lt;/strong&gt;：PPT更多使用描述性语言，生动的例子和图片，更能深入浅出（不带公式）地描述清楚原理。并且由于是作者自己做的，原汁原味，不会跑偏。&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;适用&lt;/strong&gt;：非常知名、高影响力的工作。很多工作是不会做PPT/做了也不大会公开，不好搜索&lt;/p&gt;
+
+    &lt;p&gt;比如Fastern RCNN，直接搜索论文名称+PPT/slide就大概率可以得到了：&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200328171319497.png&quot; alt=&quot;image-20200328171319497&quot; style=&quot;zoom: 60%;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;博客是个好东西&lt;/p&gt;
+
+    &lt;p&gt;首推作者本人的博客，上面可能有对论文更深的解释&lt;/p&gt;
+
+    &lt;p&gt;其次中国的CSDN，掘金，知乎，国外的reddit,medium以及github issues等，不一一列举，有更好网站的同学请补充给我&lt;/p&gt;
+
+    &lt;p&gt;后者社区型博客好就好在足够多的用户可以进行评论、交流&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;开源项目是个好东西&lt;/p&gt;
+
+    &lt;p&gt;如果论文开源了，啥也不说，先跑通代码试试，说不定通过实验就理解了呢。有问题也可以通过github issues交流&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;论文作者是个好&lt;del&gt;东西&lt;/del&gt;人&lt;/p&gt;
+
+    &lt;p&gt;大部分作者还是愿意分享自己的想法和成果的，毕竟都需要扩大工作的影响力，所以真不理解了/要源码/数据集，可以直接邮件，但不开源的要源码这事儿就看脸了，我是没成功过。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;脑子是个好东西&lt;/p&gt;
+
+    &lt;p&gt;所有的方法归根到底，还是要靠自己，科研工作一定要有一个能&lt;strong&gt;独立思考&lt;/strong&gt;的脑子&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;祝大家人人有顶会，年年有顶刊！&lt;/p&gt;
+
+&lt;p&gt;欢迎交流&lt;/p&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><summary type="html"></summary></entry><entry><title type="html">WIN10【Tensorflow-gpu+Anaconda3+cuda9.0+cudnn7.1】安装记录!</title><link href="http://localhost:4000/2020/03/11/tensorflow1.x-gpu-setup-in-win10.html" rel="alternate" type="text/html" title="WIN10【Tensorflow-gpu+Anaconda3+cuda9.0+cudnn7.1】安装记录!" /><published>2020-03-11T00:00:00+08:00</published><updated>2020-03-11T00:00:00+08:00</updated><id>http://localhost:4000/2020/03/11/tensorflow1.x-gpu-setup-in-win10</id><content type="html" xml:base="http://localhost:4000/2020/03/11/tensorflow1.x-gpu-setup-in-win10.html">&lt;p&gt;首先，版本问题一定要适配https://www.tensorflow.org/install/source_windows，我装的是tensorflow-gpu1.11.0，配套是
 &lt;!--more--&gt;
 &lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image001-1575469940025.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
