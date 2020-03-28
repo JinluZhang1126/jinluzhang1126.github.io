@@ -5,6 +5,7 @@ aside:
   toc: true
 key: 2020-03-11-tensorflow1.x-gpu-setup-in-win10
 show_title: true
+tags: configuration
 ---
 
 

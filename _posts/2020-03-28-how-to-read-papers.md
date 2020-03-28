@@ -5,11 +5,7 @@ aside:
   toc: true
 key: 2020-03-28-how-to-read-papers
 show_title: true
-## => Markdown Enhancements
-mathjax: true # false (default), true
-mathjax_autoNumber: true # false (default), true
-mermaid: true # false (default), true
-chart: true # false (default), true
+tags: how_to_research
 mode: immersive
 header:
   theme: dark
