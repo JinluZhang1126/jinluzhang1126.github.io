@@ -11,7 +11,7 @@ tags: pose paper
 <img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/20200321094012.png" alt="20200321094012" style="zoom: 80%;" />
 
 可以看出这四个部分都是与人体姿态有关的，也是姿态估计的具体分支
-
+<!--more-->
 ## 姿态识别
 
 **姿态识别一般流程如下：**
