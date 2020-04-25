@@ -1,5 +1,5 @@
 ---
-title: RMPE: Regional Multi-person Pose Estimation
+title: RMPE Regional Multi-person Pose Estimation
 layout: article
 aside:
   toc: true
