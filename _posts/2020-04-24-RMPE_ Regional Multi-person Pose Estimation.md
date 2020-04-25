@@ -5,12 +5,13 @@ aside:
   toc: true
 key: RMPE-AlphaPose
 show_title: true
+tags: paper pose
 ---
 
 [paper](https://arxiv.org/abs/1612.00137v3)	[code](https://github.com/MVIG-SJTU/AlphaPose/tree/pytorch)
 ## Summary
 这篇论文是上海交大和腾讯优图的论文，被 ICCV 2017接收。它对于多人姿态估计的方法采用传统的自顶向下的方法，即先检测人，再识别人体姿态。检测使用的是SSD-512，识别人体姿态使用的是state-of-the-art的Stacked Hourglass方法。
-<!-- more -->
+<!--more-->
 ## Problem Statement
 论文分析了当前姿态估计的两种方法存在的问题——**对于自顶向下的方法，检测的误差是很大的一个影响，即使在检测任务下是正确的，提取的proposal也不适用于单人的姿态估计方法；同时，冗余的检测框也使得单人的姿态被重复估计；对于自底向上的方法，当两个人比较靠近时，人体关键点分配到每个人身上会出错，这也是该方法的challenge。**作者采用自顶向下方法，致力于解决对于imperfect proposal，通过调整，使得crop的person能够被单人姿态估计方法很好的识别，从而克服检测带来的定位误差。
 ## Research Objective
