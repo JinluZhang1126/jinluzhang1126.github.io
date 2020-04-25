@@ -8,6 +8,8 @@ show_title: true
 tags: paper pose
 ---
 
+<meta name="referrer" content="no-referrer" />
+
 [paper](https://arxiv.org/abs/1612.00137v3)	[code](https://github.com/MVIG-SJTU/AlphaPose/tree/pytorch)
 <a name="Summary"></a>
 ## Summary
