@@ -1,5 +1,5 @@
 ---
-title: 【论文笔记】SSD Single Shot MultiBox Detector
+title: SSD Single Shot MultiBox Detector
 tags: paper detection
 layout: article
 aside:
