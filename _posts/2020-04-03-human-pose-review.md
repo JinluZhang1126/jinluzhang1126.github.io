@@ -5,7 +5,7 @@ aside:
   toc: true
 key: 2020-04-03-human-pose-review
 show_title: true
-tags: pose paper
+tags: human_pose paper
 ---
 
 <img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/20200321094012.png" alt="20200321094012" style="zoom: 80%;" />

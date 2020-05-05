@@ -1,5 +1,5 @@
 ---
-title: VideoPose3D
+title: Video Pose 3D
 layout: article
 aside:
   toc: true
