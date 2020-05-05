@@ -1,10 +1,20 @@
+---
+title: VideoPose3D
+layout: article
+aside:
+  toc: true
+key: VideoPose3D
+show_title: true
+tags: paper human_pose
+---
+
 > *3D human pose estimation in video with temporal convolutions and semi-supervised training*
 [paper](https://arxiv.org/abs/1811.11742)    [code](https://github.com/facebookresearch/VideoPose3D)    [project](https://dariopavllo.github.io/VideoPose3D/)
 
 # **Summary**
 
 写完笔记之后最后填，概述文章的内容，以后查阅笔记的时候先看这一段。
-
+<!--more-->
 # **Problem Statement**
 
 3D poses in video，即从2D video中估计3D skeleton pose
