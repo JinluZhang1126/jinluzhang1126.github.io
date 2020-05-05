@@ -5,7 +5,7 @@ aside:
   toc: true
 key: 2020-03-28-how-to-read-papers
 show_title: true
-tags: how_to_research
+tags: research
 mode: immersive
 header:
   theme: dark
