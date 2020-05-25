@@ -64,7 +64,7 @@ tags: paper human_pose
 
 # **Conclusion**
 
-作者给了哪些结论，哪些是strong conclusions, 哪些又是weak的conclusions?
+![image-20200516142932438](https://jinluzhang.site/PublicPic/Pic/20200516143016.png)
 
 # **Notes**
 

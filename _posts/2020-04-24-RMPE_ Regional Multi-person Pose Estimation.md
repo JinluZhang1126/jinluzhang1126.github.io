@@ -5,7 +5,7 @@ aside:
   toc: true
 key: RMPE-AlphaPose
 show_title: true
-tags: paper pose
+tags: paper human_pose
 ---
 
 [paper](https://arxiv.org/abs/1612.00137v3)	[code](https://github.com/MVIG-SJTU/AlphaPose/tree/pytorch)
