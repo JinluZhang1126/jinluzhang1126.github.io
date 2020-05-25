@@ -6,9 +6,8 @@ aside:
   toc: true
 key: 2020-05-25-Ubuntu-DL-configuration
 show_title: true
-show_excerpt: false
 ---
-
+<!--more-->
 
 <a name="kT3br"></a>
 # 1. 检查驱动
