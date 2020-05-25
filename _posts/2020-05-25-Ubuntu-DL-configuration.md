@@ -6,6 +6,7 @@ aside:
   toc: true
 key: 2020-05-25-Ubuntu-DL-configuration
 show_title: true
+show_excerpt: false
 ---
 
 
