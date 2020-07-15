@@ -14,7 +14,7 @@ article_header:
   background_color: '#203028'
   background_image:
     gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
-    src: http://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200328113920559.png
+    src: http://jinluzhang.site/PublicPic/Pic/image-20200328113920559.png
 ---
 <!--more-->
 *最近这段时间看论文看到的头疼，相信很多第一次忙毕业论文或者研究课题的同学都深有体会，我总结一些自己阅读文献的经验和总结方法，不足之处还请多多指教。*
@@ -57,7 +57,7 @@ article_header:
 
 ### 文献文章结构
 
-<img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200328174957659.png" alt="image-20200328174957659" style="zoom:67%;" />
+<img src="http://jinluzhang.site/PublicPic/Pic/image-20200328174957659.png" alt="image-20200328174957659" style="zoom:67%;" />
 
 一般来说文章的大体结构是如上所示，有了结构才有读论文的节奏和思路
 
@@ -100,7 +100,7 @@ article_header:
 
    比如Fastern RCNN，直接搜索论文名称+PPT/slide就大概率可以得到了：
 
-   <img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200328171319497.png" alt="image-20200328171319497" style="zoom: 60%;" />
+   <img src="http://jinluzhang.site/PublicPic/Pic/image-20200328171319497.png" alt="image-20200328171319497" style="zoom: 60%;" />
 
 2. 博客是个好东西
 
