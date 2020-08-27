@@ -1,7 +1,7 @@
 header:
   - titles:
       # @start locale config
-      en      : &EN       Blog
+      en      : &EN       Paper Blog
       en-GB   : *EN
       en-US   : *EN
       en-CA   : *EN
@@ -11,11 +11,11 @@ header:
       zh-CN   : *ZH_HANS
       zh-SG   : *ZH_HANS
       # @end locale config
-    url: /web-blogs
+    url: https://www.yuque.com/jinluzhang/paperblog
 
   - titles:
       # @start locale config
-      en      : &EN       Tag
+      en      : &EN       Dev Blog
       en-GB   : *EN
       en-US   : *EN
       en-CA   : *EN
@@ -25,7 +25,7 @@ header:
       zh-CN   : *ZH_HANS
       zh-SG   : *ZH_HANS
       # @end locale config
-    url: /web-tags
+    url: https://www.yuque.com/jinluzhang/myblog
 
   - titles:
       # @start locale config
