@@ -6,7 +6,7 @@ header:
       en-US   : *EN
       en-CA   : *EN
       en-AU   : *EN
-      zh-Hans : &ZH_HANS  博客
+      zh-Hans : &ZH_HANS  Paper Blog
       zh      : *ZH_HANS
       zh-CN   : *ZH_HANS
       zh-SG   : *ZH_HANS
@@ -14,14 +14,14 @@ header:
     url: https://www.yuque.com/jinluzhang/paperblog
 
   - titles:
-    
+
       # @start locale config
       en      : &EN       Dev Blog
       en-GB   : *EN
       en-US   : *EN
       en-CA   : *EN
       en-AU   : *EN
-      zh-Hans : &ZH_HANS  标签
+      zh-Hans : &ZH_HANS  Dev Blog
       zh      : *ZH_HANS
       zh-CN   : *ZH_HANS
       zh-SG   : *ZH_HANS
