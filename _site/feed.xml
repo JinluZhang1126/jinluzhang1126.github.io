@@ -1,12 +1,532 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-03T11:10:55+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jinlu Zhang</title><subtitle>My Website with Blogs, Publications, Projects and Resume...&gt;</subtitle><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><entry><title type="html">Human Pose综述</title><link href="http://localhost:4000/2020/04/03/human-pose-review.html" rel="alternate" type="text/html" title="Human Pose综述" /><published>2020-04-03T00:00:00+08:00</published><updated>2020-04-03T00:00:00+08:00</updated><id>http://localhost:4000/2020/04/03/human-pose-review</id><content type="html" xml:base="http://localhost:4000/2020/04/03/human-pose-review.html">&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/20200321094012.png&quot; alt=&quot;20200321094012&quot; style=&quot;zoom: 80%;&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-08-31T09:45:18+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jinlu Zhang</title><subtitle>My Website with Blogs, Publications, Projects and Resume...&gt;</subtitle><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><entry><title type="html">Pytorch显存充足出现CUDA error:out of memory错误</title><link href="http://localhost:4000/2020/08/16/pytorch-cuda-out-of-memory.html" rel="alternate" type="text/html" title="Pytorch显存充足出现CUDA error:out of memory错误" /><published>2020-08-16T00:00:00+08:00</published><updated>2020-08-16T00:00:00+08:00</updated><id>http://localhost:4000/2020/08/16/pytorch-cuda-out-of-memory</id><content type="html" xml:base="http://localhost:4000/2020/08/16/pytorch-cuda-out-of-memory.html">&lt;!--more--&gt;
+
+&lt;h1 id=&quot;pytorch显存充足出现cuda-errorout-of-memory错误&quot;&gt;Pytorch显存充足出现CUDA error:out of memory错误&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Ref:
+&lt;a href=&quot;https://www.cnblogs.com/jisongxie/p/10276742.html&quot;&gt;https://www.cnblogs.com/jisongxie/p/10276742.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a name=&quot;RHzfn&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;报错内容&quot;&gt;报错内容&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2020/png/602350/1597653487139-4497bfd2-30ab-4733-86d9-64e769a2f690.png#align=left&amp;amp;display=inline&amp;amp;height=31&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;name=image.png&amp;amp;originHeight=31&amp;amp;originWidth=414&amp;amp;size=9563&amp;amp;status=done&amp;amp;style=none&amp;amp;width=414&quot; alt=&quot;image.png&quot; /&gt;
+&lt;a name=&quot;cHujo&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;bug描述&quot;&gt;Bug描述&lt;/h2&gt;
+&lt;p&gt;显存充足，并且已经通过 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;torch.nn.DataParallel&lt;/code&gt; 指定GPU编号&lt;br /&gt;CUDA与CUDNN均无错误，NVIDIA驱动无错误
+&lt;a name=&quot;VwWaK&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;解决方案&quot;&gt;解决方案&lt;/h2&gt;
+&lt;p&gt;以上情况很可能是是Tensorflow和pytorch冲突导致的，因为我发现当我同学在0号GPU上运行程序我就会出问题。&lt;br /&gt;详见pytorch官方论坛：&lt;br /&gt;&lt;a href=&quot;https://discuss.pytorch.org/t/gpu-is-not-utilized-while-occur-runtimeerror-cuda-runtime-error-out-of-memory-at/34780&quot;&gt;https://discuss.pytorch.org/t/gpu-is-not-utilized-while-occur-runtimeerror-cuda-runtime-error-out-of-memory-at/34780&lt;/a&gt;&lt;br /&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2020/png/602350/1597653932033-c9117000-4d24-4cc9-ab6d-35712afbacdb.png#align=left&amp;amp;display=inline&amp;amp;height=283&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;originHeight=283&amp;amp;originWidth=756&amp;amp;size=0&amp;amp;status=done&amp;amp;style=none&amp;amp;width=756&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CUDA_VISIBLE_DEVICES&lt;/code&gt; 限制一下使用的GPU。&lt;br /&gt;比如有0,1,2,3号GPU，CUDA_VISIBLE_DEVICES=2,3，则当前进程的可见GPU只有物理上的2、3号GPU，此时它们的编号也对应变成了0、1，即cuda:0对应2号GPU，cuda:1对应3号GPU。&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 使用python的os模块
+&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'CUDA_VISIBLE_DEVICES'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'2, 3'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 直接设置环境变量(linux系统)&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CUDA_VISIBLE_DEVICES&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2,3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="bug" /><summary type="html"></summary></entry><entry><title type="html">Ubuntu18.04-DL环境配置-驱动+新建用户+conda+Tensorflow/Pytorch</title><link href="http://localhost:4000/2020/05/25/Ubuntu-DL-configuration.html" rel="alternate" type="text/html" title="Ubuntu18.04-DL环境配置-驱动+新建用户+conda+Tensorflow/Pytorch" /><published>2020-05-25T00:00:00+08:00</published><updated>2020-05-25T00:00:00+08:00</updated><id>http://localhost:4000/2020/05/25/Ubuntu-DL-configuration</id><content type="html" xml:base="http://localhost:4000/2020/05/25/Ubuntu-DL-configuration.html">&lt;!--more--&gt;
+
+&lt;p&gt;&lt;a name=&quot;kT3br&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;1-检查驱动&quot;&gt;1. 检查驱动&lt;/h1&gt;
+&lt;p&gt;使用 nvidia-smi 查看驱动，若没有cuda驱动，查阅&lt;a href=&quot;http://jinluzhang.site/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda.html&quot;&gt;博客&lt;/a&gt;&lt;br /&gt;正常情况截图：&lt;br /&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2020/png/602350/1590373061878-75120abc-07c6-4abe-aa7e-76f8314d1737.png#align=left&amp;amp;display=inline&amp;amp;height=97&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;name=image.png&amp;amp;originHeight=79&amp;amp;originWidth=574&amp;amp;size=37232&amp;amp;status=done&amp;amp;style=none&amp;amp;width=708&quot; alt=&quot;image.png&quot; /&gt;
+&lt;a name=&quot;Z0FWz&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;2-新建用户非必须&quot;&gt;2. 新建用户（非必须）&lt;/h1&gt;
+&lt;p&gt;新建只能在控制台下登录的用户&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;切换为root用户为了获取创建用户的权限&lt;br /&gt;
+peng@ubuntu:~$ sudo su&lt;/li&gt;
+  &lt;li&gt;添加一个新用户（如用户名为csdn）&lt;br /&gt;
+root@ubuntu:/home/peng# useradd zjl&lt;/li&gt;
+  &lt;li&gt;为该用户设定登录密码&lt;br /&gt;
+root@ubuntu:/home/peng# passwd zjl&lt;/li&gt;
+  &lt;li&gt;为该用户指定命令解释程序（通常为/bin/bash）&lt;br /&gt;
+root@ubuntu:/home/peng# usermod -s /bin/bash zjl&lt;/li&gt;
+  &lt;li&gt;为该用户指定用户主目录&lt;br /&gt;
+root@ubuntu:/home/peng# usermod -d /home/zjl zjl&lt;/li&gt;
+  &lt;li&gt; 查看用户的属性&lt;br /&gt;
+root@ubuntu:/home/peng# cat /etc/passwd&lt;br /&gt;
+可以看到，已经存在csdn这个用户。/etc/passwd中一行记录对应着一个用户，每行记录又被冒号(:)分隔为7个字段，其格式和具体含义如下：&lt;br /&gt;
+用户名:口令:用户标识号:组标识号:注释性描述:用户主目录:命令解释程序&lt;/li&gt;
+  &lt;li&gt;切换到用户zjl&lt;br /&gt;
+root@ubuntu:/home/peng# su zjl&lt;br /&gt;
+切换后可以看到登陆以后的用户csdn当前所在目录仍为“/home/peng”，即用户peng的主目录。&lt;br /&gt;
+这种方式只能在控制台中互相切换用户，一旦重启系统，用该用户还是无法登陆（只能用原来的用户或root登陆）。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;a name=&quot;Jen1N&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;3-安装conda&quot;&gt;3. 安装conda&lt;/h1&gt;
+&lt;p&gt;打开&lt;a href=&quot;https://docs.anaconda.com/anaconda/install/linux/&quot;&gt;https://docs.anaconda.com/anaconda/install/linux/&lt;/a&gt;&lt;br /&gt;找到自己想下载的&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
+bash Anaconda3-2020.02-Linux-x86_64.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;一路回车＋yes&lt;br /&gt;最后指定一个安装路径 /mnt/data3/home/zjl/software/anaconda3&lt;br /&gt;安装完成之后，激活conda base环境：&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;eval&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;/mnt/data3/home/zjl/software/anaconda3/bin/conda shell.bash hook&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;验证是成功安装：&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda &lt;span class=&quot;nt&quot;&gt;-V&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;换源（非必须）
+&lt;a name=&quot;kPBex&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;4-安装tensorflow-gpu-115&quot;&gt;4. 安装tensorflow-gpu 1.15&lt;/h1&gt;
+&lt;p&gt;&lt;a name=&quot;OpCVm&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1创建conda环境&quot;&gt;1.创建conda环境&lt;/h2&gt;
+&lt;p&gt;通过调用下列命令，创建一个名为tfgpu的Conda环境：&lt;br /&gt;conda create -n tf1 pip python=3.6&lt;br /&gt;等待相应包的安装，如果国内网络太慢的话，可以为conda设置清华源，这样速度能快一点，具体配置过程，网上查一下吧，此处不再讲述。如果看到这样的提示，就证明conda环境创建成功。&lt;br /&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2020/png/602350/1590376264090-1253539b-c099-4dc9-914a-2b8e95da9805.png#align=left&amp;amp;display=inline&amp;amp;height=409&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;originHeight=409&amp;amp;originWidth=976&amp;amp;size=0&amp;amp;status=done&amp;amp;style=none&amp;amp;width=976&quot; alt=&quot;&quot; /&gt;
+&lt;a name=&quot;XCIG9&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2激活环境&quot;&gt;2.激活环境&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;通过以下命令激活conda环境：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda activate tf1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;这样就进入了刚创建的“tensorflow”环境。&lt;br /&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2020/png/602350/1590376328965-450fc15f-7f0c-48b9-a829-ad236408e66d.png#align=left&amp;amp;display=inline&amp;amp;height=42&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;name=image.png&amp;amp;originHeight=30&amp;amp;originWidth=309&amp;amp;size=2191&amp;amp;status=done&amp;amp;style=none&amp;amp;width=435&quot; alt=&quot;image.png&quot; /&gt;
+&lt;a name=&quot;OFqrf&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;3安装tensorflow-gpu&quot;&gt;3.安装tensorflow-gpu&lt;/h2&gt;
+&lt;p&gt;安装GPU版本的tensorflow需要输入以下命令：&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;tensorflow-gpu&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;1.15.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;如果只需要安装CPU版本的tensorflow则输入以下命令：&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;tensorflow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;1.15.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2020/png/602350/1590376514116-bdfe16db-cce0-43bc-9f0c-30d61f6eb183.png#align=left&amp;amp;display=inline&amp;amp;height=51&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;name=image.png&amp;amp;originHeight=66&amp;amp;originWidth=1206&amp;amp;size=14325&amp;amp;status=done&amp;amp;style=none&amp;amp;width=941&quot; alt=&quot;image.png&quot; /&gt;&lt;br /&gt;finished!&lt;br /&gt;注意：务必注意一点，在安装完&lt;strong&gt;tensroflow后，由于我们是新创建的conda环境，该环境中基本上是空的，有很多包和IDE并没有安装进来，例如“Ipython”，“spyder”此时如果我们在该环境下打开spyder/Ipyton/jupyter notebook等，会发现其实IDE使用的kernel并不是新建立的这个环境的kernel，而是“base”这个环境的，而“base”环境中我们并没有安装tensorflow，所以一定无法import。这也就是为什么有很多人在安装好tensorflow后仍然在IDE里无法正常使用的原因了。&lt;/strong&gt;&lt;strong&gt;&lt;br /&gt;&lt;/strong&gt;通过以下命令安装**Anaconda基础包&lt;br /&gt;conda install anaconda
+&lt;a name=&quot;ASFxc&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;4-测试&quot;&gt;4. 测试&lt;/h2&gt;
+&lt;p&gt;查看版本：&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import tensorflow as tf
+tf.__version__
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;查看是否使用GPU&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import tensorflow as tf
+tf.test.gpu_device_name()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2020/png/602350/1590376568257-9b372a6a-0e81-4ad0-9530-3645b41fe245.png#align=left&amp;amp;display=inline&amp;amp;height=145&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;originHeight=145&amp;amp;originWidth=463&amp;amp;size=0&amp;amp;status=done&amp;amp;style=none&amp;amp;width=463&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;查看在使用哪个GPU&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from tensorflow.python.client import device_lib
+device_lib.list_local_devices()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2020/png/602350/1590376567034-d90b9885-8d1d-4336-9d75-ea68d50eeeb1.png#align=left&amp;amp;display=inline&amp;amp;height=270&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;originHeight=270&amp;amp;originWidth=800&amp;amp;size=0&amp;amp;status=done&amp;amp;style=none&amp;amp;width=800&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;9BEkm&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;5-安装tensorflow-gpu-200&quot;&gt;5. 安装tensorflow-gpu 2.0.0&lt;/h1&gt;
+&lt;p&gt;&lt;a name=&quot;ZLwUd&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1创建conda环境-1&quot;&gt;1.创建conda环境&lt;/h2&gt;
+&lt;p&gt;通过调用下列命令，创建一个名为tfgpu的Conda环境：&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda create &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; tf2 pip &lt;span class=&quot;nv&quot;&gt;python&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3.6
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;等待相应包的安装，如果国内网络太慢的话，可以为conda设置清华源，这样速度能快一点，具体配置过程，网上查一下吧，此处不再讲述。如果看到这样的提示，就证明conda环境创建成功。&lt;br /&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2020/png/602350/1590376264090-1253539b-c099-4dc9-914a-2b8e95da9805.png#align=left&amp;amp;display=inline&amp;amp;height=409&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;originHeight=409&amp;amp;originWidth=976&amp;amp;size=0&amp;amp;status=done&amp;amp;style=none&amp;amp;width=976&quot; alt=&quot;&quot; /&gt;
+&lt;a name=&quot;Ab2KI&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2激活环境-1&quot;&gt;2.激活环境&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;通过以下命令激活conda环境：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda activate tf2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a name=&quot;V7TmR&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;3安装tensorflow-gpu-1&quot;&gt;3.安装tensorflow-gpu&lt;/h2&gt;
+&lt;p&gt;2.x版本GPU与CPU版本统一安装&lt;br /&gt;安装GPU版本的tensorflow需要输入以下命令：&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;tensorflow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;2.0.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2020/png/602350/1590377123019-5de69739-49a7-4c14-8f45-a68192a29baa.png#align=left&amp;amp;display=inline&amp;amp;height=50&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;name=image.png&amp;amp;originHeight=99&amp;amp;originWidth=1199&amp;amp;size=21363&amp;amp;status=done&amp;amp;style=none&amp;amp;width=599.5&quot; alt=&quot;image.png&quot; /&gt;&lt;br /&gt;finished!
+&lt;a name=&quot;UeH3o&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;4-测试-1&quot;&gt;4. 测试&lt;/h2&gt;
+&lt;p&gt;查看版本：&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import tensorflow as tf
+tf.__version__
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;查看是否使用GPU&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import tensorflow as tf
+tf.test.gpu_device_name()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2020/png/602350/1590376568257-9b372a6a-0e81-4ad0-9530-3645b41fe245.png#align=left&amp;amp;display=inline&amp;amp;height=145&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;originHeight=145&amp;amp;originWidth=463&amp;amp;size=0&amp;amp;status=done&amp;amp;style=none&amp;amp;width=463&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;查看在使用哪个GPU&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from tensorflow.python.client import device_lib
+device_lib.list_local_devices()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2020/png/602350/1590376567034-d90b9885-8d1d-4336-9d75-ea68d50eeeb1.png#align=left&amp;amp;display=inline&amp;amp;height=270&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;originHeight=270&amp;amp;originWidth=800&amp;amp;size=0&amp;amp;status=done&amp;amp;style=none&amp;amp;width=800&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;8OwgS&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;6-安装pytorch-131&quot;&gt;6. 安装pytorch 1.3.1&lt;/h1&gt;
+&lt;p&gt;&lt;a name=&quot;BlnAH&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1创建conda环境-2&quot;&gt;1.创建conda环境&lt;/h2&gt;
+&lt;p&gt;通过调用下列命令，创建一个名为tfgpu的Conda环境：&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda create &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; torch pip &lt;span class=&quot;nv&quot;&gt;python&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3.6
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;等待相应包的安装，如果国内网络太慢的话，可以为conda设置清华源，这样速度能快一点，具体配置过程，网上查一下吧，此处不再讲述。如果看到这样的提示，就证明conda环境创建成功。
+&lt;a name=&quot;h5pJi&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2激活环境-2&quot;&gt;2.激活环境&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;通过以下命令激活conda环境：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda activate torch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a name=&quot;wWF7q&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;3安装torch&quot;&gt;3.安装torch&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://pytorch.org/get-started/previous-versions/&quot;&gt;https://pytorch.org/get-started/previous-versions/&lt;/a&gt;&lt;br /&gt;2.x版本GPU与CPU版本统一安装&lt;br /&gt;安装GPU版本的tensorflow需要输入以下命令：&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;===&lt;/span&gt;1.5.0 &lt;span class=&quot;nv&quot;&gt;torchvision&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;===&lt;/span&gt;0.6.0 &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; https://download.pytorch.org/whl/torch_stable.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;finished!
+&lt;a name=&quot;ssaUk&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;4-测试-2&quot;&gt;4. 测试&lt;/h2&gt;
+&lt;p&gt;查看版本：&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import torch
+torch.__version__
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from __future__ import print_function
+import torch
+x = torch.rand(5, 3)
+print(x)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The output should be something similar to:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tensor([[0.3380, 0.3845, 0.3217],
+        [0.8337, 0.9050, 0.2650],
+        [0.2979, 0.7141, 0.9069],
+        [0.1449, 0.1132, 0.1375],
+        [0.4675, 0.3947, 0.1426]])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Additionally, to check if your GPU driver and CUDA is enabled and accessible by PyTorch, run the following commands to return whether or not the CUDA driver is enabled:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import torch
+torch.cuda.is_available()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="configuration" /><summary type="html"></summary></entry><entry><title type="html">VideoPose3D</title><link href="http://localhost:4000/2020/05/05/VideoPose3D.html" rel="alternate" type="text/html" title="VideoPose3D" /><published>2020-05-05T00:00:00+08:00</published><updated>2020-05-05T00:00:00+08:00</updated><id>http://localhost:4000/2020/05/05/VideoPose3D</id><content type="html" xml:base="http://localhost:4000/2020/05/05/VideoPose3D.html">&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;3D human pose estimation in video with temporal convolutions and semi-supervised training&lt;/em&gt;
+&lt;a href=&quot;https://arxiv.org/abs/1811.11742&quot;&gt;paper&lt;/a&gt;    &lt;a href=&quot;https://github.com/facebookresearch/VideoPose3D&quot;&gt;code&lt;/a&gt;    &lt;a href=&quot;https://dariopavllo.github.io/VideoPose3D/&quot;&gt;project&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;summary&quot;&gt;&lt;strong&gt;Summary&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;写完笔记之后最后填，概述文章的内容，以后查阅笔记的时候先看这一段。
+&lt;!--more--&gt;&lt;/p&gt;
+&lt;h1 id=&quot;problem-statement&quot;&gt;&lt;strong&gt;Problem Statement&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;3D poses in video，即从2D video中估计3D skeleton pose&lt;/p&gt;
+
+&lt;h1 id=&quot;research-objective&quot;&gt;&lt;strong&gt;Research Objective&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;ol&gt;
+    &lt;li&gt;First, we present a simple and efficient approach for 3D human pose estimation in video based on dilated temporal convolutions on 2D keypoint trajectories&lt;/li&gt;
+    &lt;li&gt;Second, we introduce a semi-supervised approach which exploits unlabeled video, and is effective when labeled data is scarce.&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;提出一种基于&lt;strong&gt;时序扩张卷积&lt;/strong&gt;的3D pose模型，在video的2D keypoint检测基础上得到3D pose，在保证准确率的同时比RNN-based方法更有效率(可以同步处理多个frame)；&lt;/p&gt;
+
+&lt;p&gt;并提出一种&lt;strong&gt;半监督&lt;/strong&gt;方法，只要求相机参数&lt;/p&gt;
+
+&lt;p&gt;不利用extra labeled data，达到SOTA&lt;/p&gt;
+
+&lt;h1 id=&quot;method&quot;&gt;&lt;strong&gt;Method&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;h2 id=&quot;网络结构&quot;&gt;网络结构&lt;/h2&gt;
+
+&lt;p&gt;算法： VideoPose3D&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fc5f85f0e-f537-4f60-8aab-7796191267d0%2FUntitled.png?table=block&amp;amp;id=70cae2df-97cc-447b-bffc-768d72b28384&amp;amp;width=1820&amp;amp;cache=v2&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c5f85f0e-f537-4f60-8aab-7796191267d0/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;输入为J个joints的二维坐标，在第一层进行3*3卷积（注意这里是dilation=1的扩张卷积），BN，ReLU和dropout，参数为kernel=3，output=1024，dropout=0.25。之后用4个 Res Block进行跳跃连接，slice中进行的是1D卷积。&lt;/p&gt;
+
+&lt;h2 id=&quot;半监督方法&quot;&gt;半监督方法&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ffbdb4813-7de7-459e-bf44-48f880168078%2FUntitled.png?table=block&amp;amp;id=48d0f875-4655-4751-b50f-2b580a125d19&amp;amp;width=1150&amp;amp;cache=v2&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fbdb4813-7de7-459e-bf44-48f880168078/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;keypoint&quot;&gt;Keypoint&lt;/h1&gt;
+
+&lt;h2 id=&quot;1-dilated-convolution&quot;&gt;1. Dilated Convolution&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ffef4549d-dec2-4f87-be08-84d6ee7a2161%2FUntitled.png?table=block&amp;amp;id=bbba0dbf-e752-426c-a564-f25e52083f72&amp;amp;width=1140&amp;amp;cache=v2&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fef4549d-dec2-4f87-be08-84d6ee7a2161/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-causal-convolutions&quot;&gt;2. Causal Convolutions&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F72aeb523-9d02-4cc8-8736-1aff8c3ed3c6%2FUntitled.png?table=block&amp;amp;id=948484e2-ec5b-416d-b2e3-254e84ccfc56&amp;amp;width=1130&amp;amp;cache=v2&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/72aeb523-9d02-4cc8-8736-1aff8c3ed3c6/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-semi-supervised-approach&quot;&gt;3. Semi-supervised approach&lt;/h2&gt;
+
+&lt;h1 id=&quot;evaluation&quot;&gt;&lt;strong&gt;Evaluation&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;实验结果，作者如何评估自己的方法，实验的setup是什么样的，有没有问题或者可以借鉴的地方。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.notion.so/79dea96834824948bc2e2fd154bd7727&quot;&gt;实验结果&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;&lt;strong&gt;Conclusion&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/20200516143016.png&quot; alt=&quot;image-20200516142932438&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;notes&quot;&gt;&lt;strong&gt;Notes&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;h2 id=&quot;需改进的点&quot;&gt;需改进的点&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;直接卷积 2DPose 估计3D Pose 太粗暴&lt;/li&gt;
+  &lt;li&gt;dilated conv尺度单一，不具有尺度不变性，对于too slow/too fast action不能很好的适应&lt;/li&gt;
+  &lt;li&gt;遮挡问题没有解决&lt;/li&gt;
+  &lt;li&gt;半监督方法中，没有很好的利用global position这个监督信息，只是回归了bone length loss&lt;/li&gt;
+  &lt;li&gt;不如multi-view方法精准&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;reference&quot;&gt;&lt;strong&gt;Reference&lt;/strong&gt;&lt;/h1&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="paper" /><category term="human_pose" /><summary type="html">3D human pose estimation in video with temporal convolutions and semi-supervised training paper code project Summary 写完笔记之后最后填，概述文章的内容，以后查阅笔记的时候先看这一段。</summary></entry><entry><title type="html">如何进行科研选题</title><link href="http://localhost:4000/2020/05/04/%E9%80%89%E9%A2%98.html" rel="alternate" type="text/html" title="如何进行科研选题" /><published>2020-05-04T00:00:00+08:00</published><updated>2020-05-04T00:00:00+08:00</updated><id>http://localhost:4000/2020/05/04/%E9%80%89%E9%A2%98</id><content type="html" xml:base="http://localhost:4000/2020/05/04/%E9%80%89%E9%A2%98.html">&lt;!--more--&gt;
+&lt;p&gt;&lt;em&gt;参考：https://sspai.com/post/57019&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&quot;1-问题导向&quot;&gt;1. 问题导向&lt;/h1&gt;
+
+&lt;p&gt;很多时候选一个好的topic要比选一个好的算法模型更为重要（从某一程度上来说），一般来说，选择topic要符合以下几点：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;新、难、热、实用至少占其一；&lt;/li&gt;
+  &lt;li&gt;不要选择已经完全成熟的topic&lt;/li&gt;
+  &lt;li&gt;不要选择和自己专业知识完全不相关的topic&lt;/li&gt;
+  &lt;li&gt;交叉学科是一个可以考虑的选择，很多时候&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;合作者和导师对于选题极为重要，他们可以为你排掉很多坑，避免选错题、入错行&lt;/p&gt;
+
+&lt;h1 id=&quot;2-文献导向&quot;&gt;2. &lt;strong&gt;文献导向&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.sspai.com/2019/10/16/8bbae8367cbe0bfbd05a06874fff180c.jpg?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1&quot; alt=&quot;https://cdn.sspai.com/2019/10/16/8bbae8367cbe0bfbd05a06874fff180c.jpg?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;很多老师会让学生从这里着手，去发现别人研究局限，然后通过突破这些局限，替别人把展望变成现实，从而做出属于自己的原创性研究。这个方式好不好？理论上是好的。论文结尾放这么一个部分，本意就是给后来人提供合适的路标和前进方向。&lt;/p&gt;
+
+&lt;p&gt;然而，现实往往是复杂的。许多经验丰富的研究者对此心知肚明，却因为各种原因不愿意或者没有合适的办法告诉你。这就是科研的潜规则吧。&lt;/p&gt;
+
+&lt;p&gt;现实世界中，那些「限制」、「展望」其实不是实在的路标，而是研究者们望洋兴叹的产物。他们就如同「笑傲江湖」里面的魔教长老一样，手持利斧开山数百丈。所不同的是他们并没有累死，而是停下来，告诉你「嗯，往这个方向走是没错的」。&lt;/p&gt;
+
+&lt;p&gt;能解决的问题，原先的研究者肯定早已解决完了。谁会把容易解决的问题留着？积攒这些问题和存款不同，不会给你带来任何复利。&lt;/p&gt;
+
+&lt;p&gt;更何况，审稿人哪里会对容易解决的遗留问题「高抬贵手」？肯定会穷追猛打，让作者反复磨合，真正解决了它们才肯善罢甘休。&lt;/p&gt;
+
+&lt;p&gt;被审稿人和编辑放过的「未解决」问题，要么是非常难以攻克的问题，实在不便强人所难；要么是工作量很大的问题，完全可以自成一体，再写一篇文章。放心，当你有幸在期刊上读到正式发表论文的时候，后一篇文章原作者早已写完了。&lt;/p&gt;
+
+&lt;p&gt;这里有 2 个考虑：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;好的文献绝不会给你留下容易解决的好线索；&lt;/li&gt;
+  &lt;li&gt;你的思路会跟着这些走在「主流」上的大牛走，于是彻底钻到一个死胡同里面去。对于本来可以轻易发现的新线索，你会自动忽略它们。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这时候可能你会发现数十年前这个问题就有人做过了。不过不要沮丧，这不是大问题。&lt;/p&gt;
+
+&lt;p&gt;这恰恰证明你的独立科研能力已经达到了（至少在当时）可以发表优秀期刊的水平。对于研究的初学者来说，这是一种非常积极的反馈。下面用你的经验去追寻新的问题和模型。如果你的模型和原作者有细微的区别，那就更好了。从这些差别中，可能会做出极其有价值的发现。&lt;/p&gt;
+
+&lt;p&gt;另外一位学者，佐治亚理工的吴东军教授（D.J. Wu）提的办法就更有意思了。他的办法属于典型的看热闹不嫌事儿大——让经典文献 PK！&lt;/p&gt;
+
+&lt;p&gt;文献都不是生物，怎么 PK？其实许多文献确实在打架。例如一篇文献 A 提出某观点。可能一段时间以后另一篇文献 B 用坚实的证据把该观点驳斥得体无完肤。&lt;/p&gt;
+
+&lt;p&gt;人们就倾向于新的文献 B 观点，奉为圭臬。但是文献 A 当初是怎么从审稿人的手底下滑过去的？它想必是有合理和可取之处的。吴老师于是就从这样的文献间冲突出发，用更为全面的模型考虑在哪一种情况下，A 的论点依然会成立。从而对经典文献给予（有条件的）支持。&lt;/p&gt;
+
+&lt;p&gt;由于文献 A 和 B 冲突的公案，他所作的研究意义和价值已经不言自明。因此这是一种非常聪明而有效的文献利用方法。&lt;/p&gt;
+
+&lt;p&gt;发现、理解，而且还恰好能重新诠释经典文献冲突，听起来很美妙。然而，并非所有人都有这样的运气和毅力的。所以，为了发现问题，你还需要有其他的手段。例如本次暑期学校的主题——「数据」。&lt;/p&gt;
+
+&lt;h1 id=&quot;34-方法导向&quot;&gt;34. &lt;strong&gt;方法导向&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;To the one with a hammer, everything looks like a nail.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;翻译过来，就是「当你手里拿着一把锤子的时候，看啥都像钉子」。&lt;/p&gt;
+
+&lt;p&gt;如果你仅仅把论文当成是方法论课程的实践作业，那你很可能也会这么想，并且这么做。可是方法运用得再高妙，如果与你的研究问题不匹配，也是枉然。&lt;/p&gt;
+
+&lt;p&gt;更何况许多人对方法只是一知半解。他们真正学会的只是鼓捣出一堆来源可疑的数据，然后扔到统计软件的绞肉机里面，等着漂亮的结果从另一端奔涌出来。&lt;/p&gt;
+
+&lt;p&gt;天上真的能掉馅饼吗？不，你只会看到这样的结果。&lt;/p&gt;
+
+&lt;p&gt;没错，垃圾进，垃圾出。因为你的逻辑可能是这样的一个三段论：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;大前提：狗都有 4 条腿&lt;/li&gt;
+  &lt;li&gt;小前提：我家的猫有 4 条腿&lt;/li&gt;
+  &lt;li&gt;结论：我家的猫是一条狗&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;你们可能觉得自己学过的东西更高级一些，不会犯这些毛病。例如学了爬虫，你就可以随心所欲找自己需要的研究数据了。根本无需去伪造数据，或者担心别人填写你的问卷的时候胡乱应付；学了 R，你就可以做出非常漂亮的回归分析结果和图表，甚至能处理时间序列；学了机器学习，你就可以让机器替你干脏活儿累活儿，帮你快速分析出决策树、做出词云，甚至是做文本情感分析与主题发现……&lt;/p&gt;
+
+&lt;p&gt;但是，即便这样，也请你记住——&lt;strong&gt;不管多么时髦和高级的工具，也不应该成为你论文选题的起点&lt;/strong&gt;。把高中数学老师教给你的那一套「分析法思考，综合法证明」的小聪明暂时收起来。否则一叶障目，你就会丧失自己的起点。迷茫的结果就是做出了一大堆劳动成果，却没有解决任何值得解决的问题。&lt;/p&gt;
+
+&lt;p&gt;选用了某种方法时，一定要问自己几个问题：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;为什么要使用到这种方法？是因为自己熟悉吗？是因为别人不熟悉吗？&lt;/li&gt;
+  &lt;li&gt;这个问题是否适合这种方法？有没有其他方法可以更好处理该问题，即便这个方法你并不熟悉？&lt;/li&gt;
+  &lt;li&gt;你能获取到这种方法需要的数据吗？这些数据通过该方法的处理，能否产生你需要的形式？&lt;/li&gt;
+  &lt;li&gt;选题、做题都是有机会成本的。把时间花费在值得的事物上。切记。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;研究要有目的。最重要目的是要解决一个具体或抽象的问题，而且这个问题还应该有价值和意义。&lt;/strong&gt;我这样说，不是让你停止学习研究方法。恰恰相反，方法不仅要学，还一定要多学。但是学过之后，&lt;strong&gt;要放弃「一定要应用某一方法」来做研究和写论文的执念。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Anindya Ghose 说，只有你掌握的方法足够多了，工具箱里面有各种各样不同工具的时候，你才不会偏执于某一种方法，而是根据问题去筛选合适的解决途径。&lt;/p&gt;
+
+&lt;p&gt;高斯（Anindya Ghose），印度裔美国学者。图片来自 &lt;a href=&quot;http://thinkers50.com&quot;&gt;thinkers50.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;方法导向看来对论文选题不合适。怎么办呢？很多人会抢答说「问题导向」啊。说的没错，但是仅仅说「问题导向」其实缺乏可操作性。问题从哪里来，该怎样寻找？&lt;/p&gt;
+
+&lt;p&gt;通过和一流学者的交流，以及文献的阅读，我梳理出问题来源的以下常见类别：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;文献；&lt;/li&gt;
+  &lt;li&gt;数据；&lt;/li&gt;
+  &lt;li&gt;实践；&lt;/li&gt;
+  &lt;li&gt;协同；&lt;/li&gt;
+  &lt;li&gt;系统。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;下面我来当个导游，带你在不同的问题来源中游览一番。希望聪明的你可以掌握它们，并且找到适合自己的问题寻找途径。&lt;/p&gt;
+
+&lt;p&gt;做研究、写论文需要读文献，这是常识。许多研究者会建议你从文献发现问题。这也是一种公认的传统智慧。&lt;/p&gt;
+
+&lt;p&gt;被戏称为「洋八股」的文献研究，实际上是学者们跨越时空的对话。这种特殊的对话体例，不仅要求作者去梳理相关的历史文献脉络，还得在论文末尾标出来文章的限制和未来需要做的研究，即所谓「展望」。&lt;/p&gt;
+
+&lt;h1 id=&quot;5-数据导向&quot;&gt;5. &lt;strong&gt;数据导向&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;如果你手里有好的独特数据，可以尝试从中获得选题。&lt;/p&gt;
+
+&lt;p&gt;有位作者展示的是利用 Foursquare 数据对用户行为做预测的研究。我对该文章感兴趣，是因为我做隐私保护研究，很好奇用户的隐私是不是丝毫剩不下了。然而其他听众的兴趣点就在于独特的大规模数据获取。他们从教室一直追问到了路上，问论文作者是如何收集这些数据的。&lt;/p&gt;
+
+&lt;p&gt;这位论文作者一下子有些紧张，讳莫如深。似乎害怕这份宝贵的数据很快就要被别人轻易夺走了一般。这种担心不无道理。大数据时代，数据是不缺的。但是真正有价值的数据，如同沙里淘金一般。&lt;/p&gt;
+
+&lt;p&gt;专属的数据不是所有人都能搞到的。有位来自业界的老师，讲解如何和国家税务总局合作，利用发票数据来监控产能过剩问题。方法其实非常简单，只需要筛选出合适的特征就可以——他最后选择的是钢铁和煤炭。他们通过这种方式，不仅给全国企业画像，而且还通过某些指标特征，发现了其他有趣的结果。因为过于有趣，所以在修正的模型里面剔除掉了。&lt;/p&gt;
+
+&lt;p&gt;你可能觉得很不服气——这样的问题你也有能力处理啊！问题是，你从哪里搞到如此大规模的专属数据呢？这个问题咱们后面会谈及。&lt;/p&gt;
+
+&lt;p&gt;如果专属数据难以获取，你可以退而求其次，找开放数据。开放数据中，也有非常适合研究的类别，而且规模庞大。例如 Google 的 Correlate 和 Trends 数据，以及 Twitter 的 Firehose 开放数据等。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.sspai.com/2019/10/16/b6388ec1bdfd09875d83d17181afb9ae.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1&quot; alt=&quot;https://cdn.sspai.com/2019/10/16/b6388ec1bdfd09875d83d17181afb9ae.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;但是请注意，&lt;strong&gt;如果你利用开放数据做研究，速度是非常重要的&lt;/strong&gt;。这是个竞争激烈的领域，慢了就什么都落不下了。&lt;/p&gt;
+
+&lt;p&gt;哈工大管理学院的叶院长，提到了自己研究里面曾经用过的百度数据。当时和 Google 的相应搜索数据进行比对研究，效果非常好。后来他们团队兴冲冲拿给百度的人看过。对方没说什么，回去就把数据下载的接口给关闭了。&lt;/p&gt;
+
+&lt;p&gt;好在高价值开放数据，也不都是「不小心」流出来的结果。&lt;/p&gt;
+
+&lt;p&gt;例如 Kaggle 上面总是有非常规整的数据集，可供你使用。如果你用得好，还能获得价值不菲的奖金。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.sspai.com/2019/10/16/2b0134cca80dc8ab41b4ff6751bec69f.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1&quot; alt=&quot;https://cdn.sspai.com/2019/10/16/2b0134cca80dc8ab41b4ff6751bec69f.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;paper with code也是一个很好的网站，上面是基于github发布的各种论文源码，从上面的数据集的leaderboard中，可以从SOTA方法一直往下看，每篇论文也会被进行详细分类&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://paperswithcode.com/&quot;&gt;Papers with Code - The latest in machine learning&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f33fdc66-7691-4fa7-9908-f74ac1542f73/Untitled.png&quot; alt=&quot;https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f33fdc66-7691-4fa7-9908-f74ac1542f73/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;6-实践导向&quot;&gt;&lt;strong&gt;6. 实践导向&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;Hal Varian 教授认为不应该从文献里面找问题，而应该把时间花在看似不相干的报纸和杂志阅读上。他推荐的报刊杂志包括：《纽约时报》、《华尔街日报》、《经济学人》。&lt;/p&gt;
+
+&lt;p&gt;他认为，对经济学研究者来说，读这些东西远远比看论文重要。因为它们会提到经济学家感兴趣的实际问题，可是分析过程有时漏洞百出。别人可能一笑置之，但是 Hal Varian 教授显然不会轻易放过这么好的选题机会。&lt;/p&gt;
+
+&lt;p&gt;其实，这就像是在讨论区里面和别人争论。如果你翻来覆去只会说一些大家都知道的内容，没有人会觉得感兴趣。而如果你你能够不断从外界获得新的灵感、信息和见识，那讲出来的内容就可以更轻易地抓住别人的注意力。&lt;/p&gt;
+
+&lt;p&gt;除了这些报刊杂志之外，学者们还提到了两个很好的实践问题来源。&lt;/p&gt;
+
+&lt;p&gt;第一个就是&lt;strong&gt;业界咨询工作&lt;/strong&gt;。许多好的学者，例如 Anindya Ghose 和 Paul Pavlou 等，都是两条腿走路。一条腿在学术界攀登，另一条在企业界做咨询。&lt;/p&gt;
+
+&lt;p&gt;咨询，是一定要解决问题的。所以，不用你找，问题自己就找上门来。&lt;/p&gt;
+
+&lt;p&gt;在大数据时代，做咨询必然要接触到许多企业数据。例如 Ghose 拿到了好几家知名的企业做数字广告的效果数据。这些数据不仅数量庞大，而且结构化完整、真实性高，是让你的研究获得竞争优势的重要源泉。&lt;/p&gt;
+
+&lt;p&gt;与企业合作，是一种双赢之道。在这个社会上，一定要学会互惠合作。不要尝试做伸手党。&lt;/p&gt;
+
+&lt;p&gt;许多老师和研究生都觉得，拿数据是一件非常困难的事情——那些大公司根本就不愿意分享数据给你。没错，但是你没有看到硬币的另一面。他们其实特别乐意分享数据，只要你的分析能力比他们还高，能给他们更有价值的洞见。&lt;/p&gt;
+
+&lt;p&gt;包括中国移动在内的许多中国大型国有企业都对 Ghose 这样的顶级学者敞开大门、张开双臂，热烈欢迎。&lt;/p&gt;
+
+&lt;p&gt;同样的数据，在不擅于分析的人手中，一文不值；到了会分析的人那里，就可以挖掘出不菲的价值。这是个「数（据）中自有黄金屋」的年代。企业解决了实际问题，获得了经济回报；你完成了研究，发表了高水平论文。这便是双赢之道。&lt;/p&gt;
+
+&lt;p&gt;可是你作为一个初级研究者，还远远没有那样的积累。大企业还是会把你拒之门外，怎么办呢？&lt;/p&gt;
+
+&lt;p&gt;从小处做起，深入进去，帮中小企业解决具体的问题。&lt;/p&gt;
+
+&lt;p&gt;我在 MSU 访学的时候，讲授管理信息系统课的 Kizzier 教授，就把学生撒出去到 main street 上挨个儿敲门，帮助企业发现目前系统存在哪些不足，并且想方设法加以改进。学生上课的时候分享这些案例，可以充分体现出「实践出真知」的意义。&lt;/p&gt;
+
+&lt;p&gt;获取实践问题的另一种方式是&lt;strong&gt;读案例&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;前面提到的佐治亚理工吴教授，就让自己的学生去读哈佛案例库，从里面寻找问题。一个企业案例，能进入哈佛的案例库是非常不容易的。经过层层筛选的经典案例往往代表了业界实践中非常典型的问题。&lt;/p&gt;
+
+&lt;p&gt;清华大学宁向东教授讲，他在哈佛读经理培训班的时候，根本就没有教材。每天接触的全都是案例。在哈佛商学院教授派珀看来，「商业世界只有问题，没有理论」。通过读案例，可以让学生找到「想问题的感觉」。&lt;/p&gt;
+
+&lt;p&gt;所以你看，一个这么经典而庞大的问题库，与实践结合紧密，理论却缺位。这难道不刚好是研究者们的好机会吗？&lt;/p&gt;
+
+&lt;p&gt;然而，据吴教授说，他的博士生里面，愿意听他话的，寥寥无几。有个叫黄涛的听了他的话，真的跑去读案例，于是成了他最为得意的学生。发展得非常好。&lt;/p&gt;
+
+&lt;p&gt;看来，听老师的话，有时候也是对的。是吧？&lt;/p&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="research" /><summary type="html"></summary></entry><entry><title type="html">博客网站无法显示CDN图片，403报错</title><link href="http://localhost:4000/2020/04/25/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BACDN%E5%9B%BE%E7%89%87-403%E6%8A%A5%E9%94%99.html" rel="alternate" type="text/html" title="博客网站无法显示CDN图片，403报错" /><published>2020-04-25T00:00:00+08:00</published><updated>2020-04-25T00:00:00+08:00</updated><id>http://localhost:4000/2020/04/25/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BACDN%E5%9B%BE%E7%89%87,403%E6%8A%A5%E9%94%99</id><content type="html" xml:base="http://localhost:4000/2020/04/25/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BACDN%E5%9B%BE%E7%89%87-403%E6%8A%A5%E9%94%99.html">&lt;h2 id=&quot;bug描述&quot;&gt;Bug描述&lt;/h2&gt;
+&lt;p&gt;博客网站无法显示CDN图片（图片来自语雀，格式为&lt;a href=&quot;https://cdn.nlark.com/yuque/&quot;&gt;https://cdn.nlark.com/yuque/&lt;/a&gt;······）
+&lt;!--more--&gt;&lt;/p&gt;
+&lt;h2 id=&quot;报错内容&quot;&gt;报错内容&lt;/h2&gt;
+&lt;p&gt;Chrome控制台报错：
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Failed to load resource: the server responded with a status of 403&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;解决方案&quot;&gt;解决方案&lt;/h2&gt;
+&lt;p&gt;在HTML页面添加代码：&lt;/p&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;referrer&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;no-referrer&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;成功解决👇
+&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2020/png/602350/1587795759962-0ce6433d-d143-4062-9545-1b55cf102029.png#align=left&amp;amp;display=inline&amp;amp;height=419&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;name=image.png&amp;amp;originHeight=837&amp;amp;originWidth=901&amp;amp;size=301133&amp;amp;status=done&amp;amp;style=none&amp;amp;width=451&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="bug" /><summary type="html">Bug描述 博客网站无法显示CDN图片（图片来自语雀，格式为https://cdn.nlark.com/yuque/······）</summary></entry><entry><title type="html">RMPE Regional Multi-person Pose Estimation</title><link href="http://localhost:4000/2020/04/24/RMPE_-Regional-Multi-person-Pose-Estimation.html" rel="alternate" type="text/html" title="RMPE Regional Multi-person Pose Estimation" /><published>2020-04-24T00:00:00+08:00</published><updated>2020-04-24T00:00:00+08:00</updated><id>http://localhost:4000/2020/04/24/RMPE_%20Regional%20Multi-person%20Pose%20Estimation</id><content type="html" xml:base="http://localhost:4000/2020/04/24/RMPE_-Regional-Multi-person-Pose-Estimation.html">&lt;p&gt;&lt;a href=&quot;https://arxiv.org/abs/1612.00137v3&quot;&gt;paper&lt;/a&gt;	&lt;a href=&quot;https://github.com/MVIG-SJTU/AlphaPose/tree/pytorch&quot;&gt;code&lt;/a&gt;
+&lt;a name=&quot;Summary&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;这篇论文是上海交大和腾讯优图的论文，被 ICCV 2017接收。它对于多人姿态估计的方法采用传统的自顶向下的方法，即先检测人，再识别人体姿态。检测使用的是SSD-512，识别人体姿态使用的是state-of-the-art的Stacked Hourglass方法。&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;9df44c92&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;problem-statement&quot;&gt;Problem Statement&lt;/h2&gt;
+&lt;p&gt;论文分析了当前姿态估计的两种方法存在的问题——&lt;strong&gt;对于自顶向下的方法，检测的误差是很大的一个影响，即使在检测任务下是正确的，提取的proposal也不适用于单人的姿态估计方法；同时，冗余的检测框也使得单人的姿态被重复估计；对于自底向上的方法，当两个人比较靠近时，人体关键点分配到每个人身上会出错，这也是该方法的challenge。&lt;/strong&gt;作者采用自顶向下方法，致力于解决对于imperfect proposal，通过调整，使得crop的person能够被单人姿态估计方法很好的识别，从而克服检测带来的定位误差。
+&lt;a name=&quot;d00860d5&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;research-objective&quot;&gt;Research Objective&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;2D多人姿态估计自顶向下方法&lt;/strong&gt;。致力于解决对于imperfect proposal，通过调整，使得crop的person能够被单人姿态估计方法很好的识别，从而克服检测带来的定位误差。
+&lt;a name=&quot;c9a0d983&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;methods&quot;&gt;Method(s)&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2020/png/602350/1587787928991-fa7b3df7-5f86-4a44-8ee2-d237e2363079.png#align=left&amp;amp;display=inline&amp;amp;height=161&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;name=image.png&amp;amp;originHeight=214&amp;amp;originWidth=787&amp;amp;size=124562&amp;amp;status=done&amp;amp;style=none&amp;amp;width=590&quot; alt=&quot;image.png&quot; /&gt;&lt;br /&gt;整个过程分为3步：&lt;br /&gt;&lt;strong&gt;第一步&lt;/strong&gt;是用SSD检测人，获得human proposal&lt;br /&gt;&lt;strong&gt;第二步&lt;/strong&gt;是将proposal输入到两个并行的分支里面，上面的分支是STN+SPPE+SDTN的结构，即Spatial Transformer Networks + Single Person Pose Estimation + Spatial de- Transformer Networks，STN接收的是human proposal，SDTN产生的是pose proposal。下面并行的分支充当额外的正则化矫正器。&lt;br /&gt;&lt;strong&gt;第三步&lt;/strong&gt;是对pose proposal做Pose NMS（非最大值抑制），用来消除冗余的pose proposal。
+&lt;a name=&quot;4gJFX&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;方法细节&quot;&gt;方法细节&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Symmetric STN + SPPE + SDTN&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2020/png/602350/1587787964046-5e3fa8ee-b511-4f38-b4cd-7ee37c5be833.png#align=left&amp;amp;display=inline&amp;amp;height=279&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;name=image.png&amp;amp;originHeight=288&amp;amp;originWidth=771&amp;amp;size=138412&amp;amp;status=done&amp;amp;style=none&amp;amp;width=746&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;STN： 得到更精准的单人模型&lt;/li&gt;
+  &lt;li&gt;SDTN：反向变换，还原原图，并产生候选姿态&lt;/li&gt;
+  &lt;li&gt;SPPE：生成各种姿态&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;1.将上一步得出的human proposal在长宽方向上个延长20%，以确保可以把人完整的框起来。而且经过验证，这样确实可以把大部分的人整个框起来。&lt;br /&gt;2.经过一个STN网络将延伸过的图像进行仿射变换，可以生成一个比较精确的、适合作为SPPE输入。&lt;br /&gt;3.把SPPE的输出经过与前边相反的STN变换，将坐标变换回原来的坐标系，完成整个的识别过程。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Symmetric STN&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;STN是Google DeepMind在2015年提出的Spatial Transformer Networks，相当于在传统的一层Convolution中间，装了一个“插件”（就是矩阵的仿射变换），可以使得传统的卷积带有了裁剪、平移、缩放、旋转等特性；目标是可以减少CNN的训练数据量，以及减少做data argument，让CNN自己学会数据的形状变换，将输入图像做任意空间变换。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Parallel SPPE&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;并行的SPPE作为正则化作用，用来进一步&lt;strong&gt;加强STN提取优质的human proposal&lt;/strong&gt;。这一支的label设置为single person pose。训练时使用2条支路输出的总误差来训练网络，parallel SPPE&lt;strong&gt;所有层参数在训练阶段是固定的&lt;/strong&gt;，Parallel SPPE分支和真实姿态的标注进行比较，反向传播中心位置的姿态误差给STN模块。如果STN的姿态不是中心定位，parallel SPPE反向传播较大的误差。通过反向传播的方式&lt;strong&gt;帮助STN聚焦正确的区域&lt;/strong&gt;，实现提取高质量人体区域。但是测试阶段，parallel SPPE被禁止。在测试时将下面的 Parallel SPPE丢掉，只使用Symmetric STN进行前向传播。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Parametric Pose NMS&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;首先选择置信度最高的pose作为参考，靠近它的pose通过淘汰标准来消除。对于剩下的pose，重复上述过程，直到消除冗余姿势，并且仅返回唯一的pose。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Pose-guided Proposals Generator&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;symmetric STN + SPPE应该用SSD产生的人体建议框充分训练，需要适当的数据增强。这里主要是在训练过程中增加proposal的数量，虽然每一张图片都只有K个人，每个人只会产生一个bbox，但是可以根据ground truth的proposals，生成和其分布相同的多个proposals一起训练。
+&lt;a name=&quot;Evaluation&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;evaluation&quot;&gt;Evaluation&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2020/png/602350/1587787984452-7bc29258-9851-4396-b4e0-0f2f7dc0cdae.png#align=left&amp;amp;display=inline&amp;amp;height=249&amp;amp;margin=%5Bobject%20Object%5D&amp;amp;name=image.png&amp;amp;originHeight=332&amp;amp;originWidth=594&amp;amp;size=263937&amp;amp;status=done&amp;amp;style=none&amp;amp;width=446&quot; alt=&quot;image.png&quot; /&gt;
+&lt;a name=&quot;Conclusion&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;wait&lt;/p&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="paper" /><category term="human_pose" /><summary type="html">paper code Summary 这篇论文是上海交大和腾讯优图的论文，被 ICCV 2017接收。它对于多人姿态估计的方法采用传统的自顶向下的方法，即先检测人，再识别人体姿态。检测使用的是SSD-512，识别人体姿态使用的是state-of-the-art的Stacked Hourglass方法。</summary></entry><entry><title type="html">Human Pose综述</title><link href="http://localhost:4000/2020/04/03/human-pose-review.html" rel="alternate" type="text/html" title="Human Pose综述" /><published>2020-04-03T00:00:00+08:00</published><updated>2020-04-03T00:00:00+08:00</updated><id>http://localhost:4000/2020/04/03/human-pose-review</id><content type="html" xml:base="http://localhost:4000/2020/04/03/human-pose-review.html">&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/20200321094012.png&quot; alt=&quot;http://jinluzhang.site/PublicPic/Pic/20200321094012.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;可以看出这四个部分都是与人体姿态有关的，也是姿态估计的具体分支&lt;/p&gt;
+
+&lt;!--more--&gt;
 
 &lt;h2 id=&quot;姿态识别&quot;&gt;姿态识别&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;姿态识别一般流程如下：&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://jinluzhang.site/PublicPic/Pic/20200320172220.png&quot; alt=&quot;20200320172220&quot; style=&quot;zoom: 67%;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://jinluzhang.site/PublicPic/Pic/20200320172220.png&quot; alt=&quot;http://jinluzhang.site/PublicPic/Pic/20200320172220.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;可以看出人体分割与人体姿态识别是姿态识别大类的两个关键步骤，人体分割是人体姿态识别（动作识别、身份识别等）的基础。&lt;/p&gt;
 
@@ -14,7 +534,7 @@
 
 &lt;p&gt;人体分割使用的方法可以大体分为人体骨骼关键点检测、语义分割等方式实现。人体骨骼关键点检测输出是人体的骨架信息，一般主要作为&lt;strong&gt;人体姿态识别的基础部分&lt;/strong&gt;，主要用于分割、对齐等。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/20200321094432.png&quot; alt=&quot;20200321094432&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://jinluzhang.site/PublicPic/Pic/20200321094432.png&quot; alt=&quot;http://jinluzhang.site/PublicPic/Pic/20200321094432.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;人体骨骼关键点检测是一种多方面任务，包含了目标检测、人体骨骼关键点检测、分割等。&lt;/p&gt;
 
@@ -25,25 +545,17 @@
 &lt;p&gt;&lt;strong&gt;人体骨骼关键点检测的挑战：&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;每张图片中包含人的数量是未知的，图像中人越多，计算复杂度越大（计算量与人的数量正相关），这使得处理时间变长，从而使&lt;strong&gt;real time&lt;/strong&gt;变得困难。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;人与人之间会存在如&lt;strong&gt;接触、遮挡&lt;/strong&gt;等关系，导致将不同人的关键节点区分出来的难度增加，有可能会将骨骼关键点误认为是另一个人的。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;关键点区域的图像信息比较难区分&lt;/strong&gt;，也就是说某个关键点检测时容易出现检测位置不准或者置信度不准，甚至将背景的图像当成关键点图像的错误。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;人体不同关键点检测的难易程度是不一样的，对于腰部、腿部这类没有比较明显特征关键点的检测要难于头部附近关键点的检测，&lt;strong&gt;需要对不同的关键点区别对待&lt;/strong&gt;。&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;每张图片中包含人的数量是未知的，图像中人越多，计算复杂度越大（计算量与人的数量正相关），这使得处理时间变长，从而使real time变得困难。&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;人与人之间会存在如接触、遮挡等关系，导致将不同人的关键节点区分出来的难度增加，有可能会将骨骼关键点误认为是另一个人的。&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;关键点区域的图像信息比较难区分，也就是说某个关键点检测时容易出现检测位置不准或者置信度不准，甚至将背景的图像当成关键点图像的错误。&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;人体不同关键点检测的难易程度是不一样的，对于腰部、腿部这类没有比较明显特征关键点的检测要难于头部附近关键点的检测，需要对不同的关键点区别对待。&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h4 id=&quot;2d人体骨骼关键点检测实现&quot;&gt;&lt;strong&gt;2D人体骨骼关键点检测实现&lt;/strong&gt;&lt;/h4&gt;
+&lt;h3 id=&quot;2d人体骨骼关键点检测实现&quot;&gt;&lt;strong&gt;2D人体骨骼关键点检测实现&lt;/strong&gt;&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200321115712607-1584763108036.png&quot; alt=&quot;image-20200321115712607&quot; style=&quot;zoom:80%;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200321115712607-1584763108036.png&quot; alt=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200321115712607-1584763108036.png&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/640.jpg&quot; alt=&quot;img&quot; style=&quot;zoom:90%;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://jinluzhang.site/PublicPic/Pic/640.jpg&quot; alt=&quot;http://jinluzhang.site/PublicPic/Pic/640.jpg&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;代表作：&lt;/p&gt;
 
@@ -51,7 +563,7 @@
 
 &lt;p&gt;自底向上：PAFs（OpenPose） https://arxiv.org/abs/1611.08050&lt;/p&gt;
 
-&lt;h4 id=&quot;2d人体骨骼关键点检测实现-1&quot;&gt;&lt;strong&gt;2D+人体骨骼关键点检测实现&lt;/strong&gt;&lt;/h4&gt;
+&lt;h3 id=&quot;2d人体骨骼关键点检测实现-1&quot;&gt;&lt;strong&gt;2D+人体骨骼关键点检测实现&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;实质是：2D图像+3D重建&lt;/strong&gt;&lt;/p&gt;
 
@@ -59,15 +571,15 @@
 
 &lt;p&gt;2D+人体骨骼关键点检测输出的人体骨骼关键点信息是3D数据，即每个关节都是一个3D坐标（x,y,z）&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/640-1584764809340.webp&quot; alt=&quot;img&quot; style=&quot;zoom: 50%;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;http://jinluzhang.site/PublicPic/Pic/640-1584764809340.webp&lt;/p&gt;
 
 &lt;p&gt;代表作：DensePose https://arxiv.org/abs/1802.00434&lt;/p&gt;
 
-&lt;h4 id=&quot;3d人体骨骼关键点检测&quot;&gt;&lt;strong&gt;3D人体骨骼关键点检测：&lt;/strong&gt;&lt;/h4&gt;
+&lt;h3 id=&quot;3d人体骨骼关键点检测&quot;&gt;&lt;strong&gt;3D人体骨骼关键点检测：&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;p&gt;根据输入图像数据是RGB还是RGBD可分为2D+人体骨骼关键点检测、3D人体骨骼关键点检测。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200321115912509.png&quot; alt=&quot;image-20200321115912509&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200321115912509.png&quot; alt=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200321115912509.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;输入的图像数据：RGBD（3D）&lt;/p&gt;
 
@@ -77,13 +589,11 @@
 
 &lt;p&gt;人体姿态识别包括动作识别、身份识别两个方面，关键在人体特征提取，人体特征提取主要完成动作特征提取、身份特征提取。&lt;/p&gt;
 
-&lt;h4 id=&quot;动作识别&quot;&gt;动作识别&lt;/h4&gt;
+&lt;h3 id=&quot;动作识别&quot;&gt;动作识别&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/20200320172906.png&quot; alt=&quot;20200320172906&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://jinluzhang.site/PublicPic/Pic/20200320172906.png&quot; alt=&quot;http://jinluzhang.site/PublicPic/Pic/20200320172906.png&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;身份识别&quot;&gt;身份识别&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/20200321094551.png&quot; alt=&quot;20200321094551&quot; /&gt;&lt;/p&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="pose" /><category term="paper" /><summary type="html">可以看出这四个部分都是与人体姿态有关的，也是姿态估计的具体分支 姿态识别 姿态识别一般流程如下： 可以看出人体分割与人体姿态识别是姿态识别大类的两个关键步骤，人体分割是人体姿态识别（动作识别、身份识别等）的基础。 人体分割-人体骨骼关键点检测（skeleton） 人体分割使用的方法可以大体分为人体骨骼关键点检测、语义分割等方式实现。人体骨骼关键点检测输出是人体的骨架信息，一般主要作为人体姿态识别的基础部分，主要用于分割、对齐等。 人体骨骼关键点检测是一种多方面任务，包含了目标检测、人体骨骼关键点检测、分割等。 人体骨骼关键点检测可以分为二维（2D）和三维（3D）的人体骨骼关键点检测； 按照检测的方法又能分为自底向上、自顶向下两个方式 人体骨骼关键点检测的挑战： 每张图片中包含人的数量是未知的，图像中人越多，计算复杂度越大（计算量与人的数量正相关），这使得处理时间变长，从而使real time变得困难。 人与人之间会存在如接触、遮挡等关系，导致将不同人的关键节点区分出来的难度增加，有可能会将骨骼关键点误认为是另一个人的。 关键点区域的图像信息比较难区分，也就是说某个关键点检测时容易出现检测位置不准或者置信度不准，甚至将背景的图像当成关键点图像的错误。 人体不同关键点检测的难易程度是不一样的，对于腰部、腿部这类没有比较明显特征关键点的检测要难于头部附近关键点的检测，需要对不同的关键点区别对待。 2D人体骨骼关键点检测实现 代表作： 自顶向下：RMPE （AlphaPose） https://arxiv.org/abs/1612.00137v3 自底向上：PAFs（OpenPose） https://arxiv.org/abs/1611.08050 2D+人体骨骼关键点检测实现 实质是：2D图像+3D重建 2D+人体骨骼关键点检测多使用3D重建的方法，一般输入都是RGB的2D图像数据，首先使用2D人体骨骼关键点检测的方法检测出2D的人体骨骼关键点后，再使用3D重建的方式，将2D的关键点信息转到3D的空间中，输出的就是3维人体骨骼关键点信息。这种方法使用的图像数据不是真的3D数据，输出的3维的信息主要是通过2D到3D重建的方式实现的。 2D+人体骨骼关键点检测输出的人体骨骼关键点信息是3D数据，即每个关节都是一个3D坐标（x,y,z） 代表作：DensePose https://arxiv.org/abs/1802.00434 3D人体骨骼关键点检测： 根据输入图像数据是RGB还是RGBD可分为2D+人体骨骼关键点检测、3D人体骨骼关键点检测。 输入的图像数据：RGBD（3D） Depth Image实际上也是一幅真实的3D图像数据，Depth Image包含了深度信息、图像的高宽信息。CNN+RNN是目前的主流方法。 人体姿态识别 人体姿态识别包括动作识别、身份识别两个方面，关键在人体特征提取，人体特征提取主要完成动作特征提取、身份特征提取。 动作识别 身份识别</summary></entry><entry><title type="html">如何高效地进行文献阅读和总结？</title><link href="http://localhost:4000/2020/03/28/how-to-read-papers.html" rel="alternate" type="text/html" title="如何高效地进行文献阅读和总结？" /><published>2020-03-28T00:00:00+08:00</published><updated>2020-03-28T00:00:00+08:00</updated><id>http://localhost:4000/2020/03/28/how-to-read-papers</id><content type="html" xml:base="http://localhost:4000/2020/03/28/how-to-read-papers.html">&lt;!--more--&gt;
+&lt;h3 id=&quot;身份识别&quot;&gt;身份识别&lt;/h3&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="human_pose" /><category term="paper" /><summary type="html">可以看出这四个部分都是与人体姿态有关的，也是姿态估计的具体分支</summary></entry><entry><title type="html">如何高效地进行文献阅读和总结？</title><link href="http://localhost:4000/2020/03/28/how-to-read-papers.html" rel="alternate" type="text/html" title="如何高效地进行文献阅读和总结？" /><published>2020-03-28T00:00:00+08:00</published><updated>2020-03-28T00:00:00+08:00</updated><id>http://localhost:4000/2020/03/28/how-to-read-papers</id><content type="html" xml:base="http://localhost:4000/2020/03/28/how-to-read-papers.html">&lt;!--more--&gt;
 &lt;p&gt;&lt;em&gt;最近这段时间看论文看到的头疼，相信很多第一次忙毕业论文或者研究课题的同学都深有体会，我总结一些自己阅读文献的经验和总结方法，不足之处还请多多指教。&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;为什么进行文献阅读&quot;&gt;为什么进行文献阅读？&lt;/h2&gt;
@@ -126,7 +636,7 @@
 
 &lt;h3 id=&quot;文献文章结构&quot;&gt;文献文章结构&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200328174957659.png&quot; alt=&quot;image-20200328174957659&quot; style=&quot;zoom:67%;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://jinluzhang.site/PublicPic/Pic/image-20200328174957659.png&quot; alt=&quot;image-20200328174957659&quot; style=&quot;zoom:67%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;一般来说文章的大体结构是如上所示，有了结构才有读论文的节奏和思路&lt;/p&gt;
 
@@ -175,7 +685,7 @@
 
     &lt;p&gt;比如Fastern RCNN，直接搜索论文名称+PPT/slide就大概率可以得到了：&lt;/p&gt;
 
-    &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200328171319497.png&quot; alt=&quot;image-20200328171319497&quot; style=&quot;zoom: 60%;&quot; /&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;img src=&quot;http://jinluzhang.site/PublicPic/Pic/image-20200328171319497.png&quot; alt=&quot;image-20200328171319497&quot; style=&quot;zoom: 60%;&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;博客是个好东西&lt;/p&gt;
@@ -205,7 +715,7 @@
 
 &lt;p&gt;祝大家人人有顶会，年年有顶刊！&lt;/p&gt;
 
-&lt;p&gt;欢迎交流&lt;/p&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="how_to_research" /><summary type="html"></summary></entry><entry><title type="html">WIN10【Tensorflow-gpu+Anaconda3+cuda9.0+cudnn7.1】安装记录!</title><link href="http://localhost:4000/2020/03/11/tensorflow1.x-gpu-setup-in-win10.html" rel="alternate" type="text/html" title="WIN10【Tensorflow-gpu+Anaconda3+cuda9.0+cudnn7.1】安装记录!" /><published>2020-03-11T00:00:00+08:00</published><updated>2020-03-11T00:00:00+08:00</updated><id>http://localhost:4000/2020/03/11/tensorflow1.x-gpu-setup-in-win10</id><content type="html" xml:base="http://localhost:4000/2020/03/11/tensorflow1.x-gpu-setup-in-win10.html">&lt;p&gt;首先，版本问题一定要适配https://www.tensorflow.org/install/source_windows，我装的是tensorflow-gpu1.11.0，配套是
+&lt;p&gt;欢迎交流&lt;/p&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="research" /><summary type="html"></summary></entry><entry><title type="html">WIN10【Tensorflow-gpu+Anaconda3+cuda9.0+cudnn7.1】安装记录!</title><link href="http://localhost:4000/2020/03/11/tensorflow1.x-gpu-setup-in-win10.html" rel="alternate" type="text/html" title="WIN10【Tensorflow-gpu+Anaconda3+cuda9.0+cudnn7.1】安装记录!" /><published>2020-03-11T00:00:00+08:00</published><updated>2020-03-11T00:00:00+08:00</updated><id>http://localhost:4000/2020/03/11/tensorflow1.x-gpu-setup-in-win10</id><content type="html" xml:base="http://localhost:4000/2020/03/11/tensorflow1.x-gpu-setup-in-win10.html">&lt;p&gt;首先，版本问题一定要适配https://www.tensorflow.org/install/source_windows，我装的是tensorflow-gpu1.11.0，配套是
 &lt;!--more--&gt;
 &lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/clip_image001-1575469940025.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -630,497 +1140,4 @@ gem &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nginx&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;restart&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;然后在浏览器访问你的子域名即可跳转至你的博客。&lt;/p&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="configuration" /><summary type="html">博客参考自： https://cloud.tencent.com/developer/article/1453573， https://segmentfault.com/a/1190000012560959 需求 最近因为一些原因需要在自己租的云服务器上搭建Jekyll博客，</summary></entry><entry><title type="html">问题解决：Github图片无法访问</title><link href="http://localhost:4000/2020/02/25/github-img-not-available.html" rel="alternate" type="text/html" title="问题解决：Github图片无法访问" /><published>2020-02-25T00:00:00+08:00</published><updated>2020-02-25T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/25/github-img-not-available</id><content type="html" xml:base="http://localhost:4000/2020/02/25/github-img-not-available.html">&lt;h2 id=&quot;需求&quot;&gt;需求&lt;/h2&gt;
-
-&lt;p&gt;最近发现在墙内无法顺畅的访问github远程仓库中的图片，导致自己的博客中的图片全都裂开了。。。
-&lt;!--more--&gt;
-之前的访问方式：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;找到github远程库中的图片，复制图片链接，格式一般是这样的：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://raw.githubusercontent.com/username/repo_name/img_name...&lt;/code&gt;，&lt;/li&gt;
-  &lt;li&gt;在markdown文档中嵌入图片链接&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;现在的情况是这样的:cry:：&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200225115717536.png&quot; alt=&quot;image-20200225115717536&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;原因分析&quot;&gt;原因分析&lt;/h2&gt;
-
-&lt;p&gt;github的服务器是在国外的，对于一些文字代码信息还可以预览编辑，但是图片却无法在线访问，如果切换到外网是可以访问的非常丝滑的，那么基本就是防火墙的问题了。但是博客对其他访问者是开放的，总不能让所有人都去翻翻翻。。。&lt;/p&gt;
-
-&lt;h2 id=&quot;解决方案&quot;&gt;解决方案&lt;/h2&gt;
-
-&lt;p&gt;经过上下求索，找到了一个可靠长久的解决方法，特别是针对那些有写博客需求的人。&lt;/p&gt;
-
-&lt;p&gt;我们需要给网站配置一个分流配置，具体原理不赘述，我的理解也不深，大致就是加了一个分流中转，让访问&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://raw.githubusercontent.com/username/repo_name/img_name...&lt;/code&gt;这个地址的人先访问国内的域名，然后通过DNS转到这个真实的地址&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;建立一个GitHub图片库，注意要设置为共有，以后图片都放到这里面&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200225121128297.png&quot; alt=&quot;image-20200225121128297&quot; style=&quot;zoom:50%;&quot; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;开启github pages功能，branch选中 master 就行&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200225144538660.png&quot; alt=&quot;image-20200225144538660&quot; style=&quot;zoom:67%;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;图中因为我配了一个域名，所以直接显示了域名，如果没有自己的域名就是github.io&lt;/li&gt;
-  &lt;li&gt;直接访问域名+图片路径，以http://jinluzhang.site/PublicPic/Pic/image-20200225121128297.png为例，就会显示了，在markdown嵌入即可。&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="configuration" /><category term="bug" /><summary type="html">需求 最近发现在墙内无法顺畅的访问github远程仓库中的图片，导致自己的博客中的图片全都裂开了。。。</summary></entry><entry><title type="html">【论文笔记】SSD Single Shot MultiBox Detector</title><link href="http://localhost:4000/2020/02/22/SSD-Single-Shot-MultiBox-Detector.html" rel="alternate" type="text/html" title="【论文笔记】SSD Single Shot MultiBox Detector" /><published>2020-02-22T00:00:00+08:00</published><updated>2020-02-22T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/22/SSD-Single-Shot-MultiBox-Detector</id><content type="html" xml:base="http://localhost:4000/2020/02/22/SSD-Single-Shot-MultiBox-Detector.html">&lt;blockquote&gt;
-  &lt;p&gt;目标检测中的一个经典one-stage算法——SSD，ECCV2016中Wei Liu提出的，相比于YOLO针对于小目标检测更友好。文章基本按照论文行文思路和结构记笔记，最后给出一个sumary&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;https://link.springer.com/chapter/10.1007%2F978-3-319-46448-0_2&quot;&gt;论文地址&lt;/a&gt;  &lt;a href=&quot;https://github.com/balancap/SSD-Tensorflow&quot;&gt;代码地址&lt;/a&gt;&lt;/p&gt;
-
-  &lt;p&gt;参考：&lt;a href=&quot;https://zhuanlan.zhihu.com/p/58713034&quot;&gt;SSD论文笔记&lt;/a&gt;,&lt;/p&gt;
-
-  &lt;!--more--&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
-
-&lt;p&gt;本文提出了一种使用单个深度神经网络来检测图像中的目标的方法，便于训练与优化，同时提高检测速度。&lt;strong&gt;将边界框的输出空间离散化为不同长宽比的一组default box，这些box是通过不同尺寸（分辨率）layer上的feature map得出的，每一层都具有不同的aspect ratios and scales&lt;/strong&gt;。在预测阶段，网络会在每个默认框中分别为每个类别生成分数，并对default box进行微调以更好地匹配目标形状。此外，网络还结合了&lt;strong&gt;不同分辨率的多个特征映射&lt;/strong&gt;的预测，自然地处理各种尺寸的目标。相对于region proposal的方法，SSD非常简单，因为它完全消除了提出生成和随后的像素或特征重采样阶段，并&lt;strong&gt;将所有计算封装到单个网络&lt;/strong&gt;中。&lt;/p&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-
-&lt;p&gt;目前主流的目标检测算法分为两种，一种R-CNN流，主要思路是先使用选择性搜索之类的启发式方法（Selective Search）或CNN网络（RPN）生成region proposal，然后在此proposal上生成特征输入到分类和定位网络中，这类方法是&lt;strong&gt;two-stage&lt;/strong&gt;的，特点是精度高、速度略慢、训练较复杂；第二种是YOLO为代表的&lt;strong&gt;one-stage&lt;/strong&gt;流，它们的思路是均匀地在图片的不同位置进行密集抽样，抽样时可以采用不同的尺度和长宽比，然后利用CNN提取特征后直接进行分类和回归，整个过程只需要一步，所以它们的优势是速度快。但是均匀的密集采样有一个缺点就是正样本和负样本分布极不均衡，这会导致训练困难，导致模型准确度稍低。&lt;strong&gt;（可以通过FocalLoss缓解这个问题）&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;由于改进了backbone网络，并且使用了不同分辨率的feature map，所以相比于YOLO流更加准确，尤其是对小物体检测敏感，速度也比faster rcnn更快。SSD属于one-stage，所以本文主要比较的也是YOLO流。&lt;/p&gt;
-
-&lt;p&gt;原文这段话感觉概括了SSD的有别于其他方法的主要思想：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Our improvements include using a small convolutional filter to predict object
-categories and offsets in bounding box locations, using separate predictors (filters) for
-different aspect ratio detections, and applying these filters to multiple feature maps from
-the later stages of a network in order to perform detection at multiple scales&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;使用VGG这种小卷积核网络进行提取初始目标特征和偏移量，并且针对不同尺度的feature maps产生不同的filter，然后将这种filter应用于之后的detection阶段。&lt;/p&gt;
-
-&lt;h2 id=&quot;the-single-shot-detector-ssd-网络结构&quot;&gt;The Single Shot Detector (SSD)-网络结构&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200209121221893.png&quot; alt=&quot;image-20200209121221893&quot; style=&quot;zoom:150%;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;网络的输入是300 x 300，称为SSD300；除此之外还有输入为500 x 500的SSD500，它在SSD300的基础上又加了一层conv11_2用于检测。&lt;/p&gt;
-
-&lt;p&gt;SSD将VGG-16的全连接层fc6和fc7转换成3 x 3的卷积层Conv6和1 x 1的卷积层Conv7，并将pool5从2 x 2 - s2转换成3 x 3 - s1。第一个用于检测的feature map是Conv4_3，由于位置靠前，为了避免与后面的检测层差异太大，所以在Conv4_3后面使用L2 normalization，即仅对每个像素点在channel维度上进行归一化。&lt;/p&gt;
-
-&lt;p&gt;可以看出，相比于YOLO网络，SSD主要改进在于：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;VGG16作为特征提取网络；&lt;/li&gt;
-  &lt;li&gt;使用不同尺寸的feature map提取出来的不同尺寸和长宽比的default box进行检测和分类。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;模型关键点&quot;&gt;模型关键点&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;多尺度feature map预测&lt;/strong&gt;，&lt;strong&gt;SSD网络中分为了6个stage，每个stage能学习到一个特征图，然后进行边框回归和分类&lt;/strong&gt;，这些层的尺寸&lt;strong&gt;逐渐减小&lt;/strong&gt;，并允许&lt;strong&gt;多尺度&lt;/strong&gt;的预测。在Conv4_3、Conv6、Conv7、Conv8_2、Conv9_2、Conv10_2、Pool 11的feature map上都会进行检测，入到后面的&lt;em&gt;detection per class&lt;/em&gt;层， 提取出来类别概率和坐标：（c, x, y, w, h）&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;VGG网络作为特征提取网络&lt;/strong&gt;，去除最后两层FC层，改为3 x 3的卷积层Conv6和1 x 1的卷积层Conv7，并在之后增加尺寸依次减小的4个卷积层&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;使用CNN检测&lt;/strong&gt;，这一部分和Faster RCNN中的RPN网络有些类似，对于feature map先使用3 x 3卷积，卷积后的结果代表feature map上每个像素代表的default box的信息，如类别概率或位置信息。&lt;/p&gt;
-
-    &lt;p&gt;对于边框回归，只需要&lt;strong&gt;4维向量&lt;/strong&gt;即可，分别代表边框缩放尺度(坐标轴两个方向)和平移向量(坐标轴两个方向)。对于分类，SSD网络采取为每个类别进行打分的策略，也就是说对于每个Default Box，SSD网络会计算出相应的&lt;strong&gt;每个类别的分数&lt;/strong&gt;。假设数据集类别数为c，加上背景，那么总的类别数就是&lt;strong&gt;c+1&lt;/strong&gt;类。SSD网络采用了c+1维向量来分别代表该Default Box对于每个类别所得到的分数。这里，假设是VOC数据集，那么每个Default Box将生成一个20 + 1 + 4 = 25维的特征向量。同样，以Conv9输出特征图5x5为例。抽象地说特征向量就是：&lt;strong&gt;(m*n)*k*(c+4)&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/MgVSAo8.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Default boxes and aspect ratios&lt;/strong&gt;，feature map上每个像素都会生成多个default box。作者充分的吸取了Faster R-CNN中的Anchors机制，在每个Stage中根据Feature Map的大小，按照固定的Scale和Radio生成Default Boxes。这里为了方便阐述，选取了Conv9的Feature Map，输出大小为5x5。SSD网络中作者设置Conv9的每个点默认生成6个box，如下图所示。因此在这一层上，共生成了5x5x6=150个boxes。&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/pToKpCA.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;（👆这段解释来自👉&lt;a href=&quot;https://blog.csdn.net/neu_chenguangq/article/details/79057655&quot;&gt;here&lt;/a&gt;,感觉解释的很到位，特此说明）&lt;/p&gt;
-
-&lt;p&gt;这样在不同尺度生成default box最大的好处在于可以对各种尺度和形状的物体进行预测：下图中狗的ground truth和4 x 4 feature map中default box匹配，但和8 x 8 feature map的任何一个default box都不匹配，所以SSD相对于RPN考虑更周到&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200222105802543.png&quot; alt=&quot;image-20200222105802543&quot; style=&quot;zoom:67%;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;注意区分dafault-box生成和cnn检测&quot;&gt;注意区分dafault box生成和CNN检测&lt;/h3&gt;
-
-&lt;p&gt;这两个关键点是分开的，default box生成时对于feature map中每一个像素点生成4-6个不同长宽比的box，得到的是每一个cell的不同box&lt;/p&gt;
-
-&lt;p&gt;而CNN检测是对每一个cell（也就是像素）进行3*3卷积，得到的是特征向量&lt;/p&gt;
-
-&lt;p&gt;这两个我在一开始读论文的时候经常搞不清&lt;/p&gt;
-
-&lt;h3 id=&quot;训练细节&quot;&gt;训练细节&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;如何选择default box的尺寸和长宽比&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;每层特征图上的尺度的default box计算表达式如下：&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200209134820257.png&quot; alt=&quot;image-20200209134820257&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;参数：scale， aspect ratio——每个cell生成固定的scale（s）和aspect ratio（ar）的边界框&lt;/p&gt;
-
-    &lt;p&gt;其中 Smin 为最小尺度0.2， Smax 为最大尺度0.95。&lt;/p&gt;
-
-    &lt;p&gt;长宽比&lt;strong&gt;ar ∈ {1，2，3，1/2，1/3}&lt;/strong&gt;，&lt;/p&gt;
-
-    &lt;p&gt;于是default box的宽和高可以通过 &lt;img src=&quot;https://www.zhihu.com/equation?tex=w_k%5Ea%3Ds_k%5Csqrt%7Ba_r%7D&quot; alt=&quot;[公式]&quot; /&gt; 和 &lt;img src=&quot;https://www.zhihu.com/equation?tex=h_k%5Ea%3Ds_k%2F%5Csqrt%7Ba_r%7D&quot; alt=&quot;[公式]&quot; /&gt; 计算，&lt;/p&gt;
-
-    &lt;p&gt;除此之外，还增加一个长宽比为1的时候，尺度为 &lt;img src=&quot;https://www.zhihu.com/equation?tex=s_k%27%3D%5Csqrt%7Bs_ks_%7Bk%2B1%7D%7D&quot; alt=&quot;[公式]&quot; /&gt; 的default box，所以feature map上每个像素都有6个default box，&lt;strong&gt;注意这里得到的结果都是相对于原图的比例&lt;/strong&gt;。default box中心的坐标就是像素的中心。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;匹配策略&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;训练时需要建立ground truth和default box之间的对应关系，文中主要采用best jaccard overlap。与MultiBox稍有不同的是：SSD每个ground truth可以与多个default box匹配。&lt;/p&gt;
-
-    &lt;p&gt;分为两步：首先对于每个ground truth，找到一个与其IoU最大的default box匹配，这个default box对应的预测框就作为正样本，其余都作为负样本。但这样做会导致负样本过多，正负样本分布极其不均衡，所以还会采取第二步：对于每个ground truth，将与其IoU大于某一阈值（比如0.5）的default box都进行匹配。&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200222113304807.png&quot; alt=&quot;image-20200222113304807&quot; style=&quot;zoom: 50%;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;损失函数&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200222113449881.png&quot; alt=&quot;image-20200222113449881&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200222113710154.png&quot; alt=&quot;image-20200222113710154&quot; style=&quot;zoom: 50%;&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;https://www.zhihu.com/equation?tex=N&quot; alt=&quot;[公式]&quot; /&gt; 为匹配成功的default box个数； &lt;img src=&quot;https://www.zhihu.com/equation?tex=%5Calpha&quot; alt=&quot;[公式]&quot; /&gt; 是为了权衡两者损失而设置，通过交叉验证发现设置为1更好；第一项是置信度的Softmax损失，注意还包括背景这个类别；第二项是参数化后的bounding box中心坐标、长和宽的Smooth L1损失&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;难例挖掘&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;用于预测的 feature map 上的每个点都对应有 6 个不同的 default box，绝大部分的 default box 都是负样本，导致了正负样本不平衡。在训练过程中，采用了 Hard Negative Mining 的策略（&lt;strong&gt;根据confidence loss对所有的box进行排序，使正负例的比例保持在1:3&lt;/strong&gt;） 来平衡正负样本的比率。这样做能提高4%左右。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;数据增强&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;三个选项：&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;使用整张图像作为输入&lt;/li&gt;
-      &lt;li&gt;使用IOU和目标物体为0.1、0.3、0.5、0.7和0.9的patch，这些patch在原图的大小的[0.1, 1]之间，相应的宽高比在[1/2, 2]之间。&lt;/li&gt;
-      &lt;li&gt;随机采取一个patch&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;experiment&quot;&gt;Experiment&lt;/h2&gt;
-
-&lt;h3 id=&quot;caffe版本&quot;&gt;Caffe版本&lt;/h3&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;System&lt;/th&gt;
-      &lt;th&gt;VOC2007 test &lt;em&gt;mAP&lt;/em&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;strong&gt;FPS&lt;/strong&gt; (Titan X)&lt;/th&gt;
-      &lt;th&gt;Number of Boxes&lt;/th&gt;
-      &lt;th&gt;Input resolution&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/ShaoqingRen/faster_rcnn&quot;&gt;Faster R-CNN (VGG16)&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;73.2&lt;/td&gt;
-      &lt;td&gt;7&lt;/td&gt;
-      &lt;td&gt;~6000&lt;/td&gt;
-      &lt;td&gt;~1000 x 600&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;http://pjreddie.com/darknet/yolo/&quot;&gt;YOLO (customized)&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;63.4&lt;/td&gt;
-      &lt;td&gt;45&lt;/td&gt;
-      &lt;td&gt;98&lt;/td&gt;
-      &lt;td&gt;448 x 448&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;SSD300* (VGG16)&lt;/td&gt;
-      &lt;td&gt;77.2&lt;/td&gt;
-      &lt;td&gt;46&lt;/td&gt;
-      &lt;td&gt;8732&lt;/td&gt;
-      &lt;td&gt;300 x 300&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;SSD512* (VGG16)&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;79.8&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;19&lt;/td&gt;
-      &lt;td&gt;24564&lt;/td&gt;
-      &lt;td&gt;512 x 512&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;tf版本代码&quot;&gt;TF版本（&lt;a href=&quot;https://github.com/balancap/SSD-Tensorflow&quot;&gt;代码&lt;/a&gt;）&lt;/h3&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Model&lt;/th&gt;
-      &lt;th&gt;Training data&lt;/th&gt;
-      &lt;th&gt;Testing data&lt;/th&gt;
-      &lt;th&gt;mAP&lt;/th&gt;
-      &lt;th&gt;FPS&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://drive.google.com/open?id=0B0qPCUZ-3YwWZlJaRTRRQWRFYXM&quot;&gt;SSD-300 VGG-based&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;VOC07+12 trainval&lt;/td&gt;
-      &lt;td&gt;VOC07 test&lt;/td&gt;
-      &lt;td&gt;0.778&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://drive.google.com/file/d/0B0qPCUZ-3YwWUXh4UHJrd1RDM3c/view?usp=sharing&quot;&gt;SSD-300 VGG-based&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;VOC07+12+COCO trainval&lt;/td&gt;
-      &lt;td&gt;VOC07 test&lt;/td&gt;
-      &lt;td&gt;0.817&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://drive.google.com/open?id=0B0qPCUZ-3YwWT1RCLVZNN3RTVEU&quot;&gt;SSD-512 VGG-based&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;VOC07+12+COCO trainval&lt;/td&gt;
-      &lt;td&gt;VOC07 test&lt;/td&gt;
-      &lt;td&gt;0.837&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;和YOLO一样不同类别之间共享回归器，所以易混淆相似的类别&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;对小物体的检测相对于YOLO好一点&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;比YOLOv1快且精准度高，比Faster R-CNN精度略低&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;SSD整个网络采取了one stage的思想，以此提高检测速度。并且网络中融入了Faster R-CNN中的anchors思想，并且做了特征分层提取并依次计算边框回归和分类操作。总之，这是一个延申RPN网络思想，同时又结合YOLO框架的方法。&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="paper" /><category term="detection" /><summary type="html">目标检测中的一个经典one-stage算法——SSD，ECCV2016中Wei Liu提出的，相比于YOLO针对于小目标检测更友好。文章基本按照论文行文思路和结构记笔记，最后给出一个sumary 论文地址 代码地址 参考：SSD论文笔记,</summary></entry><entry><title type="html">Ubuntu18.04重装Nvidia驱动，cuda和cudnn，多用户使用anaconda</title><link href="http://localhost:4000/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda.html" rel="alternate" type="text/html" title="Ubuntu18.04重装Nvidia驱动，cuda和cudnn，多用户使用anaconda" /><published>2020-02-17T00:00:00+08:00</published><updated>2020-02-17T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda</id><content type="html" xml:base="http://localhost:4000/2020/02/17/Ubuntu18.04-rebuild-Nvidia-driver-cuda-cudnn-multi-use-anaconda.html">&lt;p&gt;最近手残升级了nvidia显卡驱动，导致cuda与驱动冲动，没办法只能重装了。
-&lt;!--more--&gt;
-配置信息：&lt;br /&gt;系统：Ubuntu18.04；显卡：Nvidia 2080Ti；驱动：Nvidia Driver 440.44；cuda：10.2；cudnn：7.6.5&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200108100525530.png&quot; alt=&quot;img&quot; style=&quot;zoom:80%;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;查看cuda 版本
-cat /usr/local/cuda/version.txt&lt;/p&gt;
-
-&lt;p&gt;查看cudnn 版本
-cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200108100752066-1581941094214.png&quot; alt=&quot;image-20200108100752066&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;重装显卡驱动&quot;&gt;重装显卡驱动&lt;/h2&gt;
-
-&lt;h3 id=&quot;禁用nouveau驱动&quot;&gt;禁用nouveau驱动&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo vim /etc/modprobe.d/blacklist.conf&lt;/code&gt;
-在文本最后添加：&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;blacklist nouveau
-options nouveau modeset=0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;然后执行：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo update-initramfs -u&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;重启机器后，执行以下命令，如果没有屏幕输出，说明禁用nouveau成功：&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lsmod | grep nouveau&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;下载驱动&quot;&gt;下载驱动&lt;/h3&gt;
-
-&lt;p&gt;官网下载地址：https://www.nvidia.cn/Download/index.aspx?lang=cn ，根据自己显卡的情况下载对应版本的显卡驱动。下载得到一个.run安装包，之后会用到。&lt;/p&gt;
-
-&lt;h3 id=&quot;卸载旧驱动&quot;&gt;卸载旧驱动&lt;/h3&gt;
-
-&lt;p&gt;重启后，使用快捷键进入文本模式，然后输入用户名密码就可：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl-Alt+F1&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;执行以下命令禁用X-Window服务，否则无法安装显卡驱动：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo service lightdm stop&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;执行以下命令卸载原有显卡驱动：注意匹配自己下载的驱动版本&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get remove --purge nvidia*
-sudo apt-get autoremove
-sudo chmod +x NVIDIA-Linux-x86_64-4**.**.run
-sudo ./NVIDIA-Linux-x86_64-4**.**.run --uninstall
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;安装新驱动&quot;&gt;安装新驱动&lt;/h3&gt;
-
-&lt;p&gt;保险期间，再重启一遍。直接执行驱动文件即可安装新驱动，一直默认即可：&lt;/p&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ./NVIDIA-Linux-x86_64-410.93.run
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;执行以下命令启动X-Window服务&lt;/p&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service lightdm start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;最后执行重启命令，重启系统即可：&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;reboot
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;重装cuda&quot;&gt;重装CUDA&lt;/h2&gt;
-
-&lt;p&gt;因为重装后的驱动和原来CUDA版本还是不一样（如果之前安装了CUDA，可以用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nvcc -V&lt;/code&gt;试试，不行的话还是重装吧​🙂​）&lt;/p&gt;
-
-&lt;p&gt;卸载CUDA执行的是CUDA自带的卸载脚本，读者要根据自己的cuda版本找到卸载脚本：&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo /usr/local/cuda-10.0/bin/uninstall_cuda_10.0.pl&lt;/code&gt;
-卸载之后，还有一些残留的文件夹，之前安装的是CUDA 8.0。可以一并删除：&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo rm -rf /usr/local/cuda-10.0/&lt;/code&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;安装cuda&quot;&gt;安装CUDA&lt;/h2&gt;
-
-&lt;h3 id=&quot;下载安装&quot;&gt;下载安装&lt;/h3&gt;
-
-&lt;p&gt;在官网：&lt;a href=&quot;https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;target_distro=Ubuntu&amp;amp;target_version=1604&amp;amp;target_type=runfilelocal&quot;&gt;CUDA下载页面&lt;/a&gt;，下载符合自己系统版本的CUDA。&lt;/p&gt;
-
-&lt;p&gt;下载完成之后，给文件赋予执行权限：&lt;/p&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod +x cuda_*****_linux.run
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;执行安装包，开始安装：&lt;/p&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./cuda_****_linux.run
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;CUDA10.2安装时会显示这样一个画面👇，不安装驱动了，注意把Driver去掉，否则会导致重复安装驱动&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://jinluzhang.site/PublicPic/Pic/image-20200107223538310.png&quot; style=&quot;zoom: 80%;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;配置环境变量&quot;&gt;配置环境变量&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export CUDA_HOME=/usr/local/cuda-10.2
-export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
-export PATH=${CUDA_HOME}/bin:${PATH}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;安装cudnn&quot;&gt;安装CUDNN&lt;/h2&gt;
-
-&lt;p&gt;CUDNN的下载官网：https://developer.nvidia.com/rdp/cudnn-download ，点击Download开始选择和CUDA10.2匹配的下载版本，选择&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cuDNN Library for Linux&lt;/code&gt;：&lt;/p&gt;
-
-&lt;p&gt;对它进行解压，命令如下：&lt;/p&gt;
-
-&lt;p&gt;tar -zxvf cudnn-10.0-linux-x64-v7.4.2.24.tgz&lt;/p&gt;
-
-&lt;p&gt;解压之后可以得到以下文件：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;cuda/include/cudnn.h
-cuda/NVIDIA_SLA_cuDNN_Support.txt
-cuda/lib64/libcudnn.so
-cuda/lib64/libcudnn.so.7
-cuda/lib64/libcudnn.so.7.4.2
-cuda/lib64/libcudnn_static.a&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;使用以下两条命令复制这些文件到CUDA目录下：&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cp cuda/lib64/* /usr/local/cuda-10.0/lib64/
-cp cuda/include/* /usr/local/cuda-10.0/include/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;拷贝完成之后，可以使用以下命令查看CUDNN的版本信息：&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;安装anaconda3&quot;&gt;安装Anaconda3&lt;/h2&gt;
-
-&lt;p&gt;先去官方地址下载好对应的安装包&lt;a href=&quot;https://www.anaconda.com/download/#linux&quot;&gt;Ubuntu - anaconda 下载地址&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;然后直接安装anaconda ：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bash ~/Downloads/Anaconda3-5.2.0-Linux-x86_64.sh&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;安装过程中看到&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Welcome to Anaconda3 5.2.0
-In order to continue the installation process, please review the license
-agreement. (为了继续安装过程，请审核许可证。协议。)
-Please, press ENTER to continue&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;直接按enter查看协议，然后一直enter下去，&lt;/p&gt;
-
-&lt;p&gt;然后看到&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;table&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;Do you accept the license terms? [yes&lt;/td&gt;
-        &lt;td&gt;no]（你接受许可证条款吗?）&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;直接输入yes 然后按enter，进入下一步&lt;/p&gt;
-
-&lt;p&gt;接下来会提示安装地址：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Anaconda3 will now be installed into this location:
-/home/user/anaconda3&lt;/p&gt;
-
-  &lt;p&gt;Press ENTER to confirm the location
-Press CTRL-C to abort the installation
-Or specify a different location below&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;建议默认即可，
-按enter继续下一步，注意这里按ctrl + c 直接会终止安装。
-接下来先等待安装即可。
-看到&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Thank you for installing Anaconda3!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;表示安装成功。&lt;/p&gt;
-
-&lt;h3 id=&quot;添加环境变量&quot;&gt;添加环境变量&lt;/h3&gt;
-
-&lt;p&gt;anaconda会自动将环境变量添加到PATH里面，如果后面你发现输出conda
-提示没有该命令，那么你需要source ~/.bashrc 这样就是更新环境变量，就可以正常使用了。
-如果发现这样还是没用，那么需要收到添加环境变量
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo vim ~/.basrc&lt;/code&gt; 文件，在最后面加上
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;export PATH=/home/user/anaconda3/bin:$PATH&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;保存退出后：source ~/.bashrc
-再次输入conda list测试看看，应该就是没有问题啦！&lt;/p&gt;
-
-&lt;h2 id=&quot;多用户使用conda&quot;&gt;多用户使用conda&lt;/h2&gt;
-
-&lt;p&gt;注意我在user用户下安装配置的conda，怎么在其他用户里使用conda呢？直接使用会报错没有conda命令&lt;/p&gt;
-
-&lt;p&gt;做如下配置：&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;su another_user
-sudo vim ~/.basrc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;最后一行加上conda安装位置的环境变量：export PATH=/home/user/anaconda3/bin:$PATH&lt;/p&gt;
-
-&lt;p&gt;保存退出后：source ~/.bashrc&lt;/p&gt;
-
-&lt;p&gt;如果使用conda activate命令显示没有初始化这样的错误，运行下面代码：&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/anaconda3/etc/profile.d/conda.sh
-conda activate my_env
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="configuration" /><summary type="html">最近手残升级了nvidia显卡驱动，导致cuda与驱动冲动，没办法只能重装了。</summary></entry><entry><title type="html">Hello World!</title><link href="http://localhost:4000/2020/02/16/hello-world.html" rel="alternate" type="text/html" title="Hello World!" /><published>2020-02-16T00:00:00+08:00</published><updated>2020-02-16T00:00:00+08:00</updated><id>http://localhost:4000/2020/02/16/hello-world</id><content type="html" xml:base="http://localhost:4000/2020/02/16/hello-world.html">&lt;p&gt;Hi everyone, welcome come to my blog website.:wink:&lt;/p&gt;
-
-&lt;p&gt;I start this blog website by myself and Powered by &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; &amp;amp; &lt;a href=&quot;https://github.com/kitian616/jekyll-TeXt-theme&quot;&gt;TeXt Theme&lt;/a&gt;. Thanks the &lt;a href=&quot;https://github.com/kitian616&quot;&gt;author&lt;/a&gt; of this theme.&lt;/p&gt;
-
-&lt;p&gt;If you like my blog theme, Just take it away &lt;a href=&quot;https://github.com/JinluZhang1126/jinluzhang1126.github.io/tree/template&quot;&gt;here&lt;/a&gt;! It is yours now! :laughing:
-&lt;!--more--&gt;
-This blog is mainly for recording my &lt;strong&gt;research and learning life&lt;/strong&gt; in the future.&lt;/p&gt;
-
-&lt;p&gt;I will try my best to write my blog with English, but you know, my English is not solid enough to express myself:pensive:. Thus i will firstly write logs with Chinese. If you want any article’s English version or have any qusetion, just comment to me in the comment area at each article’s footer.&lt;/p&gt;
-
-&lt;p&gt;I am Jinlu Zhang. I am coming to a new world! :smiley:&lt;/p&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><summary type="html">Hi everyone, welcome come to my blog website.:wink: I start this blog website by myself and Powered by Jekyll &amp;amp; TeXt Theme. Thanks the author of this theme. If you like my blog theme, Just take it away here! It is yours now! :laughing:</summary></entry></feed>
+&lt;p&gt;然后在浏览器访问你的子域名即可跳转至你的博客。&lt;/p&gt;</content><author><name>Jinlu Zhang</name><email>Jinluzhang1126@163.com</email></author><category term="configuration" /><summary type="html">博客参考自： https://cloud.tencent.com/developer/article/1453573， https://segmentfault.com/a/1190000012560959 需求 最近因为一些原因需要在自己租的云服务器上搭建Jekyll博客，</summary></entry></feed>

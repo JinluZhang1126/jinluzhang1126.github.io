@@ -3,7 +3,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Human Pose综述 - Jinlu Zhang</title>
 
-<meta name="description" content="可以看出这四个部分都是与人体姿态有关的，也是姿态估计的具体分支姿态识别姿态识别一般流程如下：可以看出人体分割与人体姿态识别是姿态识别大类的两个关键步骤，人体分割是人体姿态识别（动作识别、身份识别等）的基础。人体分割-人体骨骼关键点检测（skeleton）人体分割使用的方法可以大体分为人体骨骼关键点检测、语义分割等...">
+<meta name="description" content="可以看出这四个部分都是与人体姿态有关的，也是姿态估计的具体分支">
 <link rel="canonical" href="http://localhost:4000/2020/04/03/human-pose-review.html"><link rel="alternate" type="application/rss+xml" title="Jinlu Zhang" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ -->
 <!--<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
@@ -281,7 +281,7 @@
 	C85,28.9,84.1,28,83,28z M81,78H55V32h26V78z"/>
 </svg>
 <a title="My Website with Blogs, Publications, Projects and Resume...>" href="/">Jinlu Zhang</a></div><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></div><nav class="navigation">
-        <ul><li class="navigation__item"><a href="/web-blogs">Blog</a></li><li class="navigation__item"><a href="/web-tags">Tag</a></li><li class="navigation__item"><a href="/web-about">About Me</a></li><li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li></ul>
+        <ul><li class="navigation__item"><a href="https://www.yuque.com/jinluzhang/researchblog#">Research Blog</a></li><li class="navigation__item"><a href="https://www.yuque.com/jinluzhang/myblog#">Dev Blog</a></li><li class="navigation__item"><a href="/web-about">About Me</a></li><li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li></ul>
       </nav></div>
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
@@ -298,26 +298,29 @@
             href="https://github.com/JinluZhang1126/jinluzhang1126.github.io/tree/master/_posts/2020-04-03-human-pose-review.md">
             <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="Human Pose综述"><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
-                href="/web-blogs/?tag=pose">pose</a>
+                href="/web-blogs/?tag=human_pose">human_pose</a>
             </li><li>
               <a class="button button--secondary button--pill button--sm"
                 href="/web-blogs/?tag=paper">paper</a>
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Apr 03, 2020</span>
             </li><li><i class="far fa-eye"></i> <span class="js-pageview" data-page-key="2020-04-03-human-pose-review">0</span> views</li></ul></div><meta itemprop="author" content="Jinlu Zhang"/><meta itemprop="datePublished" content="2020-04-03T00:00:00+08:00">
-    <meta itemprop="keywords" content="pose,paper"><div class="js-article-content"><meta name="robots" content="all,follow">
+    <meta itemprop="keywords" content="human_pose,paper"><div class="js-article-content"><meta name="referrer" content="no-referrer" />
+<meta name="robots" content="all,follow">
 
 <div class="layout--article"><!-- start custom article top snippet -->
 
 <!-- end custom article top snippet -->
-<div class="article__content" itemprop="articleBody"><p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/20200321094012.png" alt="20200321094012" style="zoom: 80%;" /></p>
+<div class="article__content" itemprop="articleBody"><p><img src="https://jinluzhang.site/PublicPic/Pic/20200321094012.png" alt="http://jinluzhang.site/PublicPic/Pic/20200321094012.png" /></p>
 
 <p>可以看出这四个部分都是与人体姿态有关的，也是姿态估计的具体分支</p>
+
+<!--more-->
 
 <h2 id="姿态识别">姿态识别</h2>
 
 <p><strong>姿态识别一般流程如下：</strong></p>
 
-<p><img src="http://jinluzhang.site/PublicPic/Pic/20200320172220.png" alt="20200320172220" style="zoom: 67%;" /></p>
+<p><img src="http://jinluzhang.site/PublicPic/Pic/20200320172220.png" alt="http://jinluzhang.site/PublicPic/Pic/20200320172220.png" /></p>
 
 <p>可以看出人体分割与人体姿态识别是姿态识别大类的两个关键步骤，人体分割是人体姿态识别（动作识别、身份识别等）的基础。</p>
 
@@ -325,7 +328,7 @@
 
 <p>人体分割使用的方法可以大体分为人体骨骼关键点检测、语义分割等方式实现。人体骨骼关键点检测输出是人体的骨架信息，一般主要作为<strong>人体姿态识别的基础部分</strong>，主要用于分割、对齐等。</p>
 
-<p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/20200321094432.png" alt="20200321094432" /></p>
+<p><img src="http://jinluzhang.site/PublicPic/Pic/20200321094432.png" alt="http://jinluzhang.site/PublicPic/Pic/20200321094432.png" /></p>
 
 <p>人体骨骼关键点检测是一种多方面任务，包含了目标检测、人体骨骼关键点检测、分割等。</p>
 
@@ -336,25 +339,17 @@
 <p><strong>人体骨骼关键点检测的挑战：</strong></p>
 
 <ol>
-  <li>
-    <p>每张图片中包含人的数量是未知的，图像中人越多，计算复杂度越大（计算量与人的数量正相关），这使得处理时间变长，从而使<strong>real time</strong>变得困难。</p>
-  </li>
-  <li>
-    <p>人与人之间会存在如<strong>接触、遮挡</strong>等关系，导致将不同人的关键节点区分出来的难度增加，有可能会将骨骼关键点误认为是另一个人的。</p>
-  </li>
-  <li>
-    <p><strong>关键点区域的图像信息比较难区分</strong>，也就是说某个关键点检测时容易出现检测位置不准或者置信度不准，甚至将背景的图像当成关键点图像的错误。</p>
-  </li>
-  <li>
-    <p>人体不同关键点检测的难易程度是不一样的，对于腰部、腿部这类没有比较明显特征关键点的检测要难于头部附近关键点的检测，<strong>需要对不同的关键点区别对待</strong>。</p>
-  </li>
+  <li><strong>每张图片中包含人的数量是未知的，图像中人越多，计算复杂度越大（计算量与人的数量正相关），这使得处理时间变长，从而使real time变得困难。</strong></li>
+  <li><strong>人与人之间会存在如接触、遮挡等关系，导致将不同人的关键节点区分出来的难度增加，有可能会将骨骼关键点误认为是另一个人的。</strong></li>
+  <li><strong>关键点区域的图像信息比较难区分，也就是说某个关键点检测时容易出现检测位置不准或者置信度不准，甚至将背景的图像当成关键点图像的错误。</strong></li>
+  <li><strong>人体不同关键点检测的难易程度是不一样的，对于腰部、腿部这类没有比较明显特征关键点的检测要难于头部附近关键点的检测，需要对不同的关键点区别对待。</strong></li>
 </ol>
 
-<h4 id="2d人体骨骼关键点检测实现"><strong>2D人体骨骼关键点检测实现</strong></h4>
+<h3 id="2d人体骨骼关键点检测实现"><strong>2D人体骨骼关键点检测实现</strong></h3>
 
-<p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200321115712607-1584763108036.png" alt="image-20200321115712607" style="zoom:80%;" /></p>
+<p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200321115712607-1584763108036.png" alt="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200321115712607-1584763108036.png" /></p>
 
-<p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/640.jpg" alt="img" style="zoom:90%;" /></p>
+<p><img src="http://jinluzhang.site/PublicPic/Pic/640.jpg" alt="http://jinluzhang.site/PublicPic/Pic/640.jpg" /></p>
 
 <p>代表作：</p>
 
@@ -362,7 +357,7 @@
 
 <p>自底向上：PAFs（OpenPose） https://arxiv.org/abs/1611.08050</p>
 
-<h4 id="2d人体骨骼关键点检测实现-1"><strong>2D+人体骨骼关键点检测实现</strong></h4>
+<h3 id="2d人体骨骼关键点检测实现-1"><strong>2D+人体骨骼关键点检测实现</strong></h3>
 
 <p><strong>实质是：2D图像+3D重建</strong></p>
 
@@ -370,15 +365,15 @@
 
 <p>2D+人体骨骼关键点检测输出的人体骨骼关键点信息是3D数据，即每个关节都是一个3D坐标（x,y,z）</p>
 
-<p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/640-1584764809340.webp" alt="img" style="zoom: 50%;" /></p>
+<p>http://jinluzhang.site/PublicPic/Pic/640-1584764809340.webp</p>
 
 <p>代表作：DensePose https://arxiv.org/abs/1802.00434</p>
 
-<h4 id="3d人体骨骼关键点检测"><strong>3D人体骨骼关键点检测：</strong></h4>
+<h3 id="3d人体骨骼关键点检测"><strong>3D人体骨骼关键点检测：</strong></h3>
 
 <p>根据输入图像数据是RGB还是RGBD可分为2D+人体骨骼关键点检测、3D人体骨骼关键点检测。</p>
 
-<p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200321115912509.png" alt="image-20200321115912509" /></p>
+<p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200321115912509.png" alt="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/image-20200321115912509.png" /></p>
 
 <p>输入的图像数据：RGBD（3D）</p>
 
@@ -388,13 +383,11 @@
 
 <p>人体姿态识别包括动作识别、身份识别两个方面，关键在人体特征提取，人体特征提取主要完成动作特征提取、身份特征提取。</p>
 
-<h4 id="动作识别">动作识别</h4>
+<h3 id="动作识别">动作识别</h3>
 
-<p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/20200320172906.png" alt="20200320172906" /></p>
+<p><img src="http://jinluzhang.site/PublicPic/Pic/20200320172906.png" alt="http://jinluzhang.site/PublicPic/Pic/20200320172906.png" /></p>
 
-<h4 id="身份识别">身份识别</h4>
-
-<p><img src="https://raw.githubusercontent.com/JinluZhang1126/PublicPic/master/Pic/20200321094551.png" alt="20200321094551" /></p>
+<h3 id="身份识别">身份识别</h3>
 </div><section class="article__sharing d-print-none"><!-- AddToAny BEGIN -->
 <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
   <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
@@ -418,7 +411,7 @@
     </p>
   </div></div>-->
 </footer>
-<div class="article__section-navigator clearfix"><div class="previous"><span>PREVIOUS</span><a href="/2020/03/28/how-to-read-papers.html">如何高效地进行文献阅读和总结？</a></div></div></div>
+<div class="article__section-navigator clearfix"><div class="previous"><span>PREVIOUS</span><a href="/2020/03/28/how-to-read-papers.html">如何高效地进行文献阅读和总结？</a></div><div class="next"><span>NEXT</span><a href="/2020/04/24/RMPE_-Regional-Multi-person-Pose-Estimation.html">RMPE Regional Multi-person Pose Estimation</a></div></div></div>
 
 </div>
 
