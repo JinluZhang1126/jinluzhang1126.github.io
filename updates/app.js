@@ -13,9 +13,6 @@ let opened = '';
 let archivePage = 0;
 let calendarMonth = '';
 let calendarDate = '';
-const DAY = 86400000;
-const dayNumber = value => Date.parse(value + 'T00:00:00Z') / DAY;
-const dayString = value => new Date(value * DAY).toISOString().slice(0, 10);
 const workCount = entry => entry.html ? new DOMParser().parseFromString(entry.html, 'text/html').querySelectorAll('h3').length : 1;
 
 const readerId = new URLSearchParams(location.search).get('entry');
@@ -35,31 +32,28 @@ function publicLink(label, url) {
   return link;
 }
 
-// 使用 UTC 日序号计算窗口，避免跨时区与夏令时造成七天边界偏移。
+// 先筛选，再按条目数量分页；日期间隔不会产生空页。
 function archiveWindow(collection) {
-  const dates = collection.map(e => e.date).sort();
-  const latest = dates.at(-1) || new Date().toISOString().slice(0, 10);
-  const maxPage = dates.length ? Math.floor((dayNumber(latest) - dayNumber(dates[0])) / 7) : 0;
+  const sorted = [...collection].sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id));
+  const maxPage = Math.max(0, Math.ceil(sorted.length / 7) - 1);
   archivePage = Math.max(0, Math.min(archivePage, maxPage));
-  const end = dayString(dayNumber(latest) - archivePage * 7);
-  return {start: dayString(dayNumber(end) - 6), end, maxPage, latest};
+  return {items: sorted.slice(archivePage * 7, (archivePage + 1) * 7), maxPage, total: sorted.length};
 }
 
-function renderArchiveControls(collection, prefix) {
-  const window = archiveWindow(collection);
+function renderArchiveControls(collection, prefix, filtered = collection) {
+  const page = archiveWindow(filtered);
   const pager = $(prefix + '-pager');
   pager.replaceChildren();
-  const newer = text('button', '← 较新 7 天');
-  const older = text('button', '较早 7 天 →');
+  const newer = text('button', '← 上一页');
+  const older = text('button', '下一页 →');
   newer.disabled = archivePage === 0;
-  older.disabled = archivePage === window.maxPage;
+  older.disabled = archivePage === page.maxPage;
   for (const [button, delta] of [[newer, -1], [older, 1]]) button.addEventListener('click', () => {
-    archivePage += delta; calendarDate = ''; $('date').value = '';
-    calendarMonth = dayString(dayNumber(window.latest) - archivePage * 7).slice(0, 7);
+    archivePage += delta;
     render();
   });
-  pager.append(newer, text('span', `${window.start} — ${window.end} · ${archivePage + 1} / ${window.maxPage + 1}`), older);
-  if (!calendarMonth) calendarMonth = window.end.slice(0, 7);
+  pager.append(newer, text('span', `第 ${archivePage + 1} / ${page.maxPage + 1} 页 · 每页 7 项 · 共 ${page.total} 项`), older);
+  if (!calendarMonth) calendarMonth = (page.items[0]?.date || collection[0]?.date || new Date().toISOString().slice(0, 10)).slice(0, 7);
   const calendar = $(prefix + '-calendar');
   calendar.replaceChildren();
   const header = text('div', '', 'calendar-header');
@@ -87,11 +81,11 @@ function renderArchiveControls(collection, prefix) {
     cell.disabled = !hasRecord;
     cell.setAttribute('aria-label', `${date}，${count} 项${hasRecord ? '，查看记录' : '，无归档'}`);
     cell.setAttribute('aria-pressed', String(calendarDate === date));
-    if (date >= window.start && date <= window.end) cell.classList.add('in-window');
+    if (page.items.some(e => e.date === date)) cell.classList.add('in-window');
     cell.addEventListener('click', () => {
       calendarDate = calendarDate === date ? '' : date;
       $('date').value = calendarDate;
-      archivePage = Math.floor((dayNumber(window.latest) - dayNumber(date)) / 7);
+      archivePage = 0;
       render();
     });
     grid.append(cell);
@@ -102,16 +96,16 @@ function renderArchiveControls(collection, prefix) {
   }
   const clear = text('button', calendarDate ? '清除日期筛选 ×' : '点击日期查看记录', 'calendar-clear');
   clear.disabled = !calendarDate;
-  clear.addEventListener('click', () => { calendarDate = ''; $('date').value = ''; render(); });
+  clear.addEventListener('click', () => { calendarDate = ''; $('date').value = ''; archivePage = 0; render(); });
   calendar.append(header, grid, legend, text('p', '数量为当前栏目收录条目数；周报按归档日计，同篇跨期可重复收录。', 'calendar-note'), clear);
-  return window;
+  return page;
 }
 
 function renderTalks() {
   $('talk-note').textContent = talks.note || '暂无已核验的讲座。';
   $('talk-updated').textContent = talks.checked_at ? `最近核验 ${talks.checked_at}` : '';
-  const window = renderArchiveControls(talks.items, 'talk');
-  const items = talks.items.filter(talk => ($('talk-filter').value === 'all' || talk.status === $('talk-filter').value) && talk.date >= window.start && talk.date <= window.end && (!calendarDate || talk.date === calendarDate));
+  const filtered = talks.items.filter(talk => ($('talk-filter').value === 'all' || talk.status === $('talk-filter').value) && (!calendarDate || talk.date === calendarDate));
+  const {items} = renderArchiveControls(talks.items, 'talk', filtered);
   $('talk-list').replaceChildren();
   for (const talk of items) {
     const card = text('article', '', 'talk-card');
@@ -212,8 +206,8 @@ function render() {
   for (const date of [...new Set(collection.map(e => e.date))]) $('date').append(new Option(date, date));
   $('date').value = collection.some(e => e.date === selectedDate) ? selectedDate : '';
   const keywords = $('search').value.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
-  const window = renderArchiveControls(collection, 'archive');
-  const filtered = collection.filter(e => e.date >= window.start && e.date <= window.end && (!$('date').value || e.date === $('date').value) && keywords.every(word => e.searchText.includes(word)));
+  const matches = collection.filter(e => (!$('date').value || e.date === $('date').value) && keywords.every(word => e.searchText.includes(word)));
+  const {items: filtered} = renderArchiveControls(collection, 'archive', matches);
   $('result-count').textContent = loadError ? '归档加载失败' : `共 ${collection.length} 期 · 当前显示 ${filtered.length} 期`;
   $('entries').replaceChildren();
   if (!filtered.length) {
@@ -277,8 +271,8 @@ $('talk-filter').addEventListener('change', () => { archivePage = 0; calendarDat
 $('search').addEventListener('input', () => { archivePage = 0; render(); });
 $('date').addEventListener('change', () => {
   calendarDate = $('date').value;
-  const w = archiveWindow(entries.filter(e => e.category === category));
-  if (calendarDate) { archivePage = Math.floor((dayNumber(w.latest) - dayNumber(calendarDate)) / 7); calendarMonth = calendarDate.slice(0, 7); }
+  archivePage = 0;
+  if (calendarDate) calendarMonth = calendarDate.slice(0, 7);
   render();
 });
 $('filters').addEventListener('reset', () => { $('search').value = ''; $('date').value = ''; calendarDate = ''; archivePage = 0; calendarMonth = ''; render(); });
