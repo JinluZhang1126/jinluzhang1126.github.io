@@ -1,6 +1,23 @@
 {
   "entries": [
     {
+      "id": "daily-research-2026-10-25",
+      "category": "daily-research",
+      "date": "2026-10-25",
+      "title": "物理自改进的证据边界与潜空间世界模型（背景精读）",
+      "summary": "近36小时尚未确认可入选的首发或实质更新；另附3篇窗口外、本刊首次收录的背景精读，明确区分新发表、版本更新与编辑收录。",
+      "source": "公开原论文与作者项目页",
+      "period": "2026-10-23 12:40—2026-10-25 00:40（北京时间）｜已核实窗口内新论文0篇；背景精读3篇",
+      "tags": [
+        "Physical RSI",
+        "World Models",
+        "VLA",
+        "背景精读"
+      ],
+      "html": "<p>2026-10-25 Daily Research。检索窗口：北京时间 2026-10-23 12:40 至 2026-10-25 00:40（近 36 小时）。在本次可核验来源中，尚未确认符合窗口的首发或实质版本更新，不能据此断言整个领域没有新论文。下列 3 篇为本刊首次收录的背景精读，均早于窗口；不计入窗口内新论文 Top 10，不以旧文凑数。Hugging Face 显示其于 10 月 23 日收录，但未提供本次可核验的精确收录时刻。</p><h2>科研 Executive Summary</h2><ul><li>本期严格区分发表时间、版本时间和编辑收录时间；没有把平台推荐日期当成论文首发日期。</li><li>物理 RSI 的核心缺口是证明“改进者本身变得更会改进”，仅有更高任务成功率或增长的记忆库不够。</li><li>FRED 与 LaLa-World 提供两种未来表征路线：前者改善单步未来特征以服务动作预测，后者用自然语言动作统一潜空间动力学接口。二者不等于已实现在线持续学习。</li></ul><h2>窗口内首发／实质更新精选</h2><p>本次未形成可确认的入选条目（0/10）。下方另列背景精读，不替代窗口内新论文。</p><h2>本刊新收录｜窗口外背景精读 3 篇</h2><h3>Physical2RSI：用受控对照区分机器人行为提升与递归自改进</h3><p><b>论文：</b><a href=\"https://arxiv.org/abs/2610.29677\">Toward Recursive Self-Improvement in Physical AI</a>。首发：2026-10-21 12:54:50 UTC；已核验 v1。窗口外首发，本刊本期首次收录。</p><p><b>作者：</b>Meng Luo；Zechen Bai；Shanqing Xu；Yanlin Li；Kaixin Li；Mengchen Qian；Weifeng Lu；Ran Zhang；Yingtian Zou；Ziyang Luo；Wei Chen；Hongzhan Lin。<b>机构：</b>NUS、HUST、SJTU、NTU、HKBU（论文／作者项目页所列）。</p><p><b>贡献：</b>综述把任务行为、后续学习收益、学习流程改进和递归改进分层；强调冻结所积累的修复知识，在匹配模型、工具和预算的条件下比较后续改进能力。</p><p><b>研究关联与优先级：</b>P0，优先作为具身 RSI 实验设计的判据。作者认为其审阅的物理研究尚未隔离出由递归本身带来的收益；这是一项综述结论，不是新的机器人性能纪录。编辑建议：将参数更新、外部知识、学习流程及改进者自身分别设消融。</p><h3>FRED：以自蒸馏和历史观测改善单步未来视频表征</h3><p><b>论文：</b><a href=\"https://arxiv.org/abs/2610.30320\">Self-Distilling Future Video Representations for World Action Models</a>。首发：2026-10-21 18:33:13 UTC；已核验 v1。窗口外首发，本刊本期首次收录。</p><p><b>作者：</b>Huiwon Jang；Suhyeok Jang；Hyeonmo Kang；Seungku Kim；Jinwoo Shin；Sihyun Yu。<b>机构：</b>KAIST、RLWRLD（论文首页）。</p><p><b>贡献：</b>以真实未来观测提取的表征为蒸馏目标，训练从噪声产生单步未来特征，并加入历史观测；动作解码器利用这些特征，减少依赖多步生成视频。</p><p><b>研究关联与优先级：</b>P1，定向跟进人类视频到机器人技能迁移。作者报告在人类视频演示、机器人训练集不含相应任务的设置中成功率 50.0%，对比最强 WAM 基线 19.4%；未经本刊独立复现。该结果受任务、数据和机器人平台限制，不能外推为通用迁移，更不是部署期权重自更新。</p><h3>LaLa-World：以自然语言动作统一跨域潜空间动力学</h3><p><b>论文：</b><a href=\"https://arxiv.org/abs/2610.27851\">LaLa-World: Scaling Latent World Models with Natural Language Actions</a>。首发：2026-10-20 08:32:14 UTC；最新已核验 v2：2026-10-21 01:29:59 UTC。首发与版本更新均在窗口外，本刊本期首次收录。<a href=\"https://june-page.github.io/lala-world/\">Project Page ↗</a></p><p><b>作者：</b>Junha Song；Geonmo Gu；Jeongeun Park；Heejeong Nam；Lucas Maes；Byeongho Heo；Dongyoon Han；Sangdoo Yun。<b>机构：</b>NAVER AI Lab、Georgia Institute of Technology、Brown University、Mila 与 Université de Montréal（论文首页与作者项目页）。</p><p><b>贡献：</b>把数值动作及视觉变化表述为语言，在仿真、机器人轨迹及图像／视频数据上训练共享潜空间未来预测器；可用于 MPC，并初始化联合预测动作与未来视觉表征的 LaLa-Policy。</p><p><b>研究关联与优先级：</b>P1，定向跟进异构动作接口和规划成本。作者在匹配的 RAEv2 视频生成基线比较中报告训练成本约为六分之一、规划速度 13.9 倍；这些倍率依赖比较设置，未经本刊独立复现。语言动作接口的优势不意味着细粒度接触控制已解决，也不证明在线适应或递归学习。</p><h2>与前期归档的比较｜编辑分析</h2><p>10 月 24 日归档侧重 HERD 的 harness 到参数巩固、DRILL 的策略效用及 UniFlowWAM 的 4D 几何。本期背景材料补充了评测和接口视角：Physical2RSI 要求检验改进知识是否因果地改善后续学习；FRED 关注动作所需的未来表征；LaLa-World 关注跨域动作条件。这是方法关系比较，不是近 36 小时内研究趋势已经改变的证据。</p><ul><li><b>参数更新：</b>FRED 的自蒸馏和 LaLa-World 的预训练属于学习阶段；没有本期证据证明它们在部署中持续更新权重。</li><li><b>外部记忆：</b>历史观测条件不同于跨任务、跨运行持久记忆；不能混称持续学习。</li><li><b>Harness 演化：</b>修改工具或技能库需另行验证改进者的收益，不能仅以库变大证明递归改进。</li><li><b>上下文适配：</b>语言动作或历史观测是条件输入，与权重巩固及改进流程自修改不同。仍缺匹配预算、未见失败族和真实硬件下的递归归因实验。</li></ul><h2>公开参考来源</h2><ul><li><a href=\"https://arxiv.org/abs/2610.29677\">Physical2RSI 原论文与版本历史</a></li><li><a href=\"https://arxiv.org/abs/2610.30320\">FRED 原论文与版本历史</a></li><li><a href=\"https://arxiv.org/abs/2610.27851\">LaLa-World 原论文与版本历史</a>及<a href=\"https://june-page.github.io/lala-world/\">作者项目页</a></li><li><a href=\"https://huggingface.co/papers/date/2026-10-23\">Hugging Face 10 月 23 日公开收录列表</a>（用于发现，不作为首发时间证明）</li></ul>",
+      "videos": []
+    },
+    {
       "id": "daily-research-2026-10-24",
       "category": "daily-research",
       "date": "2026-10-24",
@@ -14,7 +31,34 @@
         "HOI",
         "VLA"
       ],
-      "html": "<p>公开科研摘要 · 2026-10-24。以下数字为论文作者报告，未经独立复现；资源状态截至原简报日期。</p><h2>科研 Executive Summary</h2><ul><li>持续学习出现更明确的 harness→权重巩固路线：HERD 在 25 阶段任务流上约束递归漂移，但仍有遗忘；VLM/VLA 场景需要额外验证。</li><li>世界模型后训练开始直接优化策略效用：DRILL 的双层目标把想象 rollout 是否能改善策略放到核心；目前证据限于仿真。</li><li>动作与场景动力学进一步解耦：DeXplicit 用显式物体状态，SkeLAM 分离运动学与视觉残差，UniFlowWAM 将 4D flow 纳入联合策略。</li><li>人体演示走向可执行控制需要接触与边界条件：PiHand 学交互先验，STR 聚焦关键接触，STAMP 先对齐片段边界再生成过渡。</li></ul><h2>Top 10｜按研究主题精选</h2><table><tr><td>1<br><b>P0</b></td><td><b><a href=\"https://arxiv.org/abs/2610.31401\">HERD: Harness-Evolving Recursive Distillation for Continual Learning</a></b><p>Agentic RSI／持续学习｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Xun Sun；Thanh Thi Nguyen；Thuy-Trang Vu<br><b>机构：</b>Monash University；University of the Sunshine Coast</p><p><b>核心贡献：</b>用可演化 skills 与高残差记忆筛选经验，再通过双锚约束蒸馏写入参数；部署只用权重。25 阶段 TRACE+17 报告最终均分 0.706、遗忘 0.010，通用能力仍下降 6.3 个百分点。</p><p><b>研究关联／边界：</b>直接关联 harness→参数的递归学习闭环。当前仅一个 Qwen3.5-4B 基座与一种任务顺序；对 uniform replay 的均分差异置信区间含零。尚非 VLM/VLA 的持续学习验证。</p></td></tr><tr><td>2<br><b>P0</b></td><td><b><a href=\"https://arxiv.org/abs/2610.30814\">DRILL: Training World Models to Improve Policies, Not Predict Pixels</a></b><p>世界模型／VLA 后训练｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Zhaolu Kang；Tailong Luo；Lei Wei；Guangyuan Dong；Sihan Liu；Yingjie He 等（完整名单见原文）<br><b>机构：</b>Tencent Hunyuan；Peking University</p><p><b>核心贡献：</b>以想象 rollout 内 GRPO 更新后的策略回报作为世界模型外层目标；提供 VWI 加权代理与 IMG 元梯度。五个操作仿真环境、两个 VLA 基座上，IMG 比 WMPO／RLVR-World 平均提升 13.1／7.9 个百分点。</p><p><b>研究关联／边界：</b>把“世界模型更准”与“策略学得更好”分开；特别适合设计世界模型—策略交替改进实验。外层仍需目标仿真反馈，未验证真实机器人，也不是无外部信号的自改进。</p></td></tr><tr><td>3<br><b>P0</b></td><td><b><a href=\"https://arxiv.org/abs/2610.30781\">DeXplicit: Making Physical State Explicit in Dexterous Manipulation World Models</a></b><p>HOI／物理世界模型｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Adam Lee；Mutian Xu；Yukang Cao；Shulin Tian；Ziwei Liu<br><b>机构：</b>Nanyang Technological University S-Lab；UC Berkeley</p><p><b>核心贡献：</b>先显式预测米制 3D 物体运动与形变，再投影运输外观、补全视频；手轨迹驱动因果生成。相对 PointWorld 的 moved-point error 降低 27–40%；共享 renderer 的 HOT3D IoU+ 提升 47%。</p><p><b>研究关联／边界：</b>适合拆解手—物体接触状态与视频渲染的责任。57× 加速是相对其自身 14B 双向配置，不能直接当作跨方法公平加速；预测质量仍需闭环控制检验。</p></td></tr><tr><td>4<br><b>P0</b></td><td><b><a href=\"https://arxiv.org/abs/2610.31474\">Skeleton-Grounded Latent Action Model for Robot World Models</a></b><p>潜动作／跨具身世界模型｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Qi Lv；Jiayi Lin；Yuxin Jiang；Jianzong Wang；Xiang Deng；Mike Shou Zheng<br><b>机构：</b>HIT (Shenzhen)；NUS Show Lab；Ping An Technology</p><p><b>核心贡献：</b>SkeLAM 将潜动作分成骨架监督的运动学分量与视觉残差；跨模态交换重建、分支 dropout 后，用轻量 adapter 对接机器人动作。DROID 上相对 DreamDojo，末端 ADE／LPIPS 降低 19.5%／11.1%。</p><p><b>研究关联／边界：</b>为 VLA/WAM 的动作接口提供可解释分解；须检查未来残差信息泄露与测试时条件一致性。零样本人→机器人展示在生成 rollout 中，不能等同于真实机器人零样本迁移成功。</p></td></tr><tr><td>5<br><b>P0</b></td><td><b><a href=\"https://arxiv.org/abs/2610.30991\">UniFlowWAM: A Unified World-Action Model with Visual Semantics and 4D Geometry</a></b><p>4D 几何／WAM｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Jialin Tian；Zhuofan Li；Xinkai Wang；Bokai Lin；Chenyi Wang；Xinyu Zhan；Cewu Lu；Lixin Yang<br><b>机构：</b>Shanghai Jiao Tong University MVIG；Shanghai Innovation Institute；Noematrix</p><p><b>核心贡献：</b>视觉特征、3D scene flow、动作作为三种对等模态，由三专家联合注意力建模，十种训练目标覆盖策略与正逆动力学。RoboCasa-GR1 从无 flow 基座 52.1%→56.4%；四项真实双臂任务平均 87.0%。</p><p><b>研究关联／边界：</b>将几何放入策略内部，而非只加辅助预测头；测试可直接出动作、无需输入 flow。适合消融几何监督、模型容量与多目标训练各自贡献；87.0% 只对应论文任务集。</p></td></tr><tr><td>6<br><b>P0</b></td><td><b><a href=\"https://arxiv.org/abs/2610.31299\">PiHand: Latent Hand-Object Interaction Priors for Physics-Based Policy Learning</a></b><p>HOI／物理动作生成｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Niklas Berndt；Xianghui Xie；Enes Duran；Yixiao Wang；Gerard Pons-Moll<br><b>机构：</b>University of Tübingen；Tübingen AI Center；MPI for Informatics；UC Berkeley</p><p><b>核心贡献：</b>先训练仿真 mocap 跟踪专家，再蒸馏目标条件 VAE 手—物体交互先验，在其潜空间进行有界残差 RL。对未见物体／轨迹的 GRAB 与 DexYCB 任务，成功率较比较基线提升 14.0／16.9 个百分点。</p><p><b>研究关联／边界：</b>对比单纯人体／手部先验，交互先验更直接约束接触与物体运动；适合人类动作到物理可执行控制。实验是物理仿真策略，未据此声称实体机械手部署；数据与权重仍为计划发布。</p></td></tr><tr><td>7<br><b>P1</b></td><td><b><a href=\"https://arxiv.org/abs/2610.30540\">Motion Retargeting with Spatiotemporal Preferences for Humanoid Loco-Manipulation</a></b><p>HSI／重定向／全身控制｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Xiongbo Shi；Shihang Du；Zongyou Yu；Ao Zhou；Xudong Zhang；Ziyu Lin；Haodong Zhang；Junqiao Zhao；Guang Chen<br><b>机构：</b>Tongji University Physical Intelligence Lab；Shanghai Innovation Institute；RobotScale.AI</p><p><b>核心贡献：</b>STR 由 VLM 选择相关运动信号和部位，按关键阶段增加求解预算；MCA 用近似物体 wrench 调整表面接触锚点，再由 STRL 学习执行。Unitree G1 仿真与 R1 实机展示更好的接触连续性与任务完成。</p><p><b>研究关联／边界：</b>比逐帧均匀重定向更关注接触发生的时间与部位。精读时分开验证 VLM 选择、接触锚定与下游 RL 的贡献；近似 wrench 不构成完整物理可行性保证。</p></td></tr><tr><td>8<br><b>P1</b></td><td><b><a href=\"https://arxiv.org/abs/2610.30817\">Robot Motion Transition with Human Motion Prior</a></b><p>人体动作先验／人形动作衔接｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Taehyun Byun；Taemoon Jeong；Yoonbyung Chai；Woojin Wie；Insu Park；Kyungjae Lee；Sungjoon Choi<br><b>机构：</b>Korea University；ROBOTIS</p><p><b>核心贡献：</b>STAMP 经 Robot→Human→Robot 路径复用人体动作先验；先用学习到的 alignment 模型选后一段的位置、朝向和过渡时长，再做 inbetweening、重定向与策略跟踪。在 G1、K1 上评估并展示实机长序列。</p><p><b>研究关联／边界：</b>与舞蹈／多片段动作续接直接相关：边界布局与持续时间应先于补帧求解。这里仍需重定向与控制训练，不是直接将任意视频变成可执行动作；应检查原片段保真与转换稳定性。</p></td></tr><tr><td>9<br><b>P1</b></td><td><b><a href=\"https://arxiv.org/abs/2610.30293\">EgoHand: Monocular 3D Hand Reconstruction from Egocentric Video</a></b><p>Egocentric／3D 手部重建｜首发 2026-10-21；本期新收录</p><p><b>作者：</b>Chao-Yeh Chen；Tiffany Chen；Lin Duan；Tianyi Hu；Yu-Hsiang Huang；Umar Iqbal；Jiefeng Li 等（完整名单见原文）<br><b>机构：</b>NVIDIA</p><p><b>核心贡献：</b>以约 1400 万张合成、野外视频与多相机动捕图像训练；SOMA-Hand 表示、相机线索与辅助 2D 分支改善几何对齐。在 HOT3D、ARCTIC、H2O 上做零样本评估；论文声明 OpenMDW 模型／代码发布。</p><p><b>研究关联／边界：</b>适合作为大规模人类演示标注前端。相机坐标手重建不等于全局轨迹或接触可靠性；摘要版本与不同 GPU 延迟口径不一致，本简报不合并报一个速度。模型页访问失败，未独立确认文件下载。</p></td></tr><tr><td>10<br><b>P1</b></td><td><b><a href=\"https://arxiv.org/abs/2610.31608\">Humanoid Mobility via Attention-based Contacts</a></b><p>全身接触／具身控制｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Junzhe He；Kehan Wen；Chong Zhang；Clemens Schwarke；Zewei Zhang；Kaixian Qu；Siyuan Hu；Matthias Müller；Vladlen Koltun；Marco Hutter<br><b>机构：</b>ETH Zürich／ETH AI Center；NUS；Apple；NVIDIA</p><p><b>核心贡献：</b>显式注意力 contact planner 预测身体—环境接触，contact-conditioned tracker 执行；动作数据仅作训练先验，再通过 RL 扩展环境变化，部署只用机载观测、无需参考动作。</p><p><b>研究关联／边界：</b>把接触当作观测与控制之间的接口，补足只模仿运动学的局限。对 HSI 多接触技能有参考价值，但尚不能推出对任意交互对象或社交 HRI 的泛化。</p></td></tr></table>"
+      "html": "<p>公开科研摘要 · 2026-10-24。以下数字为论文作者报告，未经独立复现；资源状态截至原简报日期。</p><h2>科研 Executive Summary</h2><ul><li>持续学习出现更明确的 harness→权重巩固路线：HERD 在 25 阶段任务流上约束递归漂移，但仍有遗忘；VLM/VLA 场景需要额外验证。</li><li>世界模型后训练开始直接优化策略效用：DRILL 的双层目标把想象 rollout 是否能改善策略放到核心；目前证据限于仿真。</li><li>动作与场景动力学进一步解耦：DeXplicit 用显式物体状态，SkeLAM 分离运动学与视觉残差，UniFlowWAM 将 4D flow 纳入联合策略。</li><li>人体演示走向可执行控制需要接触与边界条件：PiHand 学交互先验，STR 聚焦关键接触，STAMP 先对齐片段边界再生成过渡。</li></ul><h2>Top 10｜按研究主题精选</h2><table><tr><td>1<br><b>P0</b></td><td><h3><a href=\"https://arxiv.org/abs/2610.31401\">HERD：通过递归蒸馏，将演化 harness 中的经验巩固到模型参数</a></h3><p><a href=\"https://a1exsun.github.io/HERD/\">Project Page ↗</a></p><p><b>论文：</b>HERD: Harness-Evolving Recursive Distillation for Continual Learning</p><p>Agentic RSI／持续学习｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Xun Sun；Thanh Thi Nguyen；Thuy-Trang Vu<br><b>机构：</b>Monash University；University of the Sunshine Coast</p><p><b>核心贡献：</b>用可演化 skills 与高残差记忆筛选经验，再通过双锚约束蒸馏写入参数；部署只用权重。25 阶段 TRACE+17 报告最终均分 0.706、遗忘 0.010，通用能力仍下降 6.3 个百分点。</p><p><b>研究关联／边界：</b>直接关联 harness→参数的递归学习闭环。当前仅一个 Qwen3.5-4B 基座与一种任务顺序；对 uniform replay 的均分差异置信区间含零。尚非 VLM/VLA 的持续学习验证。</p></td></tr><tr><td>2<br><b>P0</b></td><td><h3><a href=\"https://arxiv.org/abs/2610.30814\">DRILL：以策略改进为目标训练世界模型，而非只优化像素预测</a></h3><p><b>论文：</b>DRILL: Training World Models to Improve Policies, Not Predict Pixels</p><p>世界模型／VLA 后训练｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Zhaolu Kang；Tailong Luo；Lei Wei；Guangyuan Dong；Sihan Liu；Yingjie He 等（完整名单见原文）<br><b>机构：</b>Tencent Hunyuan；Peking University</p><p><b>核心贡献：</b>以想象 rollout 内 GRPO 更新后的策略回报作为世界模型外层目标；提供 VWI 加权代理与 IMG 元梯度。五个操作仿真环境、两个 VLA 基座上，IMG 比 WMPO／RLVR-World 平均提升 13.1／7.9 个百分点。</p><p><b>研究关联／边界：</b>把“世界模型更准”与“策略学得更好”分开；特别适合设计世界模型—策略交替改进实验。外层仍需目标仿真反馈，未验证真实机器人，也不是无外部信号的自改进。</p></td></tr><tr><td>3<br><b>P0</b></td><td><h3><a href=\"https://arxiv.org/abs/2610.30781\">DeXplicit：显式预测三维物体状态，再生成灵巧操作视频</a></h3><p><a href=\"https://dexplicit.github.io/\">Project Page ↗</a> · <a href=\"https://dexplicit.github.io/assets/demo/dexplicit-demo-1f6e7eac.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>DeXplicit: Making Physical State Explicit in Dexterous Manipulation World Models</p><p>HOI／物理世界模型｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Adam Lee；Mutian Xu；Yukang Cao；Shulin Tian；Ziwei Liu<br><b>机构：</b>Nanyang Technological University S-Lab；UC Berkeley</p><p><b>核心贡献：</b>先显式预测米制 3D 物体运动与形变，再投影运输外观、补全视频；手轨迹驱动因果生成。相对 PointWorld 的 moved-point error 降低 27–40%；共享 renderer 的 HOT3D IoU+ 提升 47%。</p><p><b>研究关联／边界：</b>适合拆解手—物体接触状态与视频渲染的责任。57× 加速是相对其自身 14B 双向配置，不能直接当作跨方法公平加速；预测质量仍需闭环控制检验。</p></td></tr><tr><td>4<br><b>P0</b></td><td><h3><a href=\"https://arxiv.org/abs/2610.31474\">SkeLAM：将潜动作分解为骨架运动学与视觉残差</a></h3><p><a href=\"https://aopolin-lv.github.io/SkeLAM/\">Project Page ↗</a> · <a href=\"https://aopolin-lv.github.io/SkeLAM/assets/skelam-introduction-v13.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>Skeleton-Grounded Latent Action Model for Robot World Models</p><p>潜动作／跨具身世界模型｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Qi Lv；Jiayi Lin；Yuxin Jiang；Jianzong Wang；Xiang Deng；Mike Shou Zheng<br><b>机构：</b>HIT (Shenzhen)；NUS Show Lab；Ping An Technology</p><p><b>核心贡献：</b>SkeLAM 将潜动作分成骨架监督的运动学分量与视觉残差；跨模态交换重建、分支 dropout 后，用轻量 adapter 对接机器人动作。DROID 上相对 DreamDojo，末端 ADE／LPIPS 降低 19.5%／11.1%。</p><p><b>研究关联／边界：</b>为 VLA/WAM 的动作接口提供可解释分解；须检查未来残差信息泄露与测试时条件一致性。零样本人→机器人展示在生成 rollout 中，不能等同于真实机器人零样本迁移成功。</p></td></tr><tr><td>5<br><b>P0</b></td><td><h3><a href=\"https://arxiv.org/abs/2610.30991\">UniFlowWAM：联合建模视觉语义、四维几何与机器人动作</a></h3><p><a href=\"https://kksham111.github.io/UniFlowWAM_ProjectPage/\">Project Page ↗</a> · <a href=\"https://kksham111.github.io/UniFlowWAM_ProjectPage/assets/video/rollouts-chili.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>UniFlowWAM: A Unified World-Action Model with Visual Semantics and 4D Geometry</p><p>4D 几何／WAM｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Jialin Tian；Zhuofan Li；Xinkai Wang；Bokai Lin；Chenyi Wang；Xinyu Zhan；Cewu Lu；Lixin Yang<br><b>机构：</b>Shanghai Jiao Tong University MVIG；Shanghai Innovation Institute；Noematrix</p><p><b>核心贡献：</b>视觉特征、3D scene flow、动作作为三种对等模态，由三专家联合注意力建模，十种训练目标覆盖策略与正逆动力学。RoboCasa-GR1 从无 flow 基座 52.1%→56.4%；四项真实双臂任务平均 87.0%。</p><p><b>研究关联／边界：</b>将几何放入策略内部，而非只加辅助预测头；测试可直接出动作、无需输入 flow。适合消融几何监督、模型容量与多目标训练各自贡献；87.0% 只对应论文任务集。</p></td></tr><tr><td>6<br><b>P0</b></td><td><h3><a href=\"https://arxiv.org/abs/2610.31299\">PiHand：学习手物交互先验，在潜空间中训练物理控制策略</a></h3><p><a href=\"https://virtualhumans.mpi-inf.mpg.de/PiHand/\">Project Page ↗</a> · <a href=\"https://virtualhumans.mpi-inf.mpg.de/PiHand/static/videos/teaser_diversity.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>PiHand: Latent Hand-Object Interaction Priors for Physics-Based Policy Learning</p><p>HOI／物理动作生成｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Niklas Berndt；Xianghui Xie；Enes Duran；Yixiao Wang；Gerard Pons-Moll<br><b>机构：</b>University of Tübingen；Tübingen AI Center；MPI for Informatics；UC Berkeley</p><p><b>核心贡献：</b>先训练仿真 mocap 跟踪专家，再蒸馏目标条件 VAE 手—物体交互先验，在其潜空间进行有界残差 RL。对未见物体／轨迹的 GRAB 与 DexYCB 任务，成功率较比较基线提升 14.0／16.9 个百分点。</p><p><b>研究关联／边界：</b>对比单纯人体／手部先验，交互先验更直接约束接触与物体运动；适合人类动作到物理可执行控制。实验是物理仿真策略，未据此声称实体机械手部署；数据与权重仍为计划发布。</p></td></tr><tr><td>7<br><b>P1</b></td><td><h3><a href=\"https://arxiv.org/abs/2610.30540\">STR：根据时空偏好分配重定向预算，强化关键接触阶段</a></h3><p><b>论文：</b>Motion Retargeting with Spatiotemporal Preferences for Humanoid Loco-Manipulation</p><p>HSI／重定向／全身控制｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Xiongbo Shi；Shihang Du；Zongyou Yu；Ao Zhou；Xudong Zhang；Ziyu Lin；Haodong Zhang；Junqiao Zhao；Guang Chen<br><b>机构：</b>Tongji University Physical Intelligence Lab；Shanghai Innovation Institute；RobotScale.AI</p><p><b>核心贡献：</b>STR 由 VLM 选择相关运动信号和部位，按关键阶段增加求解预算；MCA 用近似物体 wrench 调整表面接触锚点，再由 STRL 学习执行。Unitree G1 仿真与 R1 实机展示更好的接触连续性与任务完成。</p><p><b>研究关联／边界：</b>比逐帧均匀重定向更关注接触发生的时间与部位。精读时分开验证 VLM 选择、接触锚定与下游 RL 的贡献；近似 wrench 不构成完整物理可行性保证。</p></td></tr><tr><td>8<br><b>P1</b></td><td><h3><a href=\"https://arxiv.org/abs/2610.30817\">STAMP：先对齐动作片段边界，再利用人体运动先验生成过渡</a></h3><p><a href=\"https://childtoy.github.io/STAMP-project/\">Project Page ↗</a> · <a href=\"https://childtoy.github.io/STAMP-project/main-video.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>Robot Motion Transition with Human Motion Prior</p><p>人体动作先验／人形动作衔接｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Taehyun Byun；Taemoon Jeong；Yoonbyung Chai；Woojin Wie；Insu Park；Kyungjae Lee；Sungjoon Choi<br><b>机构：</b>Korea University；ROBOTIS</p><p><b>核心贡献：</b>STAMP 经 Robot→Human→Robot 路径复用人体动作先验；先用学习到的 alignment 模型选后一段的位置、朝向和过渡时长，再做 inbetweening、重定向与策略跟踪。在 G1、K1 上评估并展示实机长序列。</p><p><b>研究关联／边界：</b>与舞蹈／多片段动作续接直接相关：边界布局与持续时间应先于补帧求解。这里仍需重定向与控制训练，不是直接将任意视频变成可执行动作；应检查原片段保真与转换稳定性。</p></td></tr><tr><td>9<br><b>P1</b></td><td><h3><a href=\"https://arxiv.org/abs/2610.30293\">EgoHand：从第一视角单目视频重建三维手部</a></h3><p><b>论文：</b>EgoHand: Monocular 3D Hand Reconstruction from Egocentric Video</p><p>Egocentric／3D 手部重建｜首发 2026-10-21；本期新收录</p><p><b>作者：</b>Chao-Yeh Chen；Tiffany Chen；Lin Duan；Tianyi Hu；Yu-Hsiang Huang；Umar Iqbal；Jiefeng Li 等（完整名单见原文）<br><b>机构：</b>NVIDIA</p><p><b>核心贡献：</b>以约 1400 万张合成、野外视频与多相机动捕图像训练；SOMA-Hand 表示、相机线索与辅助 2D 分支改善几何对齐。在 HOT3D、ARCTIC、H2O 上做零样本评估；论文声明 OpenMDW 模型／代码发布。</p><p><b>研究关联／边界：</b>适合作为大规模人类演示标注前端。相机坐标手重建不等于全局轨迹或接触可靠性；摘要版本与不同 GPU 延迟口径不一致，本简报不合并报一个速度。模型页访问失败，未独立确认文件下载。</p></td></tr><tr><td>10<br><b>P1</b></td><td><h3><a href=\"https://arxiv.org/abs/2610.31608\">Humanoid Mobility via Attention-based Contacts：以注意力接触规划连接环境感知与全身控制</a></h3><p><b>论文：</b>Humanoid Mobility via Attention-based Contacts</p><p>全身接触／具身控制｜首发 2026-10-22；本期新收录</p><p><b>作者：</b>Junzhe He；Kehan Wen；Chong Zhang；Clemens Schwarke；Zewei Zhang；Kaixian Qu；Siyuan Hu；Matthias Müller；Vladlen Koltun；Marco Hutter<br><b>机构：</b>ETH Zürich／ETH AI Center；NUS；Apple；NVIDIA</p><p><b>核心贡献：</b>显式注意力 contact planner 预测身体—环境接触，contact-conditioned tracker 执行；动作数据仅作训练先验，再通过 RL 扩展环境变化，部署只用机载观测、无需参考动作。</p><p><b>研究关联／边界：</b>把接触当作观测与控制之间的接口，补足只模仿运动学的局限。对 HSI 多接触技能有参考价值，但尚不能推出对任意交互对象或社交 HRI 的泛化。</p></td></tr></table>",
+      "videos": [
+        {
+          "url": "https://dexplicit.github.io/assets/demo/dexplicit-demo-1f6e7eac.mp4",
+          "title": "DeXplicit · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.30781"
+        },
+        {
+          "url": "https://childtoy.github.io/STAMP-project/main-video.mp4",
+          "title": "STAMP · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.30817"
+        },
+        {
+          "url": "https://kksham111.github.io/UniFlowWAM_ProjectPage/assets/video/rollouts-chili.mp4",
+          "title": "UniFlowWAM · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.30991"
+        },
+        {
+          "url": "https://virtualhumans.mpi-inf.mpg.de/PiHand/static/videos/teaser_diversity.mp4",
+          "title": "PiHand · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.31299"
+        },
+        {
+          "url": "https://aopolin-lv.github.io/SkeLAM/assets/skelam-introduction-v13.mp4",
+          "title": "SkeLAM · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.31474"
+        }
+      ]
     },
     {
       "id": "daily-research-2026-10-23",
@@ -30,7 +74,44 @@
         "Video",
         "Humanoid"
       ],
-      "html": "<p>公开科研摘要 · 2026-10-23。以下数字为论文作者报告，未经独立复现；资源状态截至原简报日期。</p><h2>科研 Executive Summary</h2><p>1. 代码规划与世界模型开始在模型内部结合：AW-0 联合生成技能程序、未来视频与动作；AgenticRoboRL 则在固定 harness 中后训练 planner，两条路线的训练对象和评测应分开。</p><p>2. 部署期学习与 harness 自改进有了更直接对照：TIDE 在线更新策略参数，SERA 在 held-out 测试前选定并冻结 harness；单轮性能提升仍不足以证明长期无遗忘。</p><p>3. 交互世界模型的瓶颈从画质扩展到隐藏物理与时空压缩：PhysiCalWorld 用交互校准物理，CADRE 单独研究延迟—质量权衡，FCP 强化远期演化监督。</p><p>4. 人体运动到机器人执行继续依赖合适中间接口：DONIC 强调双手接触角色，SP-HLM 用稀疏关键位姿配全身先验，Real2Sem2Real 将人类示范扩展到物体语义实例。</p><h2>Top 10 · 贡献、研究关联与优先级</h2><table><tr><th>优先级 / 主题</th><th>论文与研究判断</th></tr><tr><td><b>1 · P0</b><br>CaP / 世界动作模型</td><td><b><a href=\"https://arxiv.org/abs/2610.30136\">Agentic World Action Models</a></b><br>10/21 首次提交；10/22 Digest/HF 收录<br><b>作者：</b>Zhuoyang Liu、Dantong Niu、Botong Zhang、Boning Shao 等；末位包括 Yuke Zhu、Guanzhi Wang、Linxi “Jim” Fan、Trevor Darrell<br><b>机构：</b>UC Berkeley、NVIDIA、University of Pennsylvania<br><b>贡献：</b>AW-0 在统一 Mixture-of-Transformers 中联合建模代码、未来视频与机器人动作：code expert 生成参数化技能程序和控制逻辑，视频/动作专家提供预测与执行；自动整理人类/机器人视频的对齐程序及可复用技能库，并评估 RoboTwin 2.0 与实机双臂任务。<br></td></tr><tr><td><b>2 · P0</b><br>机器人规划器后训练</td><td><b><a href=\"https://arxiv.org/abs/2610.28589\">AgenticRoboRL: Bringing Coding-Agent Post-Training to Agentic Robotics</a></b><br>10/20 首次发布；10/22 HF 新收录，非本窗口首发<br><b>作者：</b>Xinxin Liu、Bingxin Xu、Wenrui Bao、Ming Li、Wentao Bao、Chen Chen、Yuzhang Shang<br><b>机构：</b>University of Central Florida、USC、Michigan State University<br><b>贡献：</b>固定执行组件，以 harness-specific adapter 统一 VLA 技能调用和控制代码生成的训练轨迹及结果；结合教师成功轨迹 SFT 与多轮 RL。官方 README 在 RPent/LIBERO-PRO 上报告 Qwen3.5-9B 从 18.1% 至 SFT 65.1%，再至 RL 71.0%。<br></td></tr><tr><td><b>3 · P0</b><br>Agentic RSI / 历史依赖</td><td><b><a href=\"https://arxiv.org/abs/2610.29560\">From VLM Planners to Robotic Agents: Self-Evolving Harnesses for History-Dependent Manipulation</a></b><br>10/21 首次提交；10/22 Digest/HF 收录<br><b>作者：</b>Tingwen Du、Haoyu Guo、Hanxue Zhang、Xuanxu Wang、Junting Dong、Chao Gao、Mingfei Han、Tao Lu、Mulin Yu、Chunhua Shen、Xiaojun Chang、Zhihui Li<br><b>机构：</b>USTC、上海人工智能实验室、上海交大、MBZUAI、浙江大学<br><b>贡献：</b>SERA 将高层 VLM 组织为可编辑 harness，维护任务上下文并从执行经验提出/评价配置修订，底层 VLA 固定；选定配置在 held-out 测试前冻结。RoboMME 整体成功率由无自进化的 44.38% 至自主选择的 51.38%。<br></td></tr><tr><td><b>4 · P0</b><br>VLA / 部署期在线学习</td><td><b><a href=\"https://arxiv.org/abs/2610.29264\">Training in Deployment: Human-in-the-loop Online Post-Training for Robot Manipulation</a></b><br>10/21 首次提交；10/22 Digest 收录<br><b>作者：</b>Chun Gu、Xiaofei Wei、Yiming Chen、Bozhou Zhang、Juntong Zhang、Xiatian Zhu、Li Zhang<br><b>机构：</b>复旦大学、上海创智学院、Logos Robotics Group、University of Surrey<br><b>贡献：</b>TIDE 用来源标签区分人类接管与策略产生的动作，通过 provenance-conditioned 监督学习在部署期间在线更新，无需学习 critic、reward model 或 action scorer。四项真机双臂任务的单任务后训练会话均在一小时内完成，训练及 checkpoint 处理异步进行。<br></td></tr><tr><td><b>5 · P0</b><br>世界模型 / 隐物理校准</td><td><b><a href=\"https://arxiv.org/abs/2610.30125\">PhysiCalWorld: In-Context Physics Calibration for World Models</a></b><br>10/21 首次提交；10/22 Digest 收录<br><b>作者：</b>Yunhao Luo、Wentao He、Yinpei Dai、Hyelin Nam、Hongze Fu、Joyce Chai、Nima Fazeli、Jeong Joon Park<br><b>机构：</b>University of Michigan<br><b>贡献：</b>从测试场景的一段探索交互中提取紧凑 physics descriptor token，一次提取后跨 rollout 复用，以 in-context 条件适配质量分布、阻尼、摩擦等隐藏动力学；不在测试时微调，也不需解析物理参数标签；四环境评估预测与视觉规划。<br></td></tr><tr><td><b>6 · P0</b><br>交互视频 / 表征压缩</td><td><b><a href=\"https://arxiv.org/abs/2610.30129\">Rethinking Video Autoencoders for Interactive World Models</a></b><br>10/21 首次提交；10/22 Digest 收录<br><b>作者：</b>Adrien Ramanana Rahary、Yutong Bai、Nicolas Dufour、Patrick Pérez、David Picard<br><b>机构：</b>Kyutai、LIGM/ENPC/IP Paris/CNRS/UGE、UC Berkeley<br><b>贡献：</b>CADRE 提供因果 diffusion representation autoencoder 家族，以冻结特征上的瓶颈比较时空压缩，并共享蒸馏至一/少步的解码器。在操作和导航、各两个环境中比较延迟—质量前沿；作者展示单 H100 20 fps、动作响应低于 230 ms 的设置。<br></td></tr><tr><td><b>7 · P1</b><br>视频生成 / 未来监督</td><td><b><a href=\"https://arxiv.org/abs/2610.29989\">Looking Ahead: Modeling Future Evolution in Autoregressive Video Generation</a></b><br>10/21 arXiv 首次提交；README 公告写 10/22；10/22 Digest/HF 收录<br><b>作者：</b>Ruopeng Gao、Yukun Huang、Jiarui Hu、Shuai Wang、Wenbo Hu、Ying Shan、Limin Wang<br><b>机构：</b>南京大学、腾讯 IEG ARC Lab、浙江大学<br><b>贡献：</b>Future Chunk Prediction（FCP）在 teacher-forced 去噪之外预测时间上隔开的未来 chunk，不给中间视觉上下文，降低局部连续性捷径；监督来自训练视频，无额外预训练视觉编码器，推理路径不变。<br></td></tr><tr><td><b>8 · P1</b><br>HOI / 双手灵巧控制</td><td><b><a href=\"https://arxiv.org/abs/2610.29997\">DONIC: Generalist Dexterous Bimanual Tracking Control from Human Demonstrations</a></b><br>10/21 首次提交；10/22 Digest/HF 收录<br><b>作者：</b>Mingze Sun、Ziang Cao、Yuan Fei、Qiankuan Tao、Zihan Wang、Tianqi Liu、Junhao Chen、Haiwen Diao、Fangzhou Hong、Zhaoxi Chen、Ziwei Liu<br><b>机构：</b>Ropedia<br><b>贡献：</b>BiHOI 含 1,575 序列、229 物体、约 14.77 小时多视角双手交互。DONIC 将 PPO 与成功执行回收的行为克隆结合，采用物体中心、分手接触角色奖励及 Clip-Centered Advantages；同一 checkpoint 在未见轨迹与 held-out 物体上报告 86.79% 与 57.32% 成功率。<br></td></tr><tr><td><b>9 · P1</b><br>全身动作 / 稀疏接口</td><td><b><a href=\"https://arxiv.org/abs/2610.30044\">SP-HLM: Sparse-Pose-Driven Motion Generation and Whole-Body Control for Humanoid Loco-Manipulation</a></b><br>10/21 首次提交；10/22 Digest 收录<br><b>作者：</b>Zhaohui Yang、Quanbao Lin、Chengqi Shi、Zhenglang Weng、Jicheng Lin、Boyu Chen、Tengjie Zhu、Guanzhu Ren、Jiahao Xu、Yang Feng、Xiaokang Yang、Yao Mu<br><b>机构：</b>上海交通大学、摩尔线程、香港大学<br><b>贡献：</b>以五个任务关键身体位姿和隐式运动先验表示意图与协调：SP-VLA 预测稀疏位姿/手指位置，SP-MGM 实时生成全身运动，SP-GMT 融合显式目标与 latent prior 跟踪。图示八任务仿真整体成功率 52.75%，token-space 对照 33.75%。<br></td></tr><tr><td><b>10 · P1</b><br>人类示范 / HOI 数据扩展</td><td><b><a href=\"https://arxiv.org/abs/2610.28880\">Real2Sem2Real: 3D Semantic Augmentations for Robot Learning from a Single Human RGB Demonstration</a></b><br>10/20 首次提交；10/22 Digest 新收录，非本窗口首发<br><b>作者：</b>Matthew Strong、Ankush K. Dhawan、Julien Poffet、Giuse Pham、Jinho So、Monroe Kennedy III<br><b>机构：</b>Stanford；ETH Zürich（部分工作于 Stanford 访问期间完成）<br><b>贡献：</b>由单个人类 RGB 示范视频出发，用 DINOv3 蒸馏 Gaussian splats 跟踪物体 SE(3)，将功能区域语义对齐到 digital cousins，映射可行机器人抓取，在 IsaacSim/MuJoCo 生成演示。作者报告约两小时生成超 2,000 回合，并在两机器人四任务上评估。<br></td></tr></table>"
+      "html": "<p>公开科研摘要 · 2026-10-23。以下数字为论文作者报告，未经独立复现；资源状态截至原简报日期。</p><h2>科研 Executive Summary</h2><p>1. 代码规划与世界模型开始在模型内部结合：AW-0 联合生成技能程序、未来视频与动作；AgenticRoboRL 则在固定 harness 中后训练 planner，两条路线的训练对象和评测应分开。</p><p>2. 部署期学习与 harness 自改进有了更直接对照：TIDE 在线更新策略参数，SERA 在 held-out 测试前选定并冻结 harness；单轮性能提升仍不足以证明长期无遗忘。</p><p>3. 交互世界模型的瓶颈从画质扩展到隐藏物理与时空压缩：PhysiCalWorld 用交互校准物理，CADRE 单独研究延迟—质量权衡，FCP 强化远期演化监督。</p><p>4. 人体运动到机器人执行继续依赖合适中间接口：DONIC 强调双手接触角色，SP-HLM 用稀疏关键位姿配全身先验，Real2Sem2Real 将人类示范扩展到物体语义实例。</p><h2>Top 10 · 贡献、研究关联与优先级</h2><table><tr><th>优先级 / 主题</th><th>论文与研究判断</th></tr><tr><td><b>1 · P0</b><br>CaP / 世界动作模型</td><td><h3><a href=\"https://arxiv.org/abs/2610.30136\">AW-0：在统一世界动作模型中联合生成技能程序、视频与动作</a></h3><p><a href=\"https://agentic-wam.github.io/\">Project Page ↗</a> · <a href=\"https://agentic-wam.github.io/videos/overview.mp4?v=13\">视频 / Video ↗</a></p><p><b>论文：</b>Agentic World Action Models</p><br>10/21 首次提交；10/22 Digest/HF 收录<br><b>作者：</b>Zhuoyang Liu、Dantong Niu、Botong Zhang、Boning Shao 等；末位包括 Yuke Zhu、Guanzhi Wang、Linxi “Jim” Fan、Trevor Darrell<br><b>机构：</b>UC Berkeley、NVIDIA、University of Pennsylvania<br><b>贡献：</b>AW-0 在统一 Mixture-of-Transformers 中联合建模代码、未来视频与机器人动作：code expert 生成参数化技能程序和控制逻辑，视频/动作专家提供预测与执行；自动整理人类/机器人视频的对齐程序及可复用技能库，并评估 RoboTwin 2.0 与实机双臂任务。<br></td></tr><tr><td><b>2 · P0</b><br>机器人规划器后训练</td><td><h3><a href=\"https://arxiv.org/abs/2610.28589\">AgenticRoboRL：将编码智能体的后训练方法用于机器人高层规划</a></h3><p><b>论文：</b>AgenticRoboRL: Bringing Coding-Agent Post-Training to Agentic Robotics</p><br>10/20 首次发布；10/22 HF 新收录，非本窗口首发<br><b>作者：</b>Xinxin Liu、Bingxin Xu、Wenrui Bao、Ming Li、Wentao Bao、Chen Chen、Yuzhang Shang<br><b>机构：</b>University of Central Florida、USC、Michigan State University<br><b>贡献：</b>固定执行组件，以 harness-specific adapter 统一 VLA 技能调用和控制代码生成的训练轨迹及结果；结合教师成功轨迹 SFT 与多轮 RL。官方 README 在 RPent/LIBERO-PRO 上报告 Qwen3.5-9B 从 18.1% 至 SFT 65.1%，再至 RL 71.0%。<br></td></tr><tr><td><b>3 · P0</b><br>Agentic RSI / 历史依赖</td><td><h3><a href=\"https://arxiv.org/abs/2610.29560\">SERA：利用执行经验演化 harness，处理依赖历史的机器人操作</a></h3><p><b>论文：</b>From VLM Planners to Robotic Agents: Self-Evolving Harnesses for History-Dependent Manipulation</p><br>10/21 首次提交；10/22 Digest/HF 收录<br><b>作者：</b>Tingwen Du、Haoyu Guo、Hanxue Zhang、Xuanxu Wang、Junting Dong、Chao Gao、Mingfei Han、Tao Lu、Mulin Yu、Chunhua Shen、Xiaojun Chang、Zhihui Li<br><b>机构：</b>USTC、上海人工智能实验室、上海交大、MBZUAI、浙江大学<br><b>贡献：</b>SERA 将高层 VLM 组织为可编辑 harness，维护任务上下文并从执行经验提出/评价配置修订，底层 VLA 固定；选定配置在 held-out 测试前冻结。RoboMME 整体成功率由无自进化的 44.38% 至自主选择的 51.38%。<br></td></tr><tr><td><b>4 · P0</b><br>VLA / 部署期在线学习</td><td><h3><a href=\"https://arxiv.org/abs/2610.29264\">TIDE：通过人类接管数据，在部署期间在线更新机器人策略</a></h3><p><a href=\"https://logosintelligencelab.github.io/TIDE/\">Project Page ↗</a> · <a href=\"https://logosintelligencelab.github.io/TIDE/static/videos/towel-folding-tide.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>Training in Deployment: Human-in-the-loop Online Post-Training for Robot Manipulation</p><br>10/21 首次提交；10/22 Digest 收录<br><b>作者：</b>Chun Gu、Xiaofei Wei、Yiming Chen、Bozhou Zhang、Juntong Zhang、Xiatian Zhu、Li Zhang<br><b>机构：</b>复旦大学、上海创智学院、Logos Robotics Group、University of Surrey<br><b>贡献：</b>TIDE 用来源标签区分人类接管与策略产生的动作，通过 provenance-conditioned 监督学习在部署期间在线更新，无需学习 critic、reward model 或 action scorer。四项真机双臂任务的单任务后训练会话均在一小时内完成，训练及 checkpoint 处理异步进行。<br></td></tr><tr><td><b>5 · P0</b><br>世界模型 / 隐物理校准</td><td><h3><a href=\"https://arxiv.org/abs/2610.30125\">PhysiCalWorld：从探索交互中提取物理描述，校准世界模型的隐藏动力学</a></h3><p><a href=\"https://physical-world.github.io/\">Project Page ↗</a> · <a href=\"https://physical-world.github.io/videos/benchmark/pusht/comparison.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>PhysiCalWorld: In-Context Physics Calibration for World Models</p><br>10/21 首次提交；10/22 Digest 收录<br><b>作者：</b>Yunhao Luo、Wentao He、Yinpei Dai、Hyelin Nam、Hongze Fu、Joyce Chai、Nima Fazeli、Jeong Joon Park<br><b>机构：</b>University of Michigan<br><b>贡献：</b>从测试场景的一段探索交互中提取紧凑 physics descriptor token，一次提取后跨 rollout 复用，以 in-context 条件适配质量分布、阻尼、摩擦等隐藏动力学；不在测试时微调，也不需解析物理参数标签；四环境评估预测与视觉规划。<br></td></tr><tr><td><b>6 · P0</b><br>交互视频 / 表征压缩</td><td><h3><a href=\"https://arxiv.org/abs/2610.30129\">CADRE：比较因果视频编码器的时空压缩与交互延迟</a></h3><p><b>论文：</b>Rethinking Video Autoencoders for Interactive World Models</p><br>10/21 首次提交；10/22 Digest 收录<br><b>作者：</b>Adrien Ramanana Rahary、Yutong Bai、Nicolas Dufour、Patrick Pérez、David Picard<br><b>机构：</b>Kyutai、LIGM/ENPC/IP Paris/CNRS/UGE、UC Berkeley<br><b>贡献：</b>CADRE 提供因果 diffusion representation autoencoder 家族，以冻结特征上的瓶颈比较时空压缩，并共享蒸馏至一/少步的解码器。在操作和导航、各两个环境中比较延迟—质量前沿；作者展示单 H100 20 fps、动作响应低于 230 ms 的设置。<br></td></tr><tr><td><b>7 · P1</b><br>视频生成 / 未来监督</td><td><h3><a href=\"https://arxiv.org/abs/2610.29989\">FCP：预测时间上隔开的未来片段，强化视频模型的远期演化学习</a></h3><p><a href=\"https://hellorpg.github.io/looking-ahead/\">Project Page ↗</a> · <a href=\"https://hellorpg.github.io/looking-ahead/assets/showcase/r13-00064-42.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>Looking Ahead: Modeling Future Evolution in Autoregressive Video Generation</p><br>10/21 arXiv 首次提交；README 公告写 10/22；10/22 Digest/HF 收录<br><b>作者：</b>Ruopeng Gao、Yukun Huang、Jiarui Hu、Shuai Wang、Wenbo Hu、Ying Shan、Limin Wang<br><b>机构：</b>南京大学、腾讯 IEG ARC Lab、浙江大学<br><b>贡献：</b>Future Chunk Prediction（FCP）在 teacher-forced 去噪之外预测时间上隔开的未来 chunk，不给中间视觉上下文，降低局部连续性捷径；监督来自训练视频，无额外预训练视觉编码器，推理路径不变。<br></td></tr><tr><td><b>8 · P1</b><br>HOI / 双手灵巧控制</td><td><h3><a href=\"https://arxiv.org/abs/2610.29997\">DONIC：从人类演示学习双手接触角色与灵巧跟踪控制</a></h3><p><a href=\"https://ropedia.github.io/DONIC/\">Project Page ↗</a> · <a href=\"https://ropedia.github.io/DONIC/assets/film/DONIC_film.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>DONIC: Generalist Dexterous Bimanual Tracking Control from Human Demonstrations</p><br>10/21 首次提交；10/22 Digest/HF 收录<br><b>作者：</b>Mingze Sun、Ziang Cao、Yuan Fei、Qiankuan Tao、Zihan Wang、Tianqi Liu、Junhao Chen、Haiwen Diao、Fangzhou Hong、Zhaoxi Chen、Ziwei Liu<br><b>机构：</b>Ropedia<br><b>贡献：</b>BiHOI 含 1,575 序列、229 物体、约 14.77 小时多视角双手交互。DONIC 将 PPO 与成功执行回收的行为克隆结合，采用物体中心、分手接触角色奖励及 Clip-Centered Advantages；同一 checkpoint 在未见轨迹与 held-out 物体上报告 86.79% 与 57.32% 成功率。<br></td></tr><tr><td><b>9 · P1</b><br>全身动作 / 稀疏接口</td><td><h3><a href=\"https://arxiv.org/abs/2610.30044\">SP-HLM：以稀疏关键位姿驱动人形机器人的全身动作生成与控制</a></h3><p><a href=\"https://sp-hlm.github.io/\">Project Page ↗</a> · <a href=\"https://sp-hlm.github.io/assets/videos/overview.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>SP-HLM: Sparse-Pose-Driven Motion Generation and Whole-Body Control for Humanoid Loco-Manipulation</p><br>10/21 首次提交；10/22 Digest 收录<br><b>作者：</b>Zhaohui Yang、Quanbao Lin、Chengqi Shi、Zhenglang Weng、Jicheng Lin、Boyu Chen、Tengjie Zhu、Guanzhu Ren、Jiahao Xu、Yang Feng、Xiaokang Yang、Yao Mu<br><b>机构：</b>上海交通大学、摩尔线程、香港大学<br><b>贡献：</b>以五个任务关键身体位姿和隐式运动先验表示意图与协调：SP-VLA 预测稀疏位姿/手指位置，SP-MGM 实时生成全身运动，SP-GMT 融合显式目标与 latent prior 跟踪。图示八任务仿真整体成功率 52.75%，token-space 对照 33.75%。<br></td></tr><tr><td><b>10 · P1</b><br>人类示范 / HOI 数据扩展</td><td><h3><a href=\"https://arxiv.org/abs/2610.28880\">Real2Sem2Real：用三维语义增强，将单个人类示范扩展到不同物体实例</a></h3><p><a href=\"https://real2sem2real.github.io/\">Project Page ↗</a> · <a href=\"https://real2sem2real.github.io/static/video/overview.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>Real2Sem2Real: 3D Semantic Augmentations for Robot Learning from a Single Human RGB Demonstration</p><br>10/20 首次提交；10/22 Digest 新收录，非本窗口首发<br><b>作者：</b>Matthew Strong、Ankush K. Dhawan、Julien Poffet、Giuse Pham、Jinho So、Monroe Kennedy III<br><b>机构：</b>Stanford；ETH Zürich（部分工作于 Stanford 访问期间完成）<br><b>贡献：</b>由单个人类 RGB 示范视频出发，用 DINOv3 蒸馏 Gaussian splats 跟踪物体 SE(3)，将功能区域语义对齐到 digital cousins，映射可行机器人抓取，在 IsaacSim/MuJoCo 生成演示。作者报告约两小时生成超 2,000 回合，并在两机器人四任务上评估。<br></td></tr></table>",
+      "videos": [
+        {
+          "url": "https://real2sem2real.github.io/static/video/overview.mp4",
+          "title": "Real2Sem2Real · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.28880"
+        },
+        {
+          "url": "https://logosintelligencelab.github.io/TIDE/static/videos/towel-folding-tide.mp4",
+          "title": "TIDE · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.29264"
+        },
+        {
+          "url": "https://hellorpg.github.io/looking-ahead/assets/showcase/r13-00064-42.mp4",
+          "title": "FCP · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.29989"
+        },
+        {
+          "url": "https://ropedia.github.io/DONIC/assets/film/DONIC_film.mp4",
+          "title": "DONIC · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.29997"
+        },
+        {
+          "url": "https://sp-hlm.github.io/assets/videos/overview.mp4",
+          "title": "SP-HLM · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.30044"
+        },
+        {
+          "url": "https://physical-world.github.io/videos/benchmark/pusht/comparison.mp4",
+          "title": "PhysiCalWorld · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.30125"
+        },
+        {
+          "url": "https://agentic-wam.github.io/videos/overview.mp4?v=13",
+          "title": "AW-0 · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.30136"
+        }
+      ]
     },
     {
       "id": "daily-research-2026-10-22",
@@ -46,7 +127,44 @@
         "4D",
         "Evaluation"
       ],
-      "html": "<p>公开科研摘要 · 2026-10-22。以下数字为论文作者报告，未经独立复现；资源状态截至原简报日期。</p><h2>科研 Executive Summary</h2><p>1. 动作可控性应独立于视觉质量：AIM 将“模型忽略动作”追溯到数据分布；RoboJudge 与 StreamEval 分别校准物理/指令评分和在线请求执行。</p><p>2. HOI 正从好看的参考运动走向目标 embodiment 的可达交互：World2HOSI 维护共享场景状态，EmbodyHOI 将机器人 IK 前移到生成，REACT 进一步处理机载遮挡下的人机接触。</p><p>3. 4D 中间状态开始连接视频与控制：VPM 用持久点轨迹对齐多视角未来；JCA 同步生成可重放的 rig 动作与视频。</p><p>4. 共享动力学与自改进的边界更清晰：SuperMimic 用可微世界模型加速动作跟踪，CoEvo-RSI 强调模型与 harness 匹配；二者均需要独立泛化与遗忘评测。</p><h2>Top 10 · 贡献、研究关联与优先级</h2><table><tr><th>优先级 / 主题</th><th>论文与研究判断</th></tr><tr><td><b>1 · P0</b><br>世界模型 / 动作因果</td><td><b><a href=\"https://arxiv.org/abs/2610.27387\">Training Controllable World Models via Action Influence Maximization</a></b><br>10/19 首次提交；10/21 Digest 新收录<br><b>作者：</b>Samuel M. Bateman、Tenny Yin、Chongyi Zheng、Lei Huang、Brian Wang、Benjamin Eysenbach、Jaime Fernández Fisac、Dhruv Shah<br><b>机构：</b>Princeton；Columbia<br><b>贡献：</b>指出成功专家轨迹的动作分布过窄，下一状态可在忽略动作时被预测；数据 action influence 为可学控制影响设定上界。AIM 主动收集增强动作影响的数据。像素操作中，3k 演示加 500 主动采集回合在末端可控性上匹配 300k 专家回合，作者称约 85× 数据节省。<br></td></tr><tr><td><b>2 · P0</b><br>具身视频 / 评价器</td><td><b><a href=\"https://arxiv.org/abs/2610.27782\">RoboJudge: Multimodal Language Models as Judges for Embodied Video Generation</a></b><br>10/20 首次提交；10/21 Digest 收录<br><b>作者：</b>Siyuan Ma、Yu Qi、Cheng Ye、Ruotian Peng、Xinyi Xu、Zitiantao Lin、Zedong Cai、Yijian Huang、Weiyang Liu、Siyuan Wang、Yandong Wen<br><b>机构：</b>CUHK、Westlake、Northeastern、UC San Diego、浙江大学；部分作者为独立研究者<br><b>贡献：</b>RoboJudge-Bench 用 800 个人工标注视频、8 类来源语料与 10 个生成器，分测 Physical Adherence 和 Instruction Alignment；12k 训练视频提供 25k 人类核验分数及模型辅助理由。9B 模型经 SFT+RL 后，在所测评审器中与人类评分总体 Pearson 相关最高，为 0.719。<br></td></tr><tr><td><b>3 · P0</b><br>HOI / HSI / 长时交互</td><td><b><a href=\"https://arxiv.org/abs/2610.27725\">World2HOSI: A Multi-Expert Harness for Long-Horizon Human-Object-Scene Interaction Generation</a></b><br>10/20 首次提交；10/21 Digest 收录<br><b>作者：</b>Jiushu Li、Haoran Wang、Yumeng Liu、Zhiyang Dou、Yuan Liu、Yuexin Ma、Cheng Lin<br><b>机构：</b>澳门科技大学、USTC、MIT、HKUST、上海科技大学<br><b>贡献：</b>在分离背景与物体资产的 3DGS 场景上维护持久结构化状态，harness 规划阶段、调用各运动专家，并写回动作后果；有界残差优化修正人体伪影，接触驱动物理仿真修正物体交互。<br></td></tr><tr><td><b>4 · P0</b><br>HOI→机器人 / 可达性</td><td><b><a href=\"https://arxiv.org/abs/2610.27242\">EmbodyHOI: Embodiment-Aware Generation of Hand-Object Interactions for Humanoid Dexterous Manipulation</a></b><br>10/19 首次提交；10/21 Digest 新收录<br><b>作者：</b>Chaitanya Chawla、Kartik Sharma、Ananya Bal、Laszlo A. Jeni、Guanya Shi<br><b>机构：</b>CMU<br><b>贡献：</b>在冻结的人类 MANO 空间 HOI 生成采样循环中嵌入目标机器人的可微 IK，以梯度引导轨迹并联合优化机器人相对物体的基座位置。ARCTIC 上腕部重定向误差由 8.9 cm 降至 0.6 cm，G1 仿真任务成功率由 68% 至 79%，H1-2 由 62% 至 76%。<br></td></tr><tr><td><b>5 · P0</b><br>HRI / 接触 / 部分可观测</td><td><b><a href=\"https://arxiv.org/abs/2610.28523\">VLM-Guided Contact Retargeting and Generative Partner Modeling for Humanoid-Human Interaction</a></b><br>10/20 首次提交；10/21 Digest 收录<br><b>作者：</b>Yuto Shibata、Kotaro Amaya、Kashu Yamazaki、Lalit Jayanti、Yoshimitsu Aoki、Mariko Isogawa、Katerina Fragkiadaki<br><b>机构：</b>CMU、Keio AI Research Center、庆应义塾大学<br><b>贡献：</b>REACT 以语义接触结构连接人—人示范处理、机器人重定向与策略学习；先训练 privileged 策略，再蒸馏为仅用机载第一视角深度的策略。生成式伙伴状态目标补足遮挡，在 Unitree G1 展示五类接触交互。<br></td></tr><tr><td><b>6 · P0</b><br>人形动作 / 可微世界模型</td><td><b><a href=\"https://arxiv.org/abs/2610.28480\">SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model</a></b><br>10/20 首次提交；10/21 Digest 收录<br><b>作者：</b>Qiayuan Liao、Yiyang Shao、Junfeng Long、Kevin Zakka、Roberto Horowitz、Pieter Abbeel、Koushil Sreenath<br><b>机构：</b>UC Berkeley<br><b>贡献：</b>从刚体仿真器日志学习共享可微动力学，与跟踪策略共同训练，用短 imagined rollout 的 BPTT 获得解析梯度。作者报告单 H100 3 小时在 129,514 条基准动作中失败 25 条，对照为 179 条；并展示 G1 实机动作迁移。<br></td></tr><tr><td><b>7 · P1</b><br>4D 世界模型 / 点轨迹</td><td><b><a href=\"https://arxiv.org/abs/2610.28594\">Learning the 4D World through Point Trajectory Forecasting</a></b><br>10/20 首次提交；10/21 Digest/HF 收录<br><b>作者：</b>Byungwoo Jeon、Sunghwan Hong、Dohyeon Kim、Jonghoon Lee、Jungwoo Park、Inhee Lee、Doosan Baek、Jinil Kim、Taehyun Lim、Hanbyul Joo、Marc Pollefeys、Saining Xie、Jinwoo Shin<br><b>机构：</b>KAIST、ETH Zürich、首尔国立大学、NYU、RLWRLD、Physics Sim Lab<br><b>贡献：</b>Video-Point Model（VPM）联合预测多视角未来视频和持久 3D 点轨迹，使各相机外观变化锚定共同的三维运动；构建 VPM-Data 与 VP-WorldBench，并把机器人动作作为 token 联合去噪。点监督改善视觉预测、3D 运动及所测控制成功率。<br></td></tr><tr><td><b>8 · P1</b><br>3D 动作 / 视频联合生成</td><td><b><a href=\"https://arxiv.org/abs/2610.28632\">Joints, Camera, Action! Co-Generating 3D Motion and Video for Arbitrary Rigs</a></b><br>10/20 首次提交；10/21 Digest/HF 收录<br><b>作者：</b>Noam Rotstein、Yoad Tewel、Chen Tessler、Haggai Maron、Gal Chechik、Or Litany、Yoni Kasten、Yuval Atzmon<br><b>机构：</b>NVIDIA、Technion、Bar-Ilan University<br><b>贡献：</b>独立任意骨架 motion 模型与预训练视频模型用少量 cross-attention 连接，直接联合生成视频和 3D 轨迹，并定位视频关节恢复相机配准。近 200k 训练对包含经编辑筛选的动画资产及人/机器人视频，支持双向条件生成与关键帧控制。<br></td></tr><tr><td><b>9 · P0</b><br>交互视频 / 在线评测</td><td><b><a href=\"https://arxiv.org/abs/2610.28402\">StreamEval: Evaluating Interactive Streaming Video Generation Models</a></b><br>10/20 首次提交；10/21 Digest 收录<br><b>作者：</b>StreamEval Team（论文团体署名；个人名单未在已读文首列出）<br><b>机构：</b>清华大学、NVIDIA、CMU、UC Berkeley、Princeton、NUS、Reactor<br><b>贡献：</b>五类任务涵盖 avatar 对话/表演、世界生成、指令编辑及参考编辑；300 个 15–300 秒脚本案例逐步注入多模态请求，分测执行、状态一致、视觉与音画协调。对 37 个模型的结果表明高画质与身份保持并不代表可靠执行。<br></td></tr><tr><td><b>10 · P1</b><br>Agentic RSI / 模型—harness 协同</td><td><b><a href=\"https://arxiv.org/abs/2610.25078\">CoEvo-RSI: When Harnesses Evolve, Which Models Should Follow?</a></b><br>10/18 首次提交；10/21 HF 新收录；原文标题为 When Harnesses Evolve, Which Models Should Follow?<br><b>作者：</b>Jiaqi Su、Guibin Zhang、Jie-Jing Shao、Cong Pang、Tiankuo Yao、Ivor Tsang、Haiyan Yin、Shuicheng Yan<br><b>机构：</b>NUS、A*STAR、SenseTime<br><b>贡献：</b>研究 model–harness 的能力错配，以共享历史档案和执行反馈协调 harness 继承、checkpoint 选择/合并及后续适配；仅对自产 rejection-sampled 轨迹做 SFT，在多智能体归因、权限 SQL 与智能家居任务评估。<br></td></tr></table>"
+      "html": "<p>公开科研摘要 · 2026-10-22。以下数字为论文作者报告，未经独立复现；资源状态截至原简报日期。</p><h2>科研 Executive Summary</h2><p>1. 动作可控性应独立于视觉质量：AIM 将“模型忽略动作”追溯到数据分布；RoboJudge 与 StreamEval 分别校准物理/指令评分和在线请求执行。</p><p>2. HOI 正从好看的参考运动走向目标 embodiment 的可达交互：World2HOSI 维护共享场景状态，EmbodyHOI 将机器人 IK 前移到生成，REACT 进一步处理机载遮挡下的人机接触。</p><p>3. 4D 中间状态开始连接视频与控制：VPM 用持久点轨迹对齐多视角未来；JCA 同步生成可重放的 rig 动作与视频。</p><p>4. 共享动力学与自改进的边界更清晰：SuperMimic 用可微世界模型加速动作跟踪，CoEvo-RSI 强调模型与 harness 匹配；二者均需要独立泛化与遗忘评测。</p><h2>Top 10 · 贡献、研究关联与优先级</h2><table><tr><th>优先级 / 主题</th><th>论文与研究判断</th></tr><tr><td><b>1 · P0</b><br>世界模型 / 动作因果</td><td><h3><a href=\"https://arxiv.org/abs/2610.27387\">AIM：通过主动采集增强动作影响的数据，提高世界模型的动作可控性</a></h3><p><a href=\"https://princeton-prism.github.io/action-influence-maximization/\">Project Page ↗</a> · <a href=\"https://princeton-prism.github.io/action-influence-maximization/static/videos/hand-motion-03-recovery1-transferred-aim500-rollout.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>Training Controllable World Models via Action Influence Maximization</p><br>10/19 首次提交；10/21 Digest 新收录<br><b>作者：</b>Samuel M. Bateman、Tenny Yin、Chongyi Zheng、Lei Huang、Brian Wang、Benjamin Eysenbach、Jaime Fernández Fisac、Dhruv Shah<br><b>机构：</b>Princeton；Columbia<br><b>贡献：</b>指出成功专家轨迹的动作分布过窄，下一状态可在忽略动作时被预测；数据 action influence 为可学控制影响设定上界。AIM 主动收集增强动作影响的数据。像素操作中，3k 演示加 500 主动采集回合在末端可控性上匹配 300k 专家回合，作者称约 85× 数据节省。<br></td></tr><tr><td><b>2 · P0</b><br>具身视频 / 评价器</td><td><h3><a href=\"https://arxiv.org/abs/2610.27782\">RoboJudge：用人类评分校准具身视频的物理合理性与指令一致性</a></h3><p><a href=\"https://spherelab.ai/RoboJudge/\">Project Page ↗</a> · <a href=\"https://spherelab.ai/RoboJudge/assets/demos/03_agibot_world_cosmos3.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>RoboJudge: Multimodal Language Models as Judges for Embodied Video Generation</p><br>10/20 首次提交；10/21 Digest 收录<br><b>作者：</b>Siyuan Ma、Yu Qi、Cheng Ye、Ruotian Peng、Xinyi Xu、Zitiantao Lin、Zedong Cai、Yijian Huang、Weiyang Liu、Siyuan Wang、Yandong Wen<br><b>机构：</b>CUHK、Westlake、Northeastern、UC San Diego、浙江大学；部分作者为独立研究者<br><b>贡献：</b>RoboJudge-Bench 用 800 个人工标注视频、8 类来源语料与 10 个生成器，分测 Physical Adherence 和 Instruction Alignment；12k 训练视频提供 25k 人类核验分数及模型辅助理由。9B 模型经 SFT+RL 后，在所测评审器中与人类评分总体 Pearson 相关最高，为 0.719。<br></td></tr><tr><td><b>3 · P0</b><br>HOI / HSI / 长时交互</td><td><h3><a href=\"https://arxiv.org/abs/2610.27725\">World2HOSI：维护共享场景状态，组织多专家生成长时人体交互</a></h3><p><a href=\"https://nintreesssss.github.io/World2HOSI/\">Project Page ↗</a> · <a href=\"https://nintreesssss.github.io/World2HOSI/assets/videos/long-coffee.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>World2HOSI: A Multi-Expert Harness for Long-Horizon Human-Object-Scene Interaction Generation</p><br>10/20 首次提交；10/21 Digest 收录<br><b>作者：</b>Jiushu Li、Haoran Wang、Yumeng Liu、Zhiyang Dou、Yuan Liu、Yuexin Ma、Cheng Lin<br><b>机构：</b>澳门科技大学、USTC、MIT、HKUST、上海科技大学<br><b>贡献：</b>在分离背景与物体资产的 3DGS 场景上维护持久结构化状态，harness 规划阶段、调用各运动专家，并写回动作后果；有界残差优化修正人体伪影，接触驱动物理仿真修正物体交互。<br></td></tr><tr><td><b>4 · P0</b><br>HOI→机器人 / 可达性</td><td><h3><a href=\"https://arxiv.org/abs/2610.27242\">EmbodyHOI：将机器人可达性约束引入手物交互生成过程</a></h3><p><a href=\"https://embodyhoi.github.io/\">Project Page ↗</a> · <a href=\"https://embodyhoi.github.io/videos/supp/embodyhoi_video.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>EmbodyHOI: Embodiment-Aware Generation of Hand-Object Interactions for Humanoid Dexterous Manipulation</p><br>10/19 首次提交；10/21 Digest 新收录<br><b>作者：</b>Chaitanya Chawla、Kartik Sharma、Ananya Bal、Laszlo A. Jeni、Guanya Shi<br><b>机构：</b>CMU<br><b>贡献：</b>在冻结的人类 MANO 空间 HOI 生成采样循环中嵌入目标机器人的可微 IK，以梯度引导轨迹并联合优化机器人相对物体的基座位置。ARCTIC 上腕部重定向误差由 8.9 cm 降至 0.6 cm，G1 仿真任务成功率由 68% 至 79%，H1-2 由 62% 至 76%。<br></td></tr><tr><td><b>5 · P0</b><br>HRI / 接触 / 部分可观测</td><td><h3><a href=\"https://arxiv.org/abs/2610.28523\">REACT：结合接触重定向与伙伴状态建模，实现人形机器人的接触交互</a></h3><p><a href=\"https://yutoshibata07.github.io/REACT/\">Project Page ↗</a> · <a href=\"https://yutoshibata07.github.io/REACT/static/videos/real_v2_highfive.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>VLM-Guided Contact Retargeting and Generative Partner Modeling for Humanoid-Human Interaction</p><br>10/20 首次提交；10/21 Digest 收录<br><b>作者：</b>Yuto Shibata、Kotaro Amaya、Kashu Yamazaki、Lalit Jayanti、Yoshimitsu Aoki、Mariko Isogawa、Katerina Fragkiadaki<br><b>机构：</b>CMU、Keio AI Research Center、庆应义塾大学<br><b>贡献：</b>REACT 以语义接触结构连接人—人示范处理、机器人重定向与策略学习；先训练 privileged 策略，再蒸馏为仅用机载第一视角深度的策略。生成式伙伴状态目标补足遮挡，在 Unitree G1 展示五类接触交互。<br></td></tr><tr><td><b>6 · P0</b><br>人形动作 / 可微世界模型</td><td><h3><a href=\"https://arxiv.org/abs/2610.28480\">SuperMimic：用共享可微世界模型训练人形机器人的全身动作跟踪</a></h3><p><a href=\"https://supermimic.github.io/\">Project Page ↗</a> · <a href=\"https://supermimic.github.io/media/hero/hero_montage_desktop.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model</p><br>10/20 首次提交；10/21 Digest 收录<br><b>作者：</b>Qiayuan Liao、Yiyang Shao、Junfeng Long、Kevin Zakka、Roberto Horowitz、Pieter Abbeel、Koushil Sreenath<br><b>机构：</b>UC Berkeley<br><b>贡献：</b>从刚体仿真器日志学习共享可微动力学，与跟踪策略共同训练，用短 imagined rollout 的 BPTT 获得解析梯度。作者报告单 H100 3 小时在 129,514 条基准动作中失败 25 条，对照为 179 条；并展示 G1 实机动作迁移。<br></td></tr><tr><td><b>7 · P1</b><br>4D 世界模型 / 点轨迹</td><td><h3><a href=\"https://arxiv.org/abs/2610.28594\">VPM：联合预测未来视频与三维点轨迹，学习四维世界动态</a></h3><p><a href=\"https://rootyjeon.github.io/video-point-model/\">Project Page ↗</a> · <a href=\"https://rootyjeon.github.io/video-point-model/assets/videos/teaser-final.mp4\">视频 / Video ↗</a></p><p><b>论文：</b>Learning the 4D World through Point Trajectory Forecasting</p><br>10/20 首次提交；10/21 Digest/HF 收录<br><b>作者：</b>Byungwoo Jeon、Sunghwan Hong、Dohyeon Kim、Jonghoon Lee、Jungwoo Park、Inhee Lee、Doosan Baek、Jinil Kim、Taehyun Lim、Hanbyul Joo、Marc Pollefeys、Saining Xie、Jinwoo Shin<br><b>机构：</b>KAIST、ETH Zürich、首尔国立大学、NYU、RLWRLD、Physics Sim Lab<br><b>贡献：</b>Video-Point Model（VPM）联合预测多视角未来视频和持久 3D 点轨迹，使各相机外观变化锚定共同的三维运动；构建 VPM-Data 与 VP-WorldBench，并把机器人动作作为 token 联合去噪。点监督改善视觉预测、3D 运动及所测控制成功率。<br></td></tr><tr><td><b>8 · P1</b><br>3D 动作 / 视频联合生成</td><td><h3><a href=\"https://arxiv.org/abs/2610.28632\">JCA：联合生成任意骨架的三维动作与视频</a></h3><p><b>论文：</b>Joints, Camera, Action! Co-Generating 3D Motion and Video for Arbitrary Rigs</p><br>10/20 首次提交；10/21 Digest/HF 收录<br><b>作者：</b>Noam Rotstein、Yoad Tewel、Chen Tessler、Haggai Maron、Gal Chechik、Or Litany、Yoni Kasten、Yuval Atzmon<br><b>机构：</b>NVIDIA、Technion、Bar-Ilan University<br><b>贡献：</b>独立任意骨架 motion 模型与预训练视频模型用少量 cross-attention 连接，直接联合生成视频和 3D 轨迹，并定位视频关节恢复相机配准。近 200k 训练对包含经编辑筛选的动画资产及人/机器人视频，支持双向条件生成与关键帧控制。<br></td></tr><tr><td><b>9 · P0</b><br>交互视频 / 在线评测</td><td><h3><a href=\"https://arxiv.org/abs/2610.28402\">StreamEval：沿在线指令时间线评估交互式视频生成</a></h3><p><b>论文：</b>StreamEval: Evaluating Interactive Streaming Video Generation Models</p><br>10/20 首次提交；10/21 Digest 收录<br><b>作者：</b>StreamEval Team（论文团体署名；个人名单未在已读文首列出）<br><b>机构：</b>清华大学、NVIDIA、CMU、UC Berkeley、Princeton、NUS、Reactor<br><b>贡献：</b>五类任务涵盖 avatar 对话/表演、世界生成、指令编辑及参考编辑；300 个 15–300 秒脚本案例逐步注入多模态请求，分测执行、状态一致、视觉与音画协调。对 37 个模型的结果表明高画质与身份保持并不代表可靠执行。<br></td></tr><tr><td><b>10 · P1</b><br>Agentic RSI / 模型—harness 协同</td><td><h3><a href=\"https://arxiv.org/abs/2610.25078\">CoEvo-RSI：协调历史模型与 harness 的选择和适配，减少接口能力错配</a></h3><p><b>论文：</b>CoEvo-RSI: When Harnesses Evolve, Which Models Should Follow?</p><br>10/18 首次提交；10/21 HF 新收录；原文标题为 When Harnesses Evolve, Which Models Should Follow?<br><b>作者：</b>Jiaqi Su、Guibin Zhang、Jie-Jing Shao、Cong Pang、Tiankuo Yao、Ivor Tsang、Haiyan Yin、Shuicheng Yan<br><b>机构：</b>NUS、A*STAR、SenseTime<br><b>贡献：</b>研究 model–harness 的能力错配，以共享历史档案和执行反馈协调 harness 继承、checkpoint 选择/合并及后续适配；仅对自产 rejection-sampled 轨迹做 SFT，在多智能体归因、权限 SQL 与智能家居任务评估。<br></td></tr></table>",
+      "videos": [
+        {
+          "url": "https://embodyhoi.github.io/videos/supp/embodyhoi_video.mp4",
+          "title": "EmbodyHOI · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.27242"
+        },
+        {
+          "url": "https://princeton-prism.github.io/action-influence-maximization/static/videos/hand-motion-03-recovery1-transferred-aim500-rollout.mp4",
+          "title": "AIM · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.27387"
+        },
+        {
+          "url": "https://nintreesssss.github.io/World2HOSI/assets/videos/long-coffee.mp4",
+          "title": "World2HOSI · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.27725"
+        },
+        {
+          "url": "https://spherelab.ai/RoboJudge/assets/demos/03_agibot_world_cosmos3.mp4",
+          "title": "RoboJudge · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.27782"
+        },
+        {
+          "url": "https://yutoshibata07.github.io/REACT/static/videos/real_v2_highfive.mp4",
+          "title": "REACT · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.28523"
+        },
+        {
+          "url": "https://rootyjeon.github.io/video-point-model/assets/videos/teaser-final.mp4",
+          "title": "VPM · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.28594"
+        },
+        {
+          "url": "https://supermimic.github.io/media/hero/hero_montage_desktop.mp4",
+          "title": "SuperMimic · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.28480"
+        }
+      ]
     },
     {
       "id": "weekly-ai-2026-10-21",
@@ -62,7 +180,168 @@
         "Open Source",
         "Embodied AI"
       ],
-      "html": "<p>本期整理自 2026-10-21 AI Weekly，覆盖 2026-10-15—10-21。此为公开精选版，保留研究与开源动态，省略个人职业建议。以下状态截至原简报日期，论文指标为作者报告，未经独立复现。</p>\n<h2>本周观察：改进当前表现，不等于保留历史能力</h2><p>外部 harness 会发生干扰，视觉模块适配会损伤其他部署条件。自生成经验和开放世界模型已更可用，但“持续更新—历史回归—接受或回滚”仍需要完整证据。</p>\n<h2>01 · Are Self-Evolving Agents Continual Learners?</h2><p>研究将 ReasoningBank、GEPA、Meta-Harness 放到四类任务流中，冻结基础模型，仅更新提示、检索记忆或工作空间。最终表现提升与历史能力受损同时发生：遗忘不只发生在梯度更新中。证据主要来自单一 backbone 和软件任务流，不等同于实体机器人终身学习。</p><p><a href=\"https://arxiv.org/abs/2610.25858\">阅读论文 ↗</a></p>\n<h2>02 · VLA-Retain：视觉适配的跨维度代价</h2><p>五个开放 VLA 在 10,030 个配对 LIBERO-Plus episodes、七种扰动维度上评测。十组模型—目标域配置中，八组平均 off-target gain 为负。目标域收益不能预测历史条件保持；这属于部署条件保持问题，并非完整的顺序任务持续学习基准。</p><p><a href=\"https://arxiv.org/abs/2610.27698\">阅读论文 ↗</a></p>\n<h2>03 · Mirror：从执行结果学习 video-to-action</h2><p>视频模型提出视觉计划，当前逆动力学模型尝试执行，再用实际画面与实际动作配对自训练。Minecraft 实验使用约 140 小时交互、1,000 万步。失败尝试也提供监督；无专家动作标签不等于无动作监督。尚未验证真机部署或旧任务保持，代码在原简报时仍待发布。</p><p><a href=\"https://arxiv.org/abs/2610.24177\">论文</a> · <a href=\"https://wilcoxsonm21.github.io/mirror/\">项目</a></p>\n<h2>04 · Ropedia W0：跨具身预测模型的开放进展</h2><p>用 camera pose 表达移动、projected skeleton 表达操作，统一人类、机械臂与人形机器人的第一视角接口。已开放 5B 权重、推理脚本、18 个样例与约一小时 Xp-Teleop 数据。公开推理采用 50 步采样，不能视为论文实时蒸馏版本；A14B、评测和后训练代码在原简报时仍待发布。权重为 CC BY-NC 4.0，代码为 Apache-2.0。</p><p><a href=\"https://arxiv.org/abs/2610.26855\">论文</a> · <a href=\"https://github.com/Ropedia/ropedia-w0\">代码</a> · <a href=\"https://huggingface.co/ropedia-ai/Ropedia-W0\">权重</a> · <a href=\"https://huggingface.co/datasets/ropedia-ai/Xp-Teleop\">数据</a></p>\n<h2>05 · LAW：语言推理、动作候选与执行反馈</h2><p>VLM 专家分别做子任务规划、状态判断与动作价值评估，WAM 生成动作候选，层级记忆维护历史。RoboTwin 平均成功率为 94.21%，三项长程实机任务平均为 65%；RoboDojo 严格成功率仍约 3.82%，高分布内成绩并不意味着稳健的分布外表现。其推理路径不显式生成未来图像，训练中利用失败前缀也不等于部署后的自主持续学习。</p><p><a href=\"https://arxiv.org/abs/2610.23334\">论文</a> · <a href=\"https://github.com/hey-cjj/LAW\">代码</a></p>\n<h2>06 · CoEvo-RSI 与 MAD-RSI：模型和 harness 联合适配</h2><p>CoEvo-RSI 保存历史模型与 harness，选择或合并 checkpoint，再对自行筛选的轨迹进行 SFT。MAD-RSI 用不同冻结模型的失败来改进共享 harness。两者的证据不代表一个具身 agent 已解决跨领域持续学习；MAD-RSI 的 Pass@M 包含至少一个模型成功的 oracle 可达性，不意味着已经有可靠的部署选择器。</p><p><a href=\"https://arxiv.org/abs/2610.25078\">CoEvo-RSI 论文</a> · <a href=\"https://github.com/SuJQ0722/CoEvo-RSI\">代码</a> · <a href=\"https://arxiv.org/abs/2610.28201\">MAD-RSI 论文</a></p>\n<h2>07 · InteractAgent 与 ULIFlow：纠错与接触表示</h2><p>InteractAgent 用多模态模型规划和评价、冻结 MotionLLM 执行，通过继续、重做或重规划修正计划。ULIFlow 将人体表面 marker 与物体的连续关系作为第三模态，改善交互几何并支持长时生成。多轮反思不等于跨任务记忆保持，几何关系也不保证力学可执行。InteractAgent 公开闭环为简化实现；ULIFlow 尚未核到完整可运行版本。</p><p><a href=\"https://arxiv.org/abs/2610.25649\">InteractAgent 论文</a> · <a href=\"https://github.com/AIGeeksGroup/InteractAgent\">代码</a> · <a href=\"https://arxiv.org/abs/2610.24286\">ULIFlow 论文</a></p>\n<h2>产业动态 · Eka Robotics</h2><p>10 月 20 日，a16z 宣布领投 Eka Robotics Series A。团队强调 Vision-Force-Action，将感知、力反馈、控制与硬件共同设计。公司演示与融资并非独立技术评测，不能据此推导终身自主能力。</p><p><a href=\"https://a16z.com/announcement/investing-in-eka-robotics/\">a16z 公告</a> · <a href=\"https://ekarobotics.com\">公司官网</a></p>\n<h2>下一步阅读</h2><ul><li>持续学习：同时记录当前任务收益、旧任务表现和最差条件退化。</li><li>世界模型：区分视觉预测质量、动作忠实度与真实接触后果。</li><li>开源复现：按公开 checkpoint 和代码状态设置实验，保留与论文完整配置的差异。</li></ul>"
+      "html": "<p>本期整理自 2026-10-21 AI Weekly，覆盖 2026-10-15—10-21。此为公开精选版，保留研究与开源动态，省略个人职业建议。以下状态截至原简报日期，论文指标为作者报告，未经独立复现。</p>\n<h2>本周观察：改进当前表现，不等于保留历史能力</h2><p>外部 harness 会发生干扰，视觉模块适配会损伤其他部署条件。自生成经验和开放世界模型已更可用，但“持续更新—历史回归—接受或回滚”仍需要完整证据。</p>\n<h3>Are Self-Evolving Agents Continual Learners?：检验外部 harness 更新中的学习与遗忘</h3><p>研究将 ReasoningBank、GEPA、Meta-Harness 放到四类任务流中，冻结基础模型，仅更新提示、检索记忆或工作空间。最终表现提升与历史能力受损同时发生：遗忘不只发生在梯度更新中。证据主要来自单一 backbone 和软件任务流，不等同于实体机器人终身学习。</p><p><a href=\"https://arxiv.org/abs/2610.25858\">阅读论文 ↗</a></p>\n<h3>VLA-Retain：揭示视觉适配对其他部署条件的保持能力代价</h3><p>五个开放 VLA 在 10,030 个配对 LIBERO-Plus episodes、七种扰动维度上评测。十组模型—目标域配置中，八组平均 off-target gain 为负。目标域收益不能预测历史条件保持；这属于部署条件保持问题，并非完整的顺序任务持续学习基准。</p><p><a href=\"https://arxiv.org/abs/2610.27698\">阅读论文 ↗</a></p>\n<h3>Mirror：利用实际执行画面与动作配对，自训练视频到动作模型</h3><p>视频模型提出视觉计划，当前逆动力学模型尝试执行，再用实际画面与实际动作配对自训练。Minecraft 实验使用约 140 小时交互、1,000 万步。失败尝试也提供监督；无专家动作标签不等于无动作监督。尚未验证真机部署或旧任务保持，代码在原简报时仍待发布。</p><p><a href=\"https://arxiv.org/abs/2610.24177\">论文</a> · <a href=\"https://wilcoxsonm21.github.io/mirror/\">Project Page ↗</a></p><p><a href=\"https://wilcoxsonm21.github.io/mirror/media/hero.mp4\">视频 / Video ↗</a></p>\n<h3>Ropedia W0：以统一运动学接口建模跨具身的第一视角动态</h3><p>用 camera pose 表达移动、projected skeleton 表达操作，统一人类、机械臂与人形机器人的第一视角接口。已开放 5B 权重、推理脚本、18 个样例与约一小时 Xp-Teleop 数据。公开推理采用 50 步采样，不能视为论文实时蒸馏版本；A14B、评测和后训练代码在原简报时仍待发布。权重为 CC BY-NC 4.0，代码为 Apache-2.0。</p><p><a href=\"https://arxiv.org/abs/2610.26855\">论文</a> · <a href=\"https://github.com/Ropedia/ropedia-w0\">代码</a> · <a href=\"https://huggingface.co/ropedia-ai/Ropedia-W0\">权重</a> · <a href=\"https://huggingface.co/datasets/ropedia-ai/Xp-Teleop\">数据</a></p><p><a href=\"https://ropedia.github.io/ropedia-w0/\">Project Page ↗</a> · <a href=\"https://youtu.be/5I3a1G-mDko\">视频 / Video ↗</a></p>\n<h3>LAW：以语言推理、动作候选与执行反馈构成控制闭环</h3><p>VLM 专家分别做子任务规划、状态判断与动作价值评估，WAM 生成动作候选，层级记忆维护历史。RoboTwin 平均成功率为 94.21%，三项长程实机任务平均为 65%；RoboDojo 严格成功率仍约 3.82%，高分布内成绩并不意味着稳健的分布外表现。其推理路径不显式生成未来图像，训练中利用失败前缀也不等于部署后的自主持续学习。</p><p><a href=\"https://arxiv.org/abs/2610.23334\">论文</a> · <a href=\"https://github.com/hey-cjj/LAW\">代码</a></p><p><a href=\"https://hey-cjj.github.io/LAW-project/\">Project Page ↗</a> · <a href=\"https://hey-cjj.github.io/LAW-project/assets/videos/puzzle-highlight.mp4\">视频 / Video ↗</a></p>\n<h3>CoEvo-RSI 与 MAD-RSI：利用模型版本与失败差异改进共享 harness</h3><p>CoEvo-RSI 保存历史模型与 harness，选择或合并 checkpoint，再对自行筛选的轨迹进行 SFT。MAD-RSI 用不同冻结模型的失败来改进共享 harness。两者的证据不代表一个具身 agent 已解决跨领域持续学习；MAD-RSI 的 Pass@M 包含至少一个模型成功的 oracle 可达性，不意味着已经有可靠的部署选择器。</p><p><a href=\"https://arxiv.org/abs/2610.25078\">CoEvo-RSI 论文</a> · <a href=\"https://github.com/SuJQ0722/CoEvo-RSI\">代码</a> · <a href=\"https://arxiv.org/abs/2610.28201\">MAD-RSI 论文</a></p>\n<h3>InteractAgent 与 ULIFlow：分别通过高层纠错与关系表示改善交互生成</h3><p>InteractAgent 用多模态模型规划和评价、冻结 MotionLLM 执行，通过继续、重做或重规划修正计划。ULIFlow 将人体表面 marker 与物体的连续关系作为第三模态，改善交互几何并支持长时生成。多轮反思不等于跨任务记忆保持，几何关系也不保证力学可执行。InteractAgent 公开闭环为简化实现；ULIFlow 尚未核到完整可运行版本。</p><p><a href=\"https://arxiv.org/abs/2610.25649\">InteractAgent 论文</a> · <a href=\"https://github.com/AIGeeksGroup/InteractAgent\">代码</a> · <a href=\"https://arxiv.org/abs/2610.24286\">ULIFlow 论文</a></p>\n<h2>产业动态 · Eka Robotics</h2><p>10 月 20 日，a16z 宣布领投 Eka Robotics Series A。团队强调 Vision-Force-Action，将感知、力反馈、控制与硬件共同设计。公司演示与融资并非独立技术评测，不能据此推导终身自主能力。</p><p><a href=\"https://a16z.com/announcement/investing-in-eka-robotics/\">a16z 公告</a> · <a href=\"https://ekarobotics.com\">公司官网</a></p>\n<h2>下一步阅读</h2><ul><li>持续学习：同时记录当前任务收益、旧任务表现和最差条件退化。</li><li>世界模型：区分视觉预测质量、动作忠实度与真实接触后果。</li><li>开源复现：按公开 checkpoint 和代码状态设置实验，保留与论文完整配置的差异。</li></ul>",
+      "videos": [
+        {
+          "url": "https://hey-cjj.github.io/LAW-project/assets/videos/puzzle-highlight.mp4",
+          "title": "LAW · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.23334"
+        },
+        {
+          "url": "https://wilcoxsonm21.github.io/mirror/media/hero.mp4",
+          "title": "Mirror · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.24177"
+        },
+        {
+          "url": "https://youtu.be/5I3a1G-mDko",
+          "title": "Ropedia W0 · 作者项目页演示",
+          "anchor_url": "https://arxiv.org/abs/2610.26855"
+        }
+      ]
     }
-  ]
+  ],
+  "talks": {
+    "checked_at": "2026-10-24",
+    "note": "本期收录 5 场往期讲座与访谈。时间、主讲人、简介与报名状态分别核验；未确认新的开放报名场次。",
+    "items": [
+      {
+        "id": "dream-rsi-baai",
+        "title": "Dream-RSI：通过演化世界探索递归自我改进",
+        "status": "replay",
+        "date": "2026-10-20",
+        "time": "2026-10-20 10:30（来源未注明时区）",
+        "speaker": "未公开／未核验",
+        "institution": "Google（智源首页标注）",
+        "topic": "世界模型、递归自我改进；详细议程未核验。",
+        "registration": "原活动已结束；智源首页标记为观看回放，活动详情可能需要登录。",
+        "deadline": "未公开；原活动已结束，不作为报名推荐。",
+        "reason": "P0 · 与 Agentic RSI 和世界模型方向直接相关，适合比较环境演化与策略更新的关系。推荐基于官方标题，未核验视频全文。",
+        "url": "https://event.baai.ac.cn/activities/1090",
+        "source_url": "https://hub.baai.ac.cn/frontpage/",
+        "platform": "智源社区",
+        "link_label": "活动 / 回放入口",
+        "introduction": "围绕 Dream-RSI 的世界演化与递归自改进展开；当前仅核验活动标题和时间，未读取完整讲稿，不能据此判断实验结论。"
+      },
+      {
+        "id": "sana-wm-lumina",
+        "title": "SANA-WM：分钟级、相机可控的世界模型生成",
+        "status": "replay",
+        "date": "2026-06-16",
+        "time": "2026-06-16（具体时刻、时区未公开）",
+        "speaker": "朱皓怡",
+        "institution": "中国科学技术大学 · 直博生",
+        "topic": "SANA-WM 方法分享；方法主题参照论文摘要，讲座目录未列详细议程。",
+        "registration": "往期讲座；从 Lumina 目录的 SANA-WM 条目进入 Bilibili 回放。",
+        "deadline": "不适用：往期回放。",
+        "reason": "P1 · 适合关注长时视频生成、相机控制与世界模型效率的研究者；不将视频生成结果等同于机器人闭环控制。",
+        "url": "https://www.bilibili.com/video/BV1ZsK36jEDy",
+        "source_url": "https://lumina-embodied.ai/talks",
+        "platform": "Lumina / Bilibili",
+        "link_label": "Bilibili 回放",
+        "introduction": "介绍 SANA-WM 的长时视频生成路线，可结合论文考察相机控制、生成长度和计算效率之间的取舍。视频上传日期可能与讲座日期不同，以目录活动日期为准。",
+        "videos": [
+          {
+            "url": "https://www.bilibili.com/video/BV1ZsK36jEDy",
+            "title": "Lumina · SANA-WM"
+          }
+        ]
+      },
+      {
+        "id": "xie-saining-zhangxiaojun",
+        "title": "谢赛宁 × 张小珺：世界模型与表征学习的研究路线",
+        "status": "replay",
+        "date": "2026-03-16",
+        "time": "2026-03-16 发布；录制于 2026 年 2 月，具体日期未公开",
+        "speaker": "谢赛宁；主持人：张小珺",
+        "institution": "NYU / AMI Labs（节目介绍）",
+        "topic": "世界模型、视觉表征、DiT 与研究路线选择",
+        "registration": "已发布的公开访谈，无直播报名；可通过视频或播客收听。",
+        "deadline": "不适用：公开访谈回放。",
+        "introduction": "约 405 分钟长访谈，从视觉研究与表征学习谈到世界模型。节目目录中 01:58:30 为表征讨论，04:11:07 进入世界模型主题；适合作为研究观点材料，不能替代实验论文。",
+        "reason": "P1 · 与 3D vision、世界模型及视频生成的研究取舍相关；建议先看技术章节，再回到论文验证观点。",
+        "url": "https://www.youtube.com/watch?v=rIwgZWzUKm8",
+        "source_url": "https://www.xiaoyuzhoufm.com/episode/69b77577f8b8079bfa8eb837",
+        "platform": "张小珺访谈 / YouTube",
+        "link_label": "完整访谈",
+        "videos": [
+          {
+            "url": "https://www.youtube.com/watch?v=rIwgZWzUKm8",
+            "title": "谢赛宁 × 张小珺 · 世界模型访谈"
+          }
+        ]
+      },
+      {
+        "id": "pointworld-lumina",
+        "title": "PointWorld：世界模型研究分享",
+        "status": "replay",
+        "date": "2026-03-06",
+        "time": "2026-03-06 15:00（来源未注明时区）",
+        "speaker": "黄文龙",
+        "institution": "斯坦福大学计算机科学系 · 博士候选人",
+        "topic": "PointWorld；官方目录未提供摘要与分项议程。",
+        "registration": "往期讲座；从 Lumina 目录的 PointWorld 条目进入 Bilibili 回放。",
+        "deadline": "不适用：往期回放。",
+        "reason": "P1 · 可作为三维表示与世界模型方向的补充回看；先核对回放中的表示和控制设定，再与当前几何世界模型工作对照。",
+        "url": "https://lumina-embodied.ai/talks",
+        "source_url": "https://lumina-embodied.ai/talks",
+        "platform": "Lumina / Bilibili",
+        "link_label": "目录 / 回放入口",
+        "introduction": "PointWorld 方法分享，适合作为三维世界表示与机器人学习的背景材料。官方目录摘要有限，具体实现与实验需结合原论文和回放核验。"
+      },
+      {
+        "id": "robot-foundation-itu",
+        "title": "Robotic foundation models：从网络预训练知识到通用机器人技能",
+        "status": "replay",
+        "date": "2025-10-14",
+        "time": "2025-10-14 18:00–19:00 CEST；北京时间 10-15 00:00–01:00",
+        "speaker": "Sergey Levine",
+        "institution": "UC Berkeley（主办方页面标注）",
+        "topic": "结合网络规模预训练的语义知识与机器人数据中的物理经验，学习通用机器人技能。",
+        "registration": "原活动已结束；主办方提供 YouTube 回放，Neural Network 平台回放／徽章可能需登录。",
+        "deadline": "未公开原报名截止日期；当前作为历史回放收录。",
+        "reason": "P1 · 适合作为 VLA、机器人基础模型与数据扩展路线的背景材料；这是 2025 年历史讲座，不计入近 36 小时的新活动。",
+        "url": "https://www.youtube.com/live/0YE9q8awQoc",
+        "source_url": "https://aiforgood.itu.int/event/robotic-foundation-models/",
+        "platform": "ITU AI for Good / YouTube",
+        "link_label": "YouTube 回放",
+        "introduction": "Sergey Levine 讨论如何结合预训练知识与机器人交互数据形成通用技能，适合梳理机器人基础模型的数据与泛化问题。",
+        "videos": [
+          {
+            "url": "https://www.youtube.com/live/0YE9q8awQoc",
+            "title": "Robotic foundation models · Sergey Levine"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "name": "Lumina Talks：讲者、日期与回放目录",
+        "url": "https://lumina-embodied.ai/talks"
+      },
+      {
+        "name": "Lumina Events：当前新活动筹备中，报名尚未开放",
+        "url": "https://lumina-embodied.ai/events"
+      },
+      {
+        "name": "智源活动列表：已访问，详情加载受限",
+        "url": "https://hub.baai.ac.cn/events"
+      },
+      {
+        "name": "智源首页：Dream-RSI 日期与回放入口",
+        "url": "https://hub.baai.ac.cn/frontpage/"
+      },
+      {
+        "name": "ITU：Robotic foundation models 官方活动页",
+        "url": "https://aiforgood.itu.int/event/robotic-foundation-models/"
+      },
+      {
+        "name": "SANA-WM：方法主题参考论文摘要",
+        "url": "https://arxiv.org/abs/2605.15178"
+      },
+      {
+        "name": "张小珺访谈：谢赛宁一期原始节目说明",
+        "url": "https://www.xiaoyuzhoufm.com/episode/69b77577f8b8079bfa8eb837"
+      }
+    ]
+  }
 }

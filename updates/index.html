@@ -8,24 +8,32 @@
   <title>Research & AI Updates</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./style.css">
+  <script src="./media.js" defer></script>
   <script src="./app.js" defer></script>
 </head>
 <body id="top">
-  <a class="skip" href="#journal">跳转到晨报</a>
+  <a class="skip" href="#content">跳转到内容</a>
   <div class="page">
     <header class="masthead">
       <a class="wordmark" href="./"><span class="sun" aria-hidden="true">✳</span> updates<span class="dot">.</span></a>
       <div class="header-info"><h1>Research &amp; AI</h1><span id="last-update">正在读取归档</span></div>
     </header>
-    <main>
-      <nav class="sections" aria-label="晨报栏目">
+    <main id="content">
+      <nav class="sections" aria-label="内容栏目">
         <a href="#daily-research" data-category="daily-research" aria-current="page"><span class="nav-no">01</span><strong>Daily Research</strong><span>每日科研</span><b class="nav-count">—</b></a>
         <a href="#weekly-research" data-category="weekly-research"><span class="nav-no">02</span><strong>Weekly Research</strong><span>每周科研</span><b class="nav-count">—</b></a>
         <a href="#daily-ai" data-category="daily-ai"><span class="nav-no">03</span><strong>Daily AI</strong><span>每日 AI 新闻</span><b class="nav-count">—</b></a>
         <a href="#weekly-ai" data-category="weekly-ai"><span class="nav-no">04</span><strong>Weekly AI</strong><span>每周 AI 新闻</span><b class="nav-count">—</b></a>
+        <a href="#talks" data-category="talks"><span class="nav-no">05</span><strong>Talk</strong><span>科研讲座精选</span><b class="nav-count">—</b></a>
       </nav>
       <section id="journal" class="journal" aria-labelledby="section-title">
         <div class="section-heading"><div><p class="eyebrow" id="section-kicker">01 / DAILY RESEARCH</p><h2 id="section-title">Daily Research</h2><p id="section-description">论文、研究趋势与可执行的科研行动。</p></div></div>
+        <details id="ai-scope" class="ai-scope" hidden><summary>AI News 采编范围与简报结构</summary>
+          <p id="ai-window"></p>
+          <p>关注 VLM/VLA 持续学习、Agent RSI、世界模型与后训练、交互式视频、具身智能和 3D/4D 人体交互。按重要性筛选真正改变研究判断的论文、模型、数据集、基准、开源和产业动态。</p>
+          <p>每项说明：发生了什么变化 → 技术意义 → 研究关联 → 团队与职业探索信号。明确区分已确认事实、作者报告和分析推断，附原始来源与日期。</p>
+          <p>简报结构：重点摘要、重要性排序、3–5 项深读、研究者／团队跟踪、行动清单、实际使用来源。优先检查指定论文索引、arXiv、Scholar Inbox 与 alphaXiv；来源缺口如实注明。</p>
+        </details>
         <form class="filters" role="search" id="filters">
           <label class="search"><span aria-hidden="true">⌕</span><span class="sr-only">搜索当前栏目</span><input id="search" type="search" placeholder="搜索标题、论文、关键词…" autocomplete="off"></label>
           <label class="date-filter">归档日期 <select id="date"><option value="">全部日期</option></select></label>
@@ -34,6 +42,12 @@
         <div class="result-line"><span id="result-count" role="status" aria-live="polite">正在载入晨报…</span><span>最新在前 ↓</span></div>
         <div id="entries"></div>
         <noscript><p class="empty">请启用 JavaScript 以浏览晨报与归档。</p></noscript>
+      </section>
+      <section id="talks" hidden class="talk-section" aria-labelledby="talk-title">
+        <div class="section-heading"><div><p class="eyebrow">RESEARCH TALKS</p><h2 id="talk-title">Talk 精选</h2><p id="talk-note">正在加载讲座信息…</p></div></div>
+        <div class="talk-toolbar"><span id="talk-updated"></span><label>活动类型 <select id="talk-filter"><option value="all">全部</option><option value="upcoming">可报名活动</option><option value="replay">往期回放</option></select></label></div>
+        <div id="talk-list" aria-live="polite"></div>
+        <details class="talk-sources"><summary>信息来源与核验范围</summary><div id="talk-sources"></div></details>
       </section>
     </main>
     <footer><span>Research &amp; AI · 晨报归档</span><a href="#top">回到顶部 ↑</a></footer>
