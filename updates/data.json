@@ -1,6 +1,41 @@
 {
   "entries": [
     {
+      "id": "weekly-research-2026-10-25",
+      "category": "weekly-research",
+      "date": "2026-10-25",
+      "title": "从程序技能到策略效用：世界模型与物理交互周回顾",
+      "summary": "回顾4篇窗口内论文，比较程序复用、策略效用、三维监督和交互先验；仅公开研究总结，不包含私人研究计划。",
+      "source": "arXiv原论文、alphaXiv原文检索及作者项目页",
+      "period": "2026-10-18 01:24—2026-10-25 01:24（北京时间）｜最近7天",
+      "tags": [
+        "World Models",
+        "VLA",
+        "4D",
+        "HOI",
+        "周回顾"
+      ],
+      "videos": [],
+      "html": "<p>覆盖窗口：2026-10-18 01:24—2026-10-25 01:24（北京时间）｜最近7天。本期为公开文献周总结，4篇均已在本周日报出现，不冒充本轮新增发现；原始首发时间与本刊归档时间分别处理。精选上限10篇，本次只纳入4篇重新读取原文相关页并核验日期的工作，不代表领域全量排行。来源覆盖存在缺口。</p><h2>本周公开研究总结</h2><ul><li>代码可为WAM提供技能结构，但技能库复用和参数学习是不同机制。</li><li>世界模型的视觉误差与策略改进不必同步；需要下游闭环验证。</li><li>三维轨迹监督和手物交互先验分别约束预测与物理执行。</li></ul><h3>AW-0：把程序技能、未来视频与低层动作放入统一预测框架</h3><p><b>原始标题：</b><a href=\"https://arxiv.org/abs/2610.30136\">Agentic World Action Models</a>。<b>日期：</b>2026-10-21（UTC，v1）。<a href=\"https://agentic-wam.github.io/\">Project Page ↗</a></p><p><b>作者：</b>Zhuoyang Liu；Dantong Niu；Botong Zhang；Boning Shao；Jing Wang；Ruijie Zheng；Yuvan Sharma；Runyu Lu；Jiaming Liu；Renrui Zhang；Roei Herzig；Yutong Bai；Ken Goldberg；Danfei Xu；Yuke Zhu；Guanzhi Wang；Linxi “Jim” Fan；Trevor Darrell。<b>机构：</b>UC Berkeley、NVIDIA、University of Pennsylvania（原文首页）。</p><p><b>贡献与局限：</b>通过三个耦合生成流连接代码规划、视觉预测和控制；程序标注管线提炼可复用技能。作者在RoboTwin 2.0及真实双手任务评估。随机视觉条件下默认AW-0弱于其clean设置，混合执行还使用不同来源示范，因此不能把所有增益归因于架构。</p><p><b>研究关联与优先级：</b>P0：适合研究程序技能与物理预测的连接；技能复用不等于部署期参数持续更新。以上实验结论均为作者报告，本刊未复现。</p><h3>DRILL：让世界模型为策略学习提供有效信号</h3><p><b>原始标题：</b><a href=\"https://arxiv.org/abs/2610.30814\">DRILL: Training World Models to Improve Policies, Not Predict Pixels</a>。<b>日期：</b>2026-10-22（UTC，v1）。</p><p><b>作者：</b>Zhaolu Kang；Tailong Luo；Lei Wei；Guangyuan Dong；Sihan Liu；Yingjie He；Siheng Wang；Shuaibo Li；Rongchao Zhang；Zhen Tian；Richeng Xuan；Zhichao Hu。<b>机构：</b>Tencent Hunyuan、Peking University（原文首页）。</p><p><b>贡献与局限：</b>内层在想象轨迹上做GRPO，外层优化更新后策略的回报；VWI为加权代理，IMG通过截断元梯度反传。作者报告五类仿真环境、两个VLA骨干上的提升；IMG仍需外部仿真回报校准，不能写成完全无真实环境反馈。</p><p><b>研究关联与优先级：</b>P0：把像素质量与下游策略效用分开评估；属于训练阶段参数更新，不等于自主递归改进。以上实验结论均为作者报告，本刊未复现。</p><h3>VPM：以持久三维点轨迹约束多视角未来</h3><p><b>原始标题：</b><a href=\"https://arxiv.org/abs/2610.28594\">Learning the 4D World through Point Trajectory Forecasting</a>。<b>日期：</b>2026-10-20（UTC，v1）。</p><p><b>作者：</b>Byungwoo Jeon；Sunghwan Hong；Dohyeon Kim；Jonghoon Lee；Jungwoo Park；Inhee Lee；Doosan Baek；Jinil Kim；Taehyun Lim；Hanbyul Joo；Marc Pollefeys；Saining Xie；Jinwoo Shin。<b>机构：</b>KAIST、ETH Zürich、Seoul National University、New York University、RLWRLD、Physics Sim Lab（原文首页）。</p><p><b>贡献与局限：</b>联合预测多视角视频与共享身份的三维点轨迹，并以动作token扩展机器人控制。VPM-Data和VP-WorldBench把视觉预测与几何误差放到同一评测中。作者报告监督轨迹有益于预测和控制；仍依赖相机信息与几何监督，不证明遮挡场景的任意物理因果推理。</p><p><b>研究关联与优先级：</b>P1：适合4D表征与交互生成；需同时检查几何和任务指标，不能只看视频观感。以上实验结论均为作者报告，本刊未复现。</p><h3>PiHand：把接触耦合纳入可复用潜空间先验</h3><p><b>原始标题：</b><a href=\"https://arxiv.org/abs/2610.31299\">PiHand: Latent Hand-Object Interaction Priors for Physics-Based Policy Learning</a>。<b>日期：</b>2026-10-22（v1 PDF首页；精确时刻未核验）。</p><p><b>作者：</b>Niklas Berndt；Xianghui Xie；Enes Duran；Yixiao Wang；Gerard Pons-Moll。<b>机构：</b>University of Tübingen、Tübingen AI Center、Max Planck Institute for Informatics、University of California Berkeley（原文首页）。</p><p><b>贡献与局限：</b>先在仿真跟踪mocap，再蒸馏手物交互VAE，最后用有界潜变量残差学习新任务。GRAB与DexYCB实验支持交互先验的作用；实验使用IsaacGym和MANO一致的手，不应将仿真结果当作真机迁移已解决。</p><p><b>研究关联与优先级：</b>P1：连接HOI生成与物理动画；应区分先验冻结和残差策略训练，不称其为部署期持续学习。以上实验结论均为作者报告，本刊未复现。</p><h2>与此前归档的比较｜编辑分析</h2><p>10月21日周报已讨论harness学习与视觉适配的保持代价；本周日报扩展了程序技能、几何预测与物理控制。本期把它们放在同一条“表征—学习信号—执行”链上比较，不将相互独立的论文当作领域因果趋势。</p><ul><li>参数更新：DRILL直接调整世界模型和策略；PiHand的下游残差训练与冻结先验需要分开。</li><li>外部记忆／harness：AW-0的技能库提供可执行结构；没有本期证据证明持续扩库必然减少遗忘。</li><li>上下文条件：VPM的多视角历史与相机条件不等于在线权重更新。</li></ul><h2>尚缺的证据</h2><p>仍需匹配数据与预算、长期任务切换中的保持率，以及真机失败反馈的独立复现。没有已完成这些实验的公开证据时，不以“自改进”概括所有方法。</p><h2>公开来源</h2><ul><li><a href=\"https://arxiv.org/abs/2610.30136\">Agentic World Action Models</a></li><li><a href=\"https://arxiv.org/abs/2610.30814\">DRILL: Training World Models to Improve Policies, Not Predict Pixels</a></li><li><a href=\"https://arxiv.org/abs/2610.28594\">Learning the 4D World through Point Trajectory Forecasting</a></li><li><a href=\"https://arxiv.org/abs/2610.31299\">PiHand: Latent Hand-Object Interaction Priors for Physics-Based Policy Learning</a></li><li><a href=\"https://agentic-wam.github.io/\">AW-0作者项目页</a></li></ul>"
+    },
+    {
+      "id": "weekly-ai-2026-10-25",
+      "category": "weekly-ai",
+      "date": "2026-10-25",
+      "title": "Agent后训练、程序世界模型与开放发布的证据边界",
+      "summary": "Kimi K3.1 Pro上线与权重承诺分开核验；结合AW-0、DRILL和VPM，梳理本周技术变化与公开复现问题。",
+      "source": "Moonshot官方公告、arXiv原论文与作者项目页",
+      "period": "2026-10-18 01:24—2026-10-25 01:24（北京时间）｜最近7天",
+      "tags": [
+        "Agentic RL",
+        "World Models",
+        "Post-training",
+        "Weekly AI"
+      ],
+      "videos": [],
+      "html": "<p>覆盖窗口：2026-10-18 01:24—2026-10-25 01:24（北京时间）｜最近7天。本周回顾包含已在日报收录的事件，不将周汇总称为新发布。仅保留有原始证据的重要变化，未核验的融资、团队变更与招聘不作推断。</p><h2>重点摘要</h2><ul><li>Kimi K3.1 Pro已宣布产品上线，完整权重仍是未来承诺。</li><li>AW-0把程序生成与视频、动作连接；DRILL把模型目标转向策略更新后的回报。</li><li>VPM说明几何监督可同时服务视频预测和控制，但跨方法指标不可直接比较。</li></ul><h3>Kimi K3.1 Pro：扩大后训练与长程工具执行</h3><p><b>已确认事实：</b>官方研究目录标为2026年10月24日，Code更新记录标为10月23日，精确时区未明。公告称产品上线，完整权重将于11月4日前发布；本轮未下载模型。</p><p><b>厂商报告：</b>百万token上下文、扩大联合RL投入与长程编程案例。编辑分析：这些是工具型Agent能力信号，不能外推为物理机器人闭环或部署期持续学习。权重公开承诺不等于当前可复现。</p><h3>AW-0：程序技能成为预测和执行的共同接口</h3><p>10月21日v1；研究团队为UC Berkeley、NVIDIA和University of Pennsylvania。与单纯文字规划相比，模型联合生成程序、视频与动作，另有混合执行路径。分析推断：值得分开审计程序正确率、失败恢复和随机视觉条件；不把技能复用称为参数自更新。</p><h3>DRILL：以策略效用检查世界模型的训练目标</h3><p>10月22日v1；Tencent Hunyuan与Peking University。训练回路把世界模型误差与后续策略收益关联。分析推断：衡量模型价值时应加入学习收益与外部校准成本，不能用像素质量替代；仿真结果尚非真机复现。</p><h2>深读清单｜公开方法核验</h2><ul><li>P0 AW-0：读联合建模与混合执行实验，核对示范来源及clean/random分组，避免混淆数据和模型贡献。</li><li>P0 DRILL：读内外层目标、VWI近似条件和附录失败模式；最小复现问题是相同预算下像素误差能否预测策略收益。</li><li>P1 VPM：读轨迹监督消融，比较同一模型有／无点监督的几何、视觉和任务指标，不仅比较观感。</li></ul><h2>研究者与团队跟踪</h2><p>公开研究信号分别来自AW-0的Zhuoyang Liu、Dantong Niu等作者，DRILL的Zhaolu Kang等作者，以及VPM的Byungwoo Jeon、Sunghwan Hong等作者。研究匹配是编辑判断；未核验任何开放职位，不涉及私人求职安排。</p><h2>未来一周的公开核验清单</h2><ul><li>跟踪Kimi实际权重与许可发布，不把承诺当交付。</li><li>核验程序、几何和策略效用方法的代码与评测协议，先做同预算小规模对照。</li><li>分别记录参数更新、外部技能复用与上下文适配，检查长期保持和真机证据。</li></ul><h2>公开来源</h2><ul><li><a href=\"https://www.kimi.com/en/blog/kimi-k3-1-pro\">Kimi官方技术博客</a></li><li><a href=\"https://www.kimi.com/en/blog/\">官方研究目录</a></li><li><a href=\"https://www.kimi.com/code/docs/en/kimi-code/whats-new.html\">Code官方更新记录</a></li><li><a href=\"https://agentic-wam.github.io/\">AW-0项目页</a></li><li><a href=\"https://arxiv.org/abs/2610.30136\">Agentic World Action Models</a></li><li><a href=\"https://arxiv.org/abs/2610.30814\">DRILL: Training World Models to Improve Policies, Not Predict Pixels</a></li><li><a href=\"https://arxiv.org/abs/2610.28594\">Learning the 4D World through Point Trajectory Forecasting</a></li></ul>"
+    },
+    {
       "id": "daily-research-2026-10-25",
       "category": "daily-research",
       "date": "2026-10-25",
