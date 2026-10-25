@@ -288,9 +288,7 @@ window.addEventListener('hashchange', () => {
 
 async function init() {
   try {
-    const response = await fetch('./data.json');
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const data = await response.json();
+    const data = await ArchiveAccess.load();
     talks = data.talks || talks;
     entries = data.entries.map(entry => ({...entry, searchText: `${entry.title} ${entry.summary} ${entry.tags.join(' ')} ${new DOMParser().parseFromString(entry.html, 'text/html').body.textContent}`.toLocaleLowerCase()}));
     entries.sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id));

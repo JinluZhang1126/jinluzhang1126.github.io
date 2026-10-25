@@ -8,17 +8,35 @@
   <title>Research & AI Updates</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./style.css">
+  <script src="./crypto.js" defer></script>
+  <script src="./auth.js" defer></script>
   <script src="./media.js" defer></script>
   <script src="./app.js" defer></script>
 </head>
-<body id="top">
+<body id="top" class="locked">
+  <section id="unlock-screen" class="unlock-screen" aria-labelledby="unlock-title">
+    <div class="unlock-card">
+      <p class="eyebrow">RESEARCH &amp; AI UPDATES</p>
+      <h1 id="unlock-title">欢迎回来</h1>
+      <p>输入访问密码，解锁研究与 AI 新闻归档。</p>
+      <form id="unlock-form">
+        <label for="site-password">访问密码</label>
+        <input id="site-password" type="password" autocomplete="current-password" required aria-describedby="unlock-status">
+        <button id="unlock-submit" class="read-button" type="submit" disabled>解锁归档 →</button>
+      </form>
+      <p id="unlock-status" role="status" aria-live="polite">正在准备加密归档…</p>
+      <p class="unlock-note">登录状态保存在此浏览器。共用设备使用后请退出登录。</p>
+      <noscript>请启用 JavaScript 后输入密码解锁。</noscript>
+    </div>
+  </section>
   <a class="skip" href="#content">跳转到内容</a>
   <div class="page">
     <header class="masthead">
       <a class="wordmark" href="./"><span class="sun" aria-hidden="true">✳</span> updates<span class="dot">.</span></a>
-      <div class="header-info"><h1>Research &amp; AI</h1><span id="last-update">正在读取归档</span></div>
+      <div class="header-info"><h1>Research &amp; AI</h1><span id="last-update">正在读取归档</span><button id="logout" hidden type="button">退出登录</button></div>
     </header>
     <main id="content">
+      <p id="storage-note" hidden>此浏览器无法保存登录状态；当前页面已解锁，下次访问需重新输入密码。</p>
       <nav class="sections" aria-label="内容栏目">
         <a href="#daily-research" data-category="daily-research" aria-current="page"><span class="nav-no">01</span><strong>Daily Research</strong><span>每日科研</span><b class="nav-count">—</b></a>
         <a href="#weekly-research" data-category="weekly-research"><span class="nav-no">02</span><strong>Weekly Research</strong><span>每周科研</span><b class="nav-count">—</b></a>
