@@ -76,7 +76,7 @@
           resolve(data);
         } catch {
           $('site-password').value = '';
-          $('unlock-status').textContent = '密码不正确或加密内容校验失败，请重新输入。';
+          $('unlock-status').textContent = '密码不正确或内容校验失败。若刚更改密码，请等待新版本发布后刷新。';
           $('site-password').focus();
         } finally { $('unlock-submit').disabled = false; }
       });
