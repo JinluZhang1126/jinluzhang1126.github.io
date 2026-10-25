@@ -2,8 +2,8 @@ const categories = {
   'talks': {title: 'Talk 精选', kicker: '05 / RESEARCH TALKS', description: '科研讲座与回放', empty: '暂无讲座'},
   'daily-research': {title: 'Daily Research', kicker: '01 / DAILY RESEARCH', description: '论文、研究趋势与可执行的科研行动。', empty: '每日科研记录将在这里归档。'},
   'weekly-research': {title: 'Weekly Research', kicker: '02 / WEEKLY RESEARCH', description: '回顾一周科研工作，记录成果、问题与下一步。', empty: '尚未收录可公开的每周科研工作记录。'},
-  'daily-ai': {title: 'Daily AI', kicker: '03 / DAILY AI', description: '每日 AI 新闻、模型发布与开源动态。', empty: '尚未收录独立的每日 AI 新闻简报。'},
-  'weekly-ai': {title: 'Weekly AI', kicker: '04 / WEEKLY AI', description: '从一周的 AI 进展中，梳理值得持续关注的方向。', empty: '每周 AI 新闻与趋势将在这里归档。'}
+  'daily-ai': {title: 'Daily AI', kicker: '03 / DAILY AI', description: '模型与产品、开源工具、机器人产业与基础设施的新变化。', empty: '尚未收录独立的每日 AI 新闻简报。'},
+  'weekly-ai': {title: 'Weekly AI', kicker: '04 / WEEKLY AI', description: '回顾一周产品交付、产业动向与开放生态变化。', empty: '每周 AI 新闻与趋势将在这里归档。'}
 };
 const $ = id => document.getElementById(id);
 let entries = [];
