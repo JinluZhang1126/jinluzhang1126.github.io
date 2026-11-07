@@ -4,6 +4,7 @@
   const format = 'updates-encrypted-v1';
   const iterations = 600000;
   const encoder = new TextEncoder();
+  const archiveByteLimit = 20 * 1024 * 1024;
   const from64 = value => Uint8Array.from(atob(value), c => c.charCodeAt(0));
   const to64 = bytes => {
     let result = '';
@@ -19,15 +20,44 @@
     return crypto.subtle.deriveKey({name: 'PBKDF2', salt: from64(salt), iterations, hash: 'SHA-256'}, material, {name: 'AES-GCM', length: 256}, false, usages);
   }
   async function encrypt(data, password, salt) {
+    const plaintext = encoder.encode(JSON.stringify(data));
+    if (plaintext.byteLength > archiveByteLimit) throw new Error('Archive exceeds size limit');
+    const compressed = await transform(plaintext, new CompressionStream('gzip'));
+    const payload = compressed.byteLength < plaintext.byteLength ? compressed : plaintext;
     const iv = crypto.getRandomValues(new Uint8Array(12));
     const key = await deriveKey(password, salt, ['encrypt']);
-    const ciphertext = await crypto.subtle.encrypt({name: 'AES-GCM', iv, additionalData: encoder.encode(format), tagLength: 128}, key, encoder.encode(JSON.stringify(data)));
+    const ciphertext = await crypto.subtle.encrypt({name: 'AES-GCM', iv, additionalData: encoder.encode(format), tagLength: 128}, key, payload);
     return {format, kdf: 'PBKDF2-SHA256', iterations, salt, iv: to64(iv), ciphertext: to64(new Uint8Array(ciphertext))};
+  }
+  async function transform(bytes, codec) {
+    const reader = new Blob([bytes]).stream().pipeThrough(codec).getReader();
+    const chunks = [];
+    let size = 0;
+    try {
+      for (;;) {
+        const {done, value} = await reader.read();
+        if (done) break;
+        size += value.byteLength;
+        if (size > archiveByteLimit) {
+          await reader.cancel();
+          throw new Error('Archive exceeds size limit');
+        }
+        chunks.push(value);
+      }
+    } finally { reader.releaseLock(); }
+    const output = new Uint8Array(size);
+    let offset = 0;
+    for (const chunk of chunks) { output.set(chunk, offset); offset += chunk.byteLength; }
+    return output;
   }
   async function decrypt(envelope, key) {
     validate(envelope);
     const plaintext = await crypto.subtle.decrypt({name: 'AES-GCM', iv: from64(envelope.iv), additionalData: encoder.encode(format), tagLength: 128}, key, from64(envelope.ciphertext));
-    const data = JSON.parse(new TextDecoder().decode(plaintext));
+    let bytes = new Uint8Array(plaintext);
+    // GCM 验证通过后才解压；JSON 以 { 开头，gzip 的魔数不会与旧载荷混淆。
+    if (bytes[0] === 0x1f && bytes[1] === 0x8b) bytes = await transform(bytes, new DecompressionStream('gzip'));
+    if (bytes.byteLength > archiveByteLimit) throw new Error('Archive exceeds size limit');
+    const data = JSON.parse(new TextDecoder('utf-8', {fatal: true}).decode(bytes));
     if (!Array.isArray(data.entries) || !data.talks || !Array.isArray(data.talks.items)) throw new Error('Invalid archive data');
     return data;
   }
