@@ -109,7 +109,7 @@ function renderTalks() {
   $('talk-list').replaceChildren();
   for (const talk of items) {
     const card = text('article', '', 'talk-card');
-    card.append(text('p', `${talk.status === 'replay' ? '往期回放' : '可报名'} · ${talk.platform}`, 'eyebrow'), text('h3', talk.title));
+    card.append(text('p', `${talk.status === 'replay' ? '往期回放' : '即将举办'} · ${talk.platform}`, 'eyebrow'), text('h3', talk.title));
     const fields = text('dl', '', 'talk-fields');
     for (const [label, value] of [['时间', talk.time], ['主讲人 / 机构', `${talk.speaker} / ${talk.institution}`], ['主题', talk.topic], ['报名信息', talk.registration], ['截止日期', talk.deadline]]) {
       fields.append(text('dt', label), text('dd', value));
